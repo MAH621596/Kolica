@@ -1,0 +1,50 @@
+import { useState } from "react";
+import type { CustomSelectProps } from "@/components/types";
+
+const CustomSelect = ({
+  options, className
+}: CustomSelectProps) => {
+  const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState("Select Option");
+
+  return (
+    <div className={`relative w-full max-w-md ${className}`}>
+
+      {/* Select Box */}
+      <div
+        onClick={() => setOpen(!open)}
+        className="flex items-center justify-between text-xs font-normal border-[0.64px] border-[#626262] rounded-md px-4 py-4 cursor-pointer bg-white text-[#626262] h-[41px]"
+      >
+        <span className="text-gray-700">{selected}</span>
+
+        {/* Arrow */}
+        <span className="text-xs">
+          {open ? "▲" : "▼"}
+        </span>
+      </div>
+
+      {/* Dropdown Options */}
+      {open && (
+        <div className="absolute w-full bg-white border-[0.64px] border-[#626262] rounded-md shadow-md z-10">
+
+          {options.map((option, index) => (
+            <div
+              key={index}
+              onClick={() => {
+                setSelected(option);
+                setOpen(false);
+              }}
+              className={`px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#626262] font-normal text-xs`}
+            >
+              {option}
+            </div>
+          ))}
+
+        </div>
+      )}
+
+    </div>
+  );
+}
+
+export default CustomSelect;
