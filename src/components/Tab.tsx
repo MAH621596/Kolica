@@ -43,7 +43,7 @@ function Tab() {
                   )
                 })}
 
-                <Button text={content.button_text} icon={<i className="fa fa-search"></i>} className="!bg-[#B1222C] border-[#B1222C] !text-white h-[41px]" />
+                <Button text={content.button_text} icon={<i className="fa fa-search"></i>} className="!bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px]" />
               </div>
             </div>
           )}

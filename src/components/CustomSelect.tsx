@@ -5,7 +5,7 @@ const CustomSelect = ({
   options, className
 }: CustomSelectProps) => {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState("Select Option");
+  const [selected, setSelected] = useState("Any");
 
   return (
     <div className={`relative w-full max-w-md ${className}`}>
@@ -18,7 +18,7 @@ const CustomSelect = ({
         <span className="text-gray-700">{selected}</span>
 
         {/* Arrow */}
-        <span className="text-xs">
+        <span className="text-xs border-l border-l-[#626262] pl-[16px] h-[41px] flex items-center">
           {open ? "▲" : "▼"}
         </span>
       </div>

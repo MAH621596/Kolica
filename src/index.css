@@ -19,3 +19,9 @@ body {
   margin: 10px;
   border-radius: 10px;
 }
+
+@media(max-width: 768px) {
+body {
+  background: #FFFFFF;
+}
+}

@@ -1,19 +1,67 @@
 import Saved from "../assets/Saved.svg";
 import Profile from "../assets/Profile.svg";
 import Plus from "../assets/Plus-Icon.svg";
+import Carr from "../assets/Carr.png";
+import Byke from "../assets/Byke.png";
+import Moto from "../assets/Moto.png";
+import Economic from "../assets/Economic.png";
+import Mechanic from "../assets/Mechanic.png";
+import FreeTime from "../assets/Free Time.png";
+import Parts from "../assets/Parts.png";
 
 export const navbarLinks = [
   {
     icon: Saved,
     link_text: "Saved",
+    href: "/saved"
   },
   {
     icon: Profile,
     link_text: "Log in",
+    href: "/profile"
   },
   {
     icon: Plus,
     link_text: "Post an ad",
+    href: "/add"
+  },
+];
+
+export const mobileNavbarLinks = [
+  {
+    icon: Carr,
+    link_text: "Car",
+    href: "/car"
+  },
+  {
+    icon: Byke,
+    link_text: "Byke",
+    href: "/byke"
+  },
+  {
+    icon: Moto,
+    link_text: "Moto",
+    href: "/moto"
+  },
+  {
+    icon: Economic,
+    link_text: "Economic",
+    href: "/economic"
+  },
+  {
+    icon: Mechanic,
+    link_text: "Mechanization",
+    href: "/mechanic"
+  },
+  {
+    icon: FreeTime,
+    link_text: "Free time",
+    href: "/FreeTime"
+  },
+  {
+    icon: Parts,
+    link_text: "Parts & equipment",
+    href: "/parts"
   },
 ];
 
@@ -87,6 +135,7 @@ export const tabContent = {
 export const dropdownData = [
   {
     id: 1, // Car Names / Brands
+    label: "Brands",
     options: [
       "Toyota",
       "Honda",
@@ -102,44 +151,7 @@ export const dropdownData = [
   },
   {
     id: 2, // Price Range
-    options: [
-      "Under 5 Lakh",
-      "5 - 10 Lakh",
-      "10 - 20 Lakh",
-      "20 - 30 Lakh",
-      "30 - 50 Lakh",
-      "50 Lakh - 1 Crore",
-      "1 Crore+"
-    ]
-  },
-  {
-    id: 3, // KM Traveled
-    options: [
-      "0 - 10,000 km",
-      "10,000 - 30,000 km",
-      "30,000 - 50,000 km",
-      "50,000 - 80,000 km",
-      "80,000 - 120,000 km",
-      "120,000+ km"
-    ]
-  },
-  {
-    id: 4, // All Models
-    options: [
-      "Corolla",
-      "Civic",
-      "Alto",
-      "City",
-      "Vitz",
-      "Swift",
-      "Sportage",
-      "Elantra",
-      "Cultus",
-      "Aqua"
-    ]
-  },
-  {
-    id: 5, // Years
+    label: "Model",
     options: [
       "2000 - 2005",
       "2006 - 2010",
@@ -151,17 +163,56 @@ export const dropdownData = [
     ]
   },
   {
-    id: 6, // Fuel Types
+    id: 3, // KM Traveled
+    label: "Registration date from",
     options: [
-      "Petrol",
-      "Diesel",
-      "Hybrid",
-      "Electric",
-      "CNG"
+      "16 June",
+      "17 June",
+      "18 June",
+      "19 June",
+      "20 June",
+      "21 June"
+    ]
+  },
+  {
+    id: 4, // All Models
+    label: "Kilometers to",
+    options: [
+      "0 - 10,000 km",
+      "10,000 - 30,000 km",
+      "30,000 - 50,000 km",
+      "50,000 - 80,000 km",
+      "80,000 - 120,000 km",
+      "120,000+ km"
+    ]
+  },
+  {
+    id: 5, // Years
+    label: "Price until",
+    options: [
+      "Under 5 Lakh",
+      "5 - 10 Lakh",
+      "10 - 20 Lakh",
+      "20 - 30 Lakh",
+      "30 - 50 Lakh",
+      "50 Lakh - 1 Crore",
+      "1 Crore+"
+    ]
+  },
+  {
+    id: 6, // Fuel Types
+    label: "City or postal code",
+    options: [
+      "75100",
+      "789456",
+      "25649854",
+      "3545632413",
+      "15649845"
     ]
   },
   {
     id: 7, // Fuel Types
+    label: "Fuel",
     options: [
       "Filter By Price",
       "Filter By Model",

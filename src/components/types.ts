@@ -12,8 +12,9 @@ export interface Hero_CardProps {
   paragraph?: string;
   list?: React.ReactNode[]
   buttonText?: string;
+  smallbuttonText?: string;
   className?: string;
-  simpleCard?: boolean;
+  children?: React.ReactNode;
 }
 
 export interface CustomSelectProps {

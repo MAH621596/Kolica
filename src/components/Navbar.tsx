@@ -1,55 +1,99 @@
 import Logo from "../assets/Logo.svg";
-import { navbarLinks } from '@/helper/data';
-import { useState } from "react";
+import { navbarLinks, mobileNavbarLinks } from '@/helper/data';
+import { useState, useEffect } from "react";
+import Button from "./Button";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
+
   return (
-    <nav className="flex items-center justify-between px-8 py-4 bg-[#253A86] text-white shadow-md max-h-[86px]">
+    <nav className="w-full bg-[#253A86] text-white h-[86px] p-0 flex items-center relative">
+      <div className="w-full max-w-[972px] mx-auto px-[30px] md:px-4">
 
-      {/* Top bar */}
-      <div className="flex items-center justify-between px-6 md:px-8 py-4 w-full">
+        {/* Top bar */}
+        <div className="flex items-center justify-between w-full">
 
-        {/* Logo */}
-        <img src={Logo} alt="logo" className="w-[104px] h-[38px]" />
+          {/* Logo */}
+          <a target="_self" href="https://kolica-landing-page.web.app">
+            <img src={Logo} alt="logo" className="w-[104px] h-[38px]" />
+          </a>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex gap-[20px] items-center">
+          {/* Desktop Links */}
+          <div className="hidden md:flex gap-[20px] items-center">
 
-          {navbarLinks.map((link, index) => {
-            return (
-              <a key={index} className="flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px]">
-                <img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />
-                {link.link_text}
-              </a>)
-          })}
+            {navbarLinks.map((link, index) => {
+              return (
+                <a href={link.href} target="_blank" key={index} className="flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80">
+                  <img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />
+                  {link.link_text}
+                </a>)
+            })}
+          </div>
+
+          {/* Hamburger Button (Mobile) */}
+          <button
+            className="md:hidden text-3xl cursor-pointer"
+            onClick={() => setOpen(!open)}
+          >
+            <div className="relative w-8 h-8 flex items-center justify-center">
+
+              {/* Hamburger */}
+              <span
+                className={`absolute transition-all duration-300 ease-in-out ${open ? "opacity-0 rotate-180 scale-50" : "opacity-100 rotate-0 scale-100"
+                  }`}
+              >
+                ☰
+              </span>
+
+              {/* Close */}
+              <span
+                className={`absolute transition-all duration-300 ease-in-out ${open ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-180 scale-50"
+                  }`}
+              >
+                ✕
+              </span>
+
+            </div>
+          </button>
         </div>
-
-        {/* Hamburger Button (Mobile) */}
-        <button
-          className="md:hidden text-3xl cursor-pointer"
-          onClick={() => setOpen(!open)}
-        >
-          ☰
-        </button>
-
       </div>
 
       {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden px-6 py-4 flex flex-col gap-[20px] absolute top-[86px] left-0 bg-[#2770B8] w-full z-50">
+      <div className={`md:hidden opacity-100 fixed top-[86px] left-0 right-0 bottom-0 bg-white p-4 z-50 transform transition-all duration-300 ease-in-out 
+          ${open
+          ? "translate-x-0"
+          : "-translate-x-full pointer-events-none"
+        }`}>
 
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-[20px]">
+          {mobileNavbarLinks.map((header, index) => {
+            return (
+              <a href={header.href} target="_blank" key={index} className="border border-[#C8C8C8] rounded-[10px] bg-white cursor-pointer group">
+                <div className="flex items-center justify-center p-2">
+                  <img src={header.icon} alt={header.link_text} className="w-[21px] h-[20px] group-hover:text-gray-500" />
+                </div>
+                <div className="border-t-1 border-[#C8C8C8] bg-[#F1F1F1] rounded-b-[10px] text-center text-black font-normal text-md p-2 group-hover:text-gray-500">
+                  {header.link_text}
+                </div>
+              </a>
+            )
+          })}
+        </div>
+
+        <div className="grid grid-cols-2 gap-[20px] mt-4">
           {navbarLinks.map((link, index) => {
             return (
-              <a key={index} className="flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px]">
-                <img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />
-                {link.link_text}
+              <a href={link.href} target="_blank" key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}`}>
+                <Button text={link.link_text} icon={<img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-xs !text-white h-[41px] cursor-pointer w-full`} />
               </a>)
           })}
         </div>
-      )}
-
+      </div>
     </nav>
   );
 }
