@@ -12,7 +12,7 @@ function Navbar() {
 
   return (
     <nav className="w-full bg-[#253A86] text-white h-[86px] p-0 flex items-center relative">
-      <div className="w-full max-w-[972px] mx-auto px-[30px] md:px-4">
+      <div className="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0">
 
         {/* Top bar */}
         <div className="flex items-center justify-between w-full">

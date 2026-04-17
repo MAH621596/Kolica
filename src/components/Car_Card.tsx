@@ -1,4 +1,5 @@
 import type { Car_CardProps } from "@/components/types";
+import Button from "./Button";
 
 const CarCard = ({
     image,
@@ -7,6 +8,8 @@ const CarCard = ({
     price,
     dealerText,
     icon,
+    footerbutton,
+    imageSizeClass,
 }: Car_CardProps) => {
     return (
         dealerText ? <>
@@ -28,11 +31,16 @@ const CarCard = ({
                     <img
                         src={image}
                         alt={image}
-                        className="w-full h-[125px] w-[281px] object-cover transition-all duration-300 group-hover:scale-98"
+                        className={`w-full object-cover transition-all duration-300 group-hover:scale-98 ${imageSizeClass ? imageSizeClass : 
+                            "h-[125px] w-[281px]"
+                        }`}
                     />
                 </div>
-                <div className="card_footer  flex items-center justify-center h-[40px]">
-                    <p className="font-bold text-sm md:text-[13px] lg:text-[15px] leading-[20px] text-[#000000] group-hover:text-gray-600">{price}</p>
+                <div className="card_footer flex items-center justify-center h-[40px] w-full">
+                    {footerbutton ? <Button text="Add" className="w-full max-w-[233px] flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+                        :
+                        <p className="font-bold text-sm md:text-[13px] lg:text-[15px] leading-[20px] text-[#000000] group-hover:text-gray-600">{price}</p>
+                    }
                 </div>
             </div>
     );

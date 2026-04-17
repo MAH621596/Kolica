@@ -1,5 +1,5 @@
 import type { Hero_CardProps } from "@/components/types";
-import Button from "./Button";
+import { Button, CustomInput } from "@/components";
 import { useState } from "react";
 
 const HeroCard = ({
@@ -11,6 +11,7 @@ const HeroCard = ({
   className,
   list,
   children,
+  parentClass,
 }: Hero_CardProps) => {
 
   const [inpValue, setInpValue] = useState("");
@@ -53,7 +54,7 @@ const HeroCard = ({
       </div>
     )
       : children ? <>
-        <div className="w-full max-w-[972px] mx-auto px-[28px] py-[46px] md:px-[45px] md:py-[50px] md:mb-[50px] relative z-10 bg-white text-black rounded-[20px]">{children}</div>
+        <div className={`w-full max-w-[972px] mx-auto px-[28px] py-[46px] md:px-[45px] md:py-[50px] md:mb-[50px] relative z-10 bg-white text-black md:rounded-[20px] ${parentClass}`}>{children}</div>
       </> : (
         <>
           <div
@@ -73,13 +74,18 @@ const HeroCard = ({
                     </li>
                   ))}
                 </ul>
-
               </div>
               <hr className="border-[#000000] w-full my-[30px]" />
 
               <div className="flex items-center justify-start">
                 <i className="fa fa-search"></i>
-                <input type="text" className="focus:outline-0 pl-3 font-normal text-[14px] lg:text-[18px] leading-tight text-black placeholder:text-black" placeholder="See an overview of all brands from A to Z" value={inpValue} onChange={(e) => { setInpValue(e.target.value) }} />
+                <CustomInput  
+                  type="text"
+                  className="border-0 h-[42px] pl-3 text-black placeholder:text-black"
+                  placeholder="See an overview of all brands from A to Z"
+                  value={inpValue}
+                  onChange={(val) => { setInpValue(val)}}
+                  />
               </div>
             </div>
           </div>

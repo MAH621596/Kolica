@@ -6,6 +6,23 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   className?: string;
 }
 
+export interface LabelProps {
+  text?: string;
+  htmlFor?: string;
+  className?: string;
+}
+
+export interface InputProps {
+  id?: string;
+  icon?: ReactNode;
+  name?: string;
+  type?: string;
+  value?: string;
+  placeholder?: string;
+  className?: string;
+  onChange?: (value: string) => void;
+}
+
 export interface Hero_CardProps {
   image?: string;
   heading?: string;
@@ -14,12 +31,37 @@ export interface Hero_CardProps {
   buttonText?: string;
   smallbuttonText?: string;
   className?: string;
+  parentClass?: string;
   children?: React.ReactNode;
+}
+
+export interface TabsProps {
+  tabs_list?: {
+    id: number;
+    label?: string;
+    path: string;
+    icon?: ReactNode;
+  }[];
+  children?: React.ReactNode;
+  className?: string;
+  tabItemClass?: string;
+  activeTabClass?: string;
+  inActiveTabClass?: string;
+  activeTextClass?: string;
+  inactiveTextClass?: string;
+  tabItemClassInner?: string;
+  tabContainerClass?: string;
+  activeTab?: number;
+  setActiveTab?: (id: number) => void;
+  onClick?: (tabId: number) => void;
 }
 
 export interface CustomSelectProps {
   options: string[];
   className?: string;
+  innerOptionsClass?: string;
+  divider?: boolean;
+  customArrows?: React.ReactNode;
 };
 
 export interface Car_CardProps {
@@ -29,4 +71,6 @@ export interface Car_CardProps {
   className?: string;
   dealerText?: string;
   icon?: string;
+  imageSizeClass?: string;
+  footerbutton?: boolean;
 }

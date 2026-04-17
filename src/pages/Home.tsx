@@ -1,35 +1,42 @@
-import Navbar from "../components/Navbar";
-import HeroCard from "@/components/HeroCard";
-import { HeroCardData, dropdownData } from '@/helper/data';
-import CarCard from "@/components/Car_Card";
-import Car from "../assets/Car.png";
-import Car1 from "../assets/Car1.png";
-import Car2 from "../assets/Car2.png";
-import Car3 from "../assets/Car3.png";
-import SeeMore from "../assets/SeeMore.png";
-import Sorting from "../assets/Sorting.svg";
-import Footer from "@/components/Footer";
 import { useState } from "react";
-import Button from "@/components/Button";
-import CustomSelect from "../components/CustomSelect";
-
-function Home() {
+import { HeroCardData, dropdownData, homePagetabsMenu } from '@/helper/data';
+import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect, Car, Car1, Car2, Car3, SeeMore, Sorting, CustomInput, CustomLabel, Footer } from "@/components";
+const Home = () => {
   const [search, setSearch] = useState("");
+  const [activeMainTab, setActiveMainTab] = useState(3);
 
   return (
     <>
       <Navbar />
 
-      <section>
-        {/* <Tab /> */}
+      <Tabs
+        className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"
+        tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-7 gap-0"
+        tabs_list={homePagetabsMenu}
+        activeTabClass="bg-white"
+        inActiveTabClass="hover:bg-white"
+        activeTextClass="text-[#253A86]"
+        inactiveTextClass="text-white group-hover:text-[#253A86]"
+        activeTab={activeMainTab}
+        onClick={(id) => setActiveMainTab(id)} />
 
+      <section className="md:px-4 lg:px-0">
         <HeroCard>
           <div>
             <h2 className="text-2xl font-semibold text-[#000000] mb-[30px]">Millions of cars. A simple search.</h2>
             <div className="relative">
               <img src={Sorting} alt="sort" className="absolute top-0 bottom-0 my-auto left-[16px]" />
-              <input type="text" className="w-full border-[0.64px] border-[#626262] rounded-[5px] py-[11px] px-[50px] leading-[20px] focus:outline-0 font-normal text-[10px] md:text-[12px] leading-tight text-black placeholder:text-[#626262]"
-                placeholder="Advanced search with additional filters" value={search} onChange={(e) => { setSearch(e.target.value) }} />
+
+              <CustomInput
+                id="filter"
+                name="filter"
+                type="text"
+                className="h-[42px] w-full border-[0.64px] border-[#626262] py-[11px] px-[50px] leading-[20px] text-[10px] md:text-[12px] "
+                placeholder="Advanced search with additional filters"
+                value={search}
+                onChange={(val) => { setSearch(val) }}
+
+              />
               <div className="absolute top-0 bottom-0 my-auto right-[16px] bg-[#B1222C] w-[33px] h-[33px] rounded-[5px] flex items-center justify-center cursor-pointer hover:opacity-80">
                 <span className="text-white text-[20px] font-bold"><i className="fa fa-search"></i></span>
               </div>
@@ -45,8 +52,11 @@ function Home() {
                 return (
                   <>
                     <div>
-                      <label className="font-normal text-[12px] leading-tight text-[#626262] mb-[10px]">{dropdown.label}</label>
-                      <CustomSelect key={dropdown.id} options={dropdown.options} />
+                      <CustomLabel
+                        className="block mt-[40px] mb-[10px] lg:mt-0 mb-[12px] text-[12px] text-[#627084]"
+                        text={dropdown.label}
+                      />
+                      <CustomSelect key={dropdown.id} options={dropdown.options} divider={true} />
                     </div>
                   </>
                 )
@@ -57,8 +67,20 @@ function Home() {
 
             <div className="mt-[30px] gap-[30px] flex flex-col md:flex-row items-start md:items-center justify-between">
               <div className="flex gap-[12px] items-center justify-center">
-                <input type="checkbox" id="electric_car" name="electric_car" value="selectric_car" className="cursor-pointer" />
-                <label htmlFor="electric_car" className="font-normal text-[18px] leading-tight text-[#626262] cursor-pointer hover:text-[#B1222C]">Only electric car</label>
+
+                <CustomInput
+                  id="electric_car"
+                  name="electric_car"
+                  type="checkbox"
+                  className="border-[0.64px] border-[#626262] py-[11px] px-[50px] leading-[20px] text-[10px] md:text-[12px] "
+                  placeholder="Advanced search with additional filters"
+                  value="selectric_car"
+                />
+                <CustomLabel
+                  className="text-[18px]"
+                  text="Only electric car"
+                  htmlFor="electric_car"
+                />
               </div>
 
               <Button text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="block md:hidden w-full justify-start !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
@@ -70,7 +92,7 @@ function Home() {
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M8.11111 0.123965C8.46748 0.355157 8.56902 0.831506 8.33782 1.18792L7.03487 3.1967L9.06268 4.50198C9.4199 4.73189 9.52304 5.20789 9.29314 5.56511C9.06317 5.92234 8.58717 6.02554 8.23 5.79557L5.55309 4.07251C5.38115 3.96186 5.26036 3.78728 5.2174 3.58736C5.17439 3.38745 5.21279 3.17866 5.32405 3.00711L7.04712 0.350714C7.27832 -0.00570878 7.75468 -0.107222 8.11111 0.123965Z" fill="#626262" />
                   </svg>
                   <div className="font-normal text-[18px] leading-tight text-[#626262] group-hover:text-[#B1222C]">Reset</div>
-                </div>                
+                </div>
 
                 <div className="flex gap-[12px] items-center justify-center cursor-pointer group">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:stroke-[#B1222C]">

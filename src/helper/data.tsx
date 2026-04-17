@@ -1,13 +1,5 @@
-import Saved from "../assets/Saved.svg";
-import Profile from "../assets/Profile.svg";
-import Plus from "../assets/Plus-Icon.svg";
-import Carr from "../assets/Carr.png";
-import Byke from "../assets/Byke.png";
-import Moto from "../assets/Moto.png";
-import Economic from "../assets/Economic.png";
-import Mechanic from "../assets/Mechanic.png";
-import FreeTime from "../assets/Free Time.png";
-import Parts from "../assets/Parts.png";
+import Home_Icon from "../assets/HomeSvg.svg?react";
+import { Carr, Byke, Moto, Economic, Mechanic, FreeTime, Parts, Saved, Profile, Plus, SampleImage } from "@/components";
 
 export const navbarLinks = [
   {
@@ -91,14 +83,156 @@ export const footerLinks = [
   },
 ];
 
-export const tabsMenu = [
-  { id: "Home", label: "Home" },
-  { id: "Car", label: "Car" },
-  { id: "Moto", label: "Moto" },
-  { id: "Economic", label: "Economic" },
-  { id: "Mechanization", label: "Mechanization" },
-  { id: "Free time", label: "Free time" },
-  { id: "Parts & equipment", label: "Parts & equipment" },
+export const homePagetabsMenu = [
+  {
+    id: 1,
+    icon: <Home_Icon className="w-[20px] h-[20px] fill-white stroke-[#253A86] group-hover:fill-[#253A86] stroke-2" />,
+    path: "/"
+  },
+  {
+    id: 2,
+    label: "Moto",
+    path: "/moto"
+  },
+  {
+    id: 3,
+    label: "Car",
+    path: "/car"
+  },
+  {
+    id: 4,
+    label: "Economic",
+    path: "/economic"
+  },
+  {
+    id: 5,
+    label: "Mechanization",
+    path: "/mechanization"
+  },
+  {
+    id: 6,
+    label: "Free time",
+    path: "/freetime"
+  },
+  {
+    id: 7,
+    label: "Parts & equipment",
+    path: "/parts_equipment"
+  },
+];
+
+export const photoSelectionData = [
+  {
+    image: SampleImage,
+    heading: "PHOTO 1",
+    footerbutton: true
+  },
+  {
+    image: SampleImage,
+    heading: "PHOTO 2",
+    footerbutton: true
+  },
+  {
+    image: SampleImage,
+    heading: "PHOTO 3",
+    footerbutton: true
+  },
+  {
+    image: SampleImage,
+    heading: "PHOTO 4",
+    footerbutton: true
+  },
+  {
+    image: SampleImage,
+    heading: "PHOTO 5",
+    footerbutton: true
+  },
+  {
+    image: SampleImage,
+    heading: "PHOTO 6",
+    footerbutton: true
+  },
+  {
+    image: SampleImage,
+    heading: "PHOTO 7",
+    footerbutton: true
+  },
+  {
+    image: SampleImage,
+    heading: "PHOTO 8",
+    footerbutton: true
+  },
+];
+
+export const sectionTabsMenu = [
+  {
+    id: 1,
+    icon: <Home_Icon className="w-[20px] h-[20px] fill-white stroke-[#253A86] group-hover:fill-[#253A86] stroke-2" />,
+    path: "/"
+  },
+  {
+    id: 2,
+    label: "My ads",
+    path: "/myads"
+  },
+  {
+    id: 3,
+    label: "Post a new ad",
+    path: "/postad"
+  },
+  {
+    id: 4,
+    label: "Parked",
+    path: "/parked"
+  },
+  {
+    id: 5,
+    label: "Archive",
+    path: "/archive"
+  },
+  {
+    id: 6,
+    label: "Contact information",
+    path: "/contact"
+  },
+  {
+    id: 7,
+    label: "back to Kolica",
+    path: "/"
+  },
+];
+
+export const sectionInnerTabsMenu = [
+  {
+    id: 1,
+    label: "Car",
+    path: "/car"
+  },
+  {
+    id: 2,
+    label: "Moto",
+    path: "/moto"
+  },
+  {
+    id: 3,
+    label: "Commercial Vehicles",
+    path: "/vehicles"
+  },
+  {
+    id: 4,
+    label: "Mechanization",
+    path: "/mechanization"
+  },
+  {
+    id: 5,
+    label: "Free Time",
+    path: "/freetime"
+  },
+  {
+    id: 6,
+    label: "Parts & equipment",
+    path: "/parts"
+  },
 ];
 
 export const tabContent = {
@@ -219,6 +353,270 @@ export const dropdownData = [
       "Filter By Fuel",
     ]
   }
+];
+
+export const singleDropdownData = [
+  {
+    id: 1, // Car Names / Brands
+    label: "vehicle age:",
+    options: [
+      "Toyota",
+      "Honda",
+      "Suzuki",
+      "Hyundai",
+      "Kia",
+      "BMW",
+      "Mercedes",
+      "Audi",
+      "Nissan",
+      "MG"
+    ]
+  },
+];
+
+export const selectionDropdownData = [
+  {
+    id: 1,
+    label: "Brand",
+    dropDownCount: 1,
+    options: [
+      "Toyota",
+      "Honda",
+      "Suzuki",
+      "Hyundai",
+      "Kia",
+      "BMW",
+      "Mercedes",
+      "Audi",
+      "Nissan",
+      "MG"
+    ]
+  },
+  {
+    id: 2, // Price Range
+    label: "Model",
+    dropDownCount: 1,
+    options: [
+      "2000 - 2005",
+      "2006 - 2010",
+      "2011 - 2015",
+      "2016 - 2020",
+      "2021 - 2022",
+      "2023 - 2024",
+      "2025+"
+    ]
+  },
+  {
+    id: 3, // KM Traveled
+    label: "Body Shape",
+    dropDownCount: 1,
+    options: [
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+    ]
+  },
+  {
+    id: 4, // All Models
+    label: "Year and month of first registration:",
+    dropDownCount: 2,
+    options: [
+      "16 June",
+      "17 June",
+      "18 June",
+      "19 June",
+      "20 June",
+      "21 June"
+    ]
+  },
+];
+
+export const adContentRightPanel_1 = [
+  {
+    id: 1,
+    label: "Brands",
+    dropDownCount: 1,
+    options: [
+      "Toyota",
+      "Honda",
+      "Suzuki",
+      "Hyundai",
+      "Kia",
+      "BMW",
+      "Mercedes",
+      "Audi",
+      "Nissan",
+      "MG"
+    ]
+  },
+  {
+    id: 2, // Price Range
+    label: "Model",
+    dropDownCount: 1,
+    options: [
+      "2000 - 2005",
+      "2006 - 2010",
+      "2011 - 2015",
+      "2016 - 2020",
+      "2021 - 2022",
+      "2023 - 2024",
+      "2025+"
+    ]
+  },
+  {
+    id: 3, // KM Traveled
+    label: "Type",
+    dropDownCount: 1,
+    options: [
+      'Toyota',
+      'BMW',
+      'Dacia',
+      'Honda',
+      'Kia',
+      'Mercedes-Benz',
+      'Nissan',
+      'Renault',
+      'Suzuki',
+      'Volkswagen',
+    ]
+  },
+  {
+    id: 4, // All Models
+    label: "Shape",
+    dropDownCount: 1,
+    options: [
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+    ]
+  },
+  {
+    id: 5, // All Models
+    label: "VIN / chassis number:",
+    dropDownCount: 1,
+    options: [
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+      "Lorem Ipsum",
+    ]
+  },
+];
+
+export const checkboxList = [
+  {
+    id: 1,
+    label: "Gasoline"
+  },
+  {
+    id: 2,
+    label: "Diesel"
+  },
+  {
+    id: 3,
+    label: "Hybrid Drive"
+  },
+  {
+    id: 4,
+    label: "E-Drive"
+  },
+  {
+    id: 5,
+    label: "LPG Autogas"
+  },
+  {
+    id: 6,
+    label: "CMG Natural Gas"
+  },
+];
+
+export const checkboxList_2 = [
+  {
+    id: 1,
+    label: "the vehicle has a warranty1"
+  },
+  {
+    id: 2,
+    label: "the vehicle has a warranty2"
+  },
+];
+
+export const checkboxList_3 = [
+  {
+    id: 1,
+    label: "cash discount"
+  },
+  {
+    id: 2,
+    label: "last price!"
+  },
+  {
+    id: 3,
+    label: "leasing takeover"
+  },
+  {
+    id: 4,
+    label: "exchange"
+  },
+];
+
+export const InformationParagraph = [
+  {
+    id: 1,
+    paragraph: "Quick entry is intended for quick and easy submission of an advertisement for a passenger vehicle. We have supported the advertisement submission form with a database of all passenger vehicles that have been sold at official dealers in Slovenia over the past 15 years."
+  },
+  {
+    id: 2,
+    paragraph: " Therefore, when submitting an advertisement, you will not need to enter detailed information about the vehicle, as the technical data, as well as data on standard equipment, will be entered automatically. In order for the data to be correct, you must therefore make sure that you enter the correct year and month of the vehicle's first registration when entering."
+  },
+  {
+    id: 3,
+    paragraph: "However, since we understand that many vehicles are equipped with additional equipment or imported from abroad, the equipment data may differ from the automatically entered data. Therefore, in the next step, you will be able to adjust the data as desired with data that perfectly matches your vehicle. The same advertisement submission form is also available for submitting an advertisement for a delivery vehicle."
+  },
+  {
+    id: 4,
+    paragraph: "The same advertisement submission form is also available for submitting an advertisement for a delivery vehicle."
+  },
+];
+
+export const adContentLeftPanelData = [
+  {
+    id: 1,
+    paragraph: "An icon for additional comments may be displayed next to certain input fields. The comment appears when you hover your mouse over the selected icon."
+  },
+  {
+    id: 2,
+    paragraph: "Required fields are additionally marked/colored."
+  },
+  {
+    id: 3,
+    field: true,
+    heading_: "Example",
+    inp_value: "Mandatory field",
+  },
+  {
+    id: 4,
+    paragraph: "When you make a mistake while entering data, it will be highlighted in red."
+  },
+  {
+    id: 5,
+    field: true,
+    heading_: "Example",
+    inp_value: "Mandatory field",
+  },
+  {
+    id: 6,
+    sub_heading: "Important!",
+    paragraph: "To avoid violations of the 'Act on the Prevention of Illegal Work and Employment', the 'Industrial Property Act', the 'Competition Protection Act' and the 'Consumer Protection Act', advertising in certain sections may be additionally restricted or only available to traders with registered activity."
+  },
 ];
 
 export const HeroCardData = [
