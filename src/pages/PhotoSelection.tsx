@@ -1,10 +1,10 @@
-import { sectionTabsMenu, sectionInnerTabsMenu, selectionDropdownData, checkboxList, InformationParagraph, photoSelectionData } from '@/helper/data';
-import { Navbar, HeroCard, Button, CustomSelect, Tabs, Faq, CustomInput, CustomLabel, Footer, CarCard } from "@/components";
+import { sectionTabsMenu, photoSelectionData } from '@/helper/data';
+import { Navbar, HeroCard, Button, Tabs, Faq, Footer, CarCard } from "@/components";
 import { useState } from 'react';
 
 const PhotoSelection = () => {
     const [activeMainTab, setActiveMainTab] = useState(3);
-    const [activeTab, setActiveTab] = useState(-1);
+    // const [activeTab, setActiveTab] = useState(-1);
     return (
         <div
             style={{

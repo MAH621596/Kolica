@@ -1,5 +1,5 @@
 import { sectionTabsMenu, adContentLeftPanelData, adContentRightPanel_1, singleDropdownData, checkboxList_2, checkboxList_3 } from '@/helper/data';
-import { Navbar, HeroCard, Button, CustomSelect, Tabs, Faq, CustomInput, CustomLabel, Footer } from "@/components";
+import { Navbar, HeroCard, CustomSelect, Tabs, CustomInput, CustomLabel, Footer } from "@/components";
 import { useState } from 'react';
 
 const AdContent = () => {
@@ -32,7 +32,7 @@ const AdContent = () => {
 
             <section className="md:px-4 lg:px-0">
                 <HeroCard parentClass="!bg-[#F9FAFB] !py-[25px] px-[20px] !md:px-[50px]">
-                    <div className='flex items-center gap-[50px]'>
+                    <div className='flex flex-col lg:flex-row items-start gap-[50px]'>
                         <div className="w-full lg:w-[40%] bg-white rounded-[20px] px-[20px] py-[40px] text-center lg:text-left">
                             <h2 className="font-medium text-black text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight text-black mb-6 lg:mb-[30px]">Ad content:</h2>
                             {adContentLeftPanelData.map((data) => {
@@ -95,7 +95,7 @@ const AdContent = () => {
                                         id="post_vin"
                                         name="post_vin"
                                         type="checkbox"
-                                        className="mb-6 lg:mb-[30px] p-[14px] text-[#626262]"
+                                        className="p-[14px] text-[#626262]"
                                         value="selectric_car"
                                     />
 
@@ -135,7 +135,7 @@ const AdContent = () => {
                                     })}
                                 </div>
 
-                                <div className='flex gap-[12px] items-center justify-start mt-[24px]'>
+                                <div className='flex flex-wrap gap-[12px] items-center justify-start mt-[24px]'>
                                     {
                                         checkboxList_2.map((checkboxLi) => {
                                             return (
@@ -145,7 +145,7 @@ const AdContent = () => {
                                                             id={checkboxLi.label}
                                                             name={checkboxLi.label}
                                                             type="checkbox"
-                                                            className="mb-6 lg:mb-[30px] p-[14px] text-[#626262]"
+                                                            className="mt-[40px] lg:mt-0 mb-[12px] p-[14px] text-[#626262]"
                                                             value="selectric_car"
                                                         />
                                                         <CustomLabel
@@ -162,7 +162,7 @@ const AdContent = () => {
                             </div>
                             <div className="mb-10 lg:mb-[60px]">
                                 <h1 className='font-medium text-lg md:text-xl lg:text-[30px] text-black mb-6 lg:mb-[30px]'>Offer type</h1>
-                                <div className='flex gap-[12px] items-center justify-start mt-[24px]'>
+                                <div className='flex flex-wrap gap-[12px] items-center justify-start mt-[24px]'>
                                     {
                                         checkboxList_2.map((checkboxLi) => {
                                             return (
@@ -172,7 +172,7 @@ const AdContent = () => {
                                                             id={checkboxLi.label}
                                                             name={checkboxLi.label}
                                                             type="checkbox"
-                                                            className="mb-6 lg:mb-[30px] p-[14px] text-[#626262]"
+                                                            className="mt-[40px] lg:mt-0 mb-[12px] p-[14px] text-[#626262]"
                                                             value="selectric_car"
                                                         />
 
@@ -207,7 +207,7 @@ const AdContent = () => {
                                     onChange={(val) => { setFieldValue2(val) }}
                                 />
 
-                                <div className='flex gap-[12px] items-center justify-start mt-[24px]'>
+                                <div className='flex flex-wrap gap-[12px] items-center justify-start mt-[24px]'>
                                     {
                                         checkboxList_3.map((checkboxLi) => {
                                             return (
@@ -217,7 +217,7 @@ const AdContent = () => {
                                                             id={checkboxLi.label}
                                                             name={checkboxLi.label}
                                                             type="checkbox"
-                                                            className="mb-6 lg:mb-[30px] p-[14px] text-[#626262]"
+                                                            className="mt-[40px] lg:mt-0 mb-[12px] p-[14px] text-[#626262]"
                                                             value="selectric_car"
                                                         />
                                                         <CustomLabel
