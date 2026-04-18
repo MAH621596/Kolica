@@ -12,6 +12,7 @@ body {
   background: linear-gradient(180deg, #3E4A5E 0%, #5D6D87 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-x: hidden;
 }
 
 .card {

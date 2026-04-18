@@ -30,12 +30,13 @@ const Tabs = ({
                 ${isActive ? activeTabClass : inActiveTabClass}`}
               >
                 <Link
-                  to={tab.path}
+                  to={tab.path || "/"}
                   className={`flex items-center justify-center gap-2 font-semibold text-[10px] xxl:text-[14px] capitalize transition-all duration-200
                   ${tabItemClassInner}
                   ${isActive ? activeTextClass : inactiveTextClass}`}
                 >
-                  {tab.icon && <span>{tab.icon}</span>}
+                  {tab.icon && <span><img src={tab.icon as string} alt="Car" /></span>}
+                  
                   {tab.label}
                 </Link>
               </li>

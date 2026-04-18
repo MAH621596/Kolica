@@ -23,6 +23,14 @@ export interface InputProps {
   onChange?: (value: string) => void;
 }
 
+export interface TextAreaProps {
+  id?: string;
+  value?: string;
+  placeholder?: string;
+  className?: string;
+  onChange?: (value: string) => void;
+}
+
 export interface Hero_CardProps {
   image?: string;
   heading?: string;
@@ -37,10 +45,12 @@ export interface Hero_CardProps {
 
 export interface TabsProps {
   tabs_list?: {
-    id: number;
+    id?: number;
     label?: string;
-    path: string;
-    icon?: ReactNode;
+    path?: string;
+    icon?: ReactNode | string;
+    link_text?: string;
+    href?: string;
   }[];
   children?: React.ReactNode;
   className?: string;
@@ -57,7 +67,7 @@ export interface TabsProps {
 }
 
 export interface CustomSelectProps {
-  options: string[];
+  options?: string[];
   className?: string;
   innerOptionsClass?: string;
   divider?: boolean;

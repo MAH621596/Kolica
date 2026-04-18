@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { HeroCardData, dropdownData, homePagetabsMenu } from '@/helper/data';
+import { HeroCardData, dropdownData, homePagetabsMenu, mobileNavbarLinks } from '@/helper/data';
 import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect, Car, Car1, Car2, Car3, SeeMore, Sorting, CustomInput, CustomLabel, Footer } from "@/components";
 const Home = () => {
   const [search, setSearch] = useState("");
   const [activeMainTab, setActiveMainTab] = useState(3);
+  const [activeMainTab1, setActiveMainTab1] = useState(2);
 
   return (
     <>
       <Navbar />
 
       <Tabs
-        className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"
+        className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 hidden md:block"
         tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-7 gap-0"
         tabs_list={homePagetabsMenu}
         activeTabClass="bg-white"
@@ -19,6 +20,16 @@ const Home = () => {
         inactiveTextClass="text-white group-hover:text-[#253A86]"
         activeTab={activeMainTab}
         onClick={(id) => setActiveMainTab(id)} />
+
+      <Tabs
+        className="w-full text-white h-[42px] p-0 mb-[50px] hidden md:block"
+        tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-7 gap-0"
+        tabItemClass="p-[30px] mb-[50px] block"
+        tabs_list={mobileNavbarLinks}
+        activeTabClass="bg-white"
+        inActiveTabClass="bg-[#F1F1F1] hover:bg-white"
+        activeTab={activeMainTab1}
+        onClick={(id) => setActiveMainTab1(id)} />
 
       <section className="md:px-4 lg:px-0">
         <HeroCard>
@@ -31,7 +42,7 @@ const Home = () => {
                 id="filter"
                 name="filter"
                 type="text"
-                className="h-[42px] w-full border-[0.64px] border-[#626262] py-[11px] px-[50px] leading-[20px] text-[10px] md:text-[12px] "
+                className="h-[42px] w-full border-[0.64px] border-[#626262] py-[11px] pl-[50px] pr-[65px] leading-[20px] text-[10px] md:text-[12px] "
                 placeholder="Advanced search with additional filters"
                 value={search}
                 onChange={(val) => { setSearch(val) }}

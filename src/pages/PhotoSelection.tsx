@@ -1,5 +1,5 @@
-import { sectionTabsMenu, photoSelectionData } from '@/helper/data';
-import { Navbar, HeroCard, Button, Tabs, Faq, Footer, CarCard } from "@/components";
+import { sectionTabsMenu, photoSelectionData, photoSelectionCardDataContent } from '@/helper/data';
+import { Navbar, HeroCard, Button, Tabs, Footer, CarCard } from "@/components";
 import { useState } from 'react';
 
 const PhotoSelection = () => {
@@ -47,11 +47,29 @@ const PhotoSelection = () => {
                                     imageSizeClass=''
                                     image={card.image} heading={card.heading} footerbutton={card.footerbutton} />
                             )
-                        })}
+                        })}                        
                     </div>
+                    <Button text="Finish editing" className="mt-[50px] w-full flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] cursor-pointer transition-all duration-200 hover:opacity-80" />
                 </HeroCard>
 
-                <Faq />
+                <HeroCard parentClass="py-[25px] px-[20px] md:px-[50px]">
+                    {photoSelectionCardDataContent.map((QA) => {
+                        return (
+                            <div className="mb-[50px]">
+                                <h2 className="text-2xl lg:text-[35px] font-medium text-[#000000] mb-[30px] capitalize">{QA.heading} </h2>
+                                <ul className="list-disc">
+                                    {QA.list.map((Qa_list) => {
+                                        return (
+                                            <li className="font-roboto font-normal text-black text-sm lg:text-[18px] leading-[32px]">
+                                                {Qa_list}
+                                            </li>
+                                        )
+                                    })}
+                                </ul>
+                            </div>
+                        )
+                    })}
+                </HeroCard>
             </section>
 
             <Footer />

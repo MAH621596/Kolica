@@ -4,6 +4,7 @@ export { default as CarCard } from "@/components/Car_Card";
 export { default as Button } from "@/components/Button";
 export { default as CustomInput } from "@/components/Input";
 export { default as CustomLabel } from "@/components/Label";
+export { default as TextArea } from "@/components/Textarea";
 export { default as Tabs } from "@/components/Tabs";
 export { default as CustomSelect } from "../components/CustomSelect";
 export { default as Faq } from "../components/Faqs";

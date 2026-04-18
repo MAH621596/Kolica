@@ -81,7 +81,7 @@ const HeroCard = ({
                 <i className="fa fa-search"></i>
                 <CustomInput  
                   type="text"
-                  className="border-0 h-[42px] pl-3 text-black placeholder:text-black"
+                  className="w-full border-0 h-[42px] pl-3 text-black placeholder:text-black"
                   placeholder="See an overview of all brands from A to Z"
                   value={inpValue}
                   onChange={(val) => { setInpValue(val)}}
