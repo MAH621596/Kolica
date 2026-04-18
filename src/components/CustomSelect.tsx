@@ -33,7 +33,7 @@ const CustomSelect = ({
       {open && (
         <div className={`absolute w-full bg-white border-[0.64px] border-[#626262] rounded-md shadow-md z-10 ${innerOptionsClass}`}>
 
-          {options.map((option, index) => (
+          {options?.map((option, index) => (
             <div
               key={index}
               onClick={() => {
