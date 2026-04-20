@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { HeroCardData, dropdownData, homePagetabsMenu, mobileNavbarLinks } from '@/helper/data';
-import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect, Car, Car1, Car2, Car3, SeeMore, Sorting, CustomInput, CustomLabel, Footer } from "@/components";
+import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect,CustomCheckbox, CheckboxIcon, Car, Car1, Car2, Car3, SeeMore, Sorting, CustomInput, CustomLabel, Footer } from "@/components";
 const Home = () => {
   const [search, setSearch] = useState("");
-  const [activeMainTab, setActiveMainTab] = useState<number>(3);
+  const [activeMainTab, setActiveMainTab] = useState<number>(1);
   const [activeSubTab, setActiveSubTab] = useState<number>(-1);
   const [loggedIn, setLoggedIn] = useState(
     localStorage.getItem("auth") === "true"
   );
+
+  console.log(setLoggedIn);
 
   // const login = () => {
   //   localStorage.setItem("auth", "true");
@@ -61,7 +63,7 @@ const Home = () => {
                 className="h-[42px] w-full border-[0.64px] border-[#626262] py-[11px] pl-[50px] pr-[65px] leading-[20px] text-[10px] md:text-[12px] "
                 placeholder="Advanced search with additional filters"
                 value={search}
-                onChange={(val) => { setSearch(val) }}
+                onChange={(val) => { setSearch (val as string) }}
 
               />
               <div className="absolute top-0 bottom-0 my-auto right-[16px] bg-[#B1222C] w-[33px] h-[33px] rounded-[5px] flex items-center justify-center cursor-pointer hover:opacity-80">
@@ -93,30 +95,24 @@ const Home = () => {
             </div>
 
             <div className="mt-[30px] gap-[30px] flex flex-col md:flex-row items-start md:items-center justify-between">
-              <div className="flex gap-[12px] items-center justify-center">
-
-                <CustomInput
+              
+              <CustomCheckbox
                   id="electric_car"
                   name="electric_car"
-                  type="checkbox"
-                  className="border-[0.64px] border-[#626262] py-[11px] px-[50px] leading-[20px] text-[10px] md:text-[12px] "
-                  placeholder="Advanced search with additional filters"
                   value="selectric_car"
-                />
-                <CustomLabel
-                  className="text-[18px]"
-                  text="Only electric car"
-                  htmlFor="electric_car"
-                />
-              </div>
+                  custom_label_for="electric_car"
+                  inputClassName=""
+                  labelClassName="text-[18px]"
+                  custom_label_text="Only electric car"
+              />
 
               <Button text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="block md:hidden w-full justify-start !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
 
               <div className="flex gap-[24px] items-center justify-center">
                 <div className="flex gap-[12px] items-center justify-center cursor-pointer group">
                   <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:stroke-[#B1222C]">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.97434 3.7334C8.04899 3.7334 7.21059 3.87484 6.45694 4.10093C6.04998 4.22302 5.62119 3.99213 5.49909 3.5852C5.377 3.17829 5.60795 2.74946 6.01485 2.62739C6.90223 2.36118 7.88942 2.19495 8.97434 2.19495C13.9261 2.19495 17.9486 6.17409 17.9486 11.0975C17.9486 16.0209 13.9261 20 8.97434 20C4.02249 20 0 16.0209 0 11.0975C0 9.26638 0.562022 7.55851 1.51612 6.14424C1.7537 5.79206 2.23181 5.69914 2.58399 5.93674C2.93615 6.17434 3.02907 6.65243 2.7915 7.00461C2.00202 8.17488 1.53845 9.58503 1.53845 11.0975C1.53845 15.1587 4.85953 18.4615 8.97434 18.4615C13.0891 18.4615 16.4102 15.1587 16.4102 11.0975C16.4102 7.0363 13.0891 3.7334 8.97434 3.7334Z" fill="#626262" />
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.11111 0.123965C8.46748 0.355157 8.56902 0.831506 8.33782 1.18792L7.03487 3.1967L9.06268 4.50198C9.4199 4.73189 9.52304 5.20789 9.29314 5.56511C9.06317 5.92234 8.58717 6.02554 8.23 5.79557L5.55309 4.07251C5.38115 3.96186 5.26036 3.78728 5.2174 3.58736C5.17439 3.38745 5.21279 3.17866 5.32405 3.00711L7.04712 0.350714C7.27832 -0.00570878 7.75468 -0.107222 8.11111 0.123965Z" fill="#626262" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M8.97434 3.7334C8.04899 3.7334 7.21059 3.87484 6.45694 4.10093C6.04998 4.22302 5.62119 3.99213 5.49909 3.5852C5.377 3.17829 5.60795 2.74946 6.01485 2.62739C6.90223 2.36118 7.88942 2.19495 8.97434 2.19495C13.9261 2.19495 17.9486 6.17409 17.9486 11.0975C17.9486 16.0209 13.9261 20 8.97434 20C4.02249 20 0 16.0209 0 11.0975C0 9.26638 0.562022 7.55851 1.51612 6.14424C1.7537 5.79206 2.23181 5.69914 2.58399 5.93674C2.93615 6.17434 3.02907 6.65243 2.7915 7.00461C2.00202 8.17488 1.53845 9.58503 1.53845 11.0975C1.53845 15.1587 4.85953 18.4615 8.97434 18.4615C13.0891 18.4615 16.4102 15.1587 16.4102 11.0975C16.4102 7.0363 13.0891 3.7334 8.97434 3.7334Z" fill="#626262" />
+                    <path fillRule="evenodd" clipRule="evenodd" d="M8.11111 0.123965C8.46748 0.355157 8.56902 0.831506 8.33782 1.18792L7.03487 3.1967L9.06268 4.50198C9.4199 4.73189 9.52304 5.20789 9.29314 5.56511C9.06317 5.92234 8.58717 6.02554 8.23 5.79557L5.55309 4.07251C5.38115 3.96186 5.26036 3.78728 5.2174 3.58736C5.17439 3.38745 5.21279 3.17866 5.32405 3.00711L7.04712 0.350714C7.27832 -0.00570878 7.75468 -0.107222 8.11111 0.123965Z" fill="#626262" />
                   </svg>
                   <div className="font-normal text-[18px] leading-tight text-[#626262] group-hover:text-[#B1222C]">Reset</div>
                 </div>

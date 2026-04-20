@@ -702,38 +702,44 @@ export const adContentRightPanel_4 = [
 export const checkboxList = [
   {
     id: 1,
-    label: "Gasoline"
+    label: "Gasoline",
+    value: "Gasoline"
   },
   {
     id: 2,
-    label: "Diesel"
+    label: "Diesel",
+    value: "Diesel"
   },
   {
     id: 3,
-    label: "Hybrid Drive"
+    label: "Hybrid Drive",
+    value: "Hybrid Drive"
   },
   {
     id: 4,
-    label: "E-Drive"
+    label: "E-Drive",
+    value: "E-Drive",
   },
   {
     id: 5,
-    label: "LPG Autogas"
+    label: "LPG Autogas",
+    value: "LPG Autogas"
   },
   {
     id: 6,
-    label: "CMG Natural Gas"
+    label: "CMG Natural Gas",
+    value: "CMG Natural Gas",
   },
 ];
 
 export const checkboxList_2 = [
   {
     id: 1,
-    label: "the vehicle has a warranty1"
+    label: "the vehicle has a warranty"
   },
   {
     id: 2,
-    label: "the vehicle has a warranty2"
+    label: "the vehicle has no warranty"
   },
 ];
 

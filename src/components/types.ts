@@ -25,11 +25,25 @@ export interface InputProps {
   id?: string;
   icon?: ReactNode;
   name?: string;
-  type?: string;
+  type: "text" | "checkbox";
   value?: string;
+  checked?: boolean;
   placeholder?: string;
   className?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: string | boolean) => void;
+}
+
+export interface CheckBoxProps {
+  id?: string;
+  name?: string;
+  value?: string;
+  checked?: boolean;
+  custom_label_for?: string;
+  custom_label_text?: string;
+  checkboxParent?: string;
+  inputClassName?: string;
+  labelClassName?: string;
+  onChange?: (value: string | boolean) => void;
 }
 
 export interface TextAreaProps {
@@ -82,6 +96,7 @@ export interface CustomSelectProps {
   innerOptionsClass?: string;
   divider?: boolean;
   customArrows?: React.ReactNode;
+   onChange?: (value: string) => void;
 };
 
 export interface Car_CardProps {

@@ -49,9 +49,9 @@ const PhotoSelection = () => {
 
                 <HeroCard>
                     <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-items-center gap-[15px] !md:gap-[25px]'>
-                        {photoSelectionData.map((card) => {
+                        {photoSelectionData.map((card, index) => {
                             return (
-                                <CarCard className='h-[250px] gap-[18px] py-[22px] px-[20px]'
+                                <CarCard key={index} className='h-[250px] gap-[18px] py-[22px] px-[20px]'
                                     imageSizeClass=''
                                     image={card.image} heading={card.heading} footerbutton={card.footerbutton} />
                             )
@@ -61,14 +61,14 @@ const PhotoSelection = () => {
                 </HeroCard>
 
                 <HeroCard parentClass="py-[25px] px-[20px] md:px-[50px]">
-                    {photoSelectionCardDataContent.map((QA) => {
+                    {photoSelectionCardDataContent.map((QA, index) => {
                         return (
-                            <div className="mb-[50px]">
+                            <div key={index} className="mb-[50px]">
                                 <h2 className="text-2xl lg:text-[35px] font-medium text-[#000000] mb-[30px] capitalize">{QA.heading} </h2>
                                 <ul className="list-disc">
-                                    {QA.list.map((Qa_list) => {
+                                    {QA.list.map((Qa_list, Qindex) => {
                                         return (
-                                            <li className="font-roboto font-normal text-black text-sm lg:text-[18px] leading-[32px]">
+                                            <li key={Qindex} className="font-roboto font-normal text-black text-sm lg:text-[18px] leading-[32px]">
                                                 {Qa_list}
                                             </li>
                                         )

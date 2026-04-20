@@ -5,17 +5,18 @@ import {
     adContentRightPanel_4,
     checkboxList_6
 } from '@/helper/data';
-import { Navbar, HeroCard, Button, CustomSelect, Tabs, CustomInput, CustomLabel, Footer, TextArea } from "@/components";
+import { Navbar, HeroCard, Button, CustomSelect, Tabs, CustomInput, CustomLabel, Footer, TextArea, CustomCheckbox } from "@/components";
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
 const AdContent = () => {
     const navigate = useNavigate();
     const [activeMainTab, setActiveMainTab] = useState<number>(3);
-    const [fieldValue1, setFieldValue1] = useState("");
-    const [fieldValue2, setFieldValue2] = useState("");
-    const [fieldValue3, setFieldValue3] = useState("");
-    const [fieldValue4, setFieldValue4] = useState("");
+    const [fieldValue1, setFieldValue1] = useState<string>("");
+    const [fieldValue2, setFieldValue2] = useState<string>("");
+    const [fieldValue3, setFieldValue3] = useState<string>("");
+    const [fieldValue4, setFieldValue4] = useState<string>("");
+    
     return (
         <div
             style={{
@@ -44,7 +45,7 @@ const AdContent = () => {
 
             <section className="md:px-4 lg:px-0">
                 <HeroCard parentClass="!bg-[#F9FAFB] !py-[25px] px-[20px] !md:px-[50px]">
-                    <div className='flex flex-col lg:flex-row items-start gap-[50px]'>
+                    <div className='flex flex-col lg:flex-row items-start gap-[25px]'>
                         <div className="w-full lg:w-[40%] bg-white rounded-[20px] px-[20px] py-[40px] text-left">
                             <h2 className="font-medium text-black text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight text-black mb-6 lg:mb-[30px]">Ad content:</h2>
                             {adContentLeftPanelData.map((data, index1) => {
@@ -59,7 +60,7 @@ const AdContent = () => {
                                                     className="mb-6 lg:mb-[30px] h-[42px] max-w-[247px] p-[14px] text-[#626262]"
                                                     placeholder="Mandatory field"
                                                     value={fieldValue1}
-                                                    onChange={(val) => { setFieldValue1(val) }}
+                                                    onChange={(val) => { setFieldValue1(val as string) }}
                                                 />
                                             </div>
 
@@ -99,21 +100,18 @@ const AdContent = () => {
                                     })}
                                 </div>
 
-                                <div className="flex gap-[12px] items-center justify-start mt-[24px]">
-                                    <CustomInput
-                                        id="post_vin"
-                                        name="post_vin"
-                                        type="checkbox"
-                                        className="mb-6 text-[14px] lg:mb-[30px] max-w-[247px] p-[14px] text-[#626262]"
-                                        value="selectric_car"
-                                    />
-
-                                    <CustomLabel
-                                        text="post VIN in the ad"
-                                        htmlFor="post_vin"
-                                        className='text-[14px] mb-6 lg:mb-[30px]'
-                                    />
-                                </div>
+                                <div className="mb-6 lg:mb-[30px] mt-[24px]">
+                                <CustomCheckbox
+                                    id="post_vin"
+                                    name="post_vin"
+                                    value="post_vin"
+                                    checkboxParent="justify-start"
+                                    custom_label_for="post_vin"
+                                    inputClassName="max-w-[247px] p-[14px] text-[#626262]"
+                                    labelClassName="!text-[14px] block"
+                                    custom_label_text="post VIN in the ad"
+                                />
+                                </div>                                                        
                             </div>
 
                             <div className="mb-10 lg:mb-[50px]">
@@ -147,19 +145,16 @@ const AdContent = () => {
                                         checkboxList_2.map((checkboxLi, index4) => {
                                             return (
                                                 <>
-                                                    <div key={index4} className="flex gap-[12px] items-center justify-start">
-                                                        <CustomInput
-                                                            id={checkboxLi.label}
+                                                    <div key={index4} className="mb-6 lg:mb-[30px]">                                                       
+                                                        <CustomCheckbox
+                                                            id={`${checkboxLi.label + 2}`}
                                                             name={checkboxLi.label}
-                                                            type="checkbox"
-                                                            className="mb-6 lg:mb-[30px] max-w-[247px] text-[14px] p-[14px] text-[#626262]"
-                                                            value="selectric_car"
-                                                        />
-                                                        <CustomLabel
-                                                            className="mb-6 lg:mb-[30px] block text-[14px] text-[#627084]"
-                                                            text={checkboxLi.label}
-                                                            htmlFor={checkboxLi.label}
-
+                                                            value="post_vin"
+                                                            checkboxParent="justify-start"
+                                                            custom_label_for={`${checkboxLi.label + 2}`}
+                                                            inputClassName="max-w-[247px] p-[14px] text-[#626262]"
+                                                            labelClassName="block !text-[14px] text-[#627084]"
+                                                            custom_label_text={checkboxLi.label}
                                                         />
                                                     </div>
                                                 </>
@@ -176,21 +171,17 @@ const AdContent = () => {
                                         checkboxList_2.map((checkboxLi, index5) => {
                                             return (
                                                 <>
-                                                    <div key={index5} className="flex gap-[12px] items-center justify-start">
-                                                        <CustomInput
-                                                            id={checkboxLi.label}
+                                                    <div key={index5} className="mb-6 lg:mb-[30px]">
+                                                        <CustomCheckbox
+                                                            id={`${checkboxLi.label + 1}`}
                                                             name={checkboxLi.label}
-                                                            type="checkbox"
-                                                            className="mb-6 lg:mb-[30px] text-[14px] p-[14px] text-[#626262]"
-                                                            value="selectric_car"
+                                                            value={checkboxLi.label}
+                                                            checkboxParent="justify-start"
+                                                            custom_label_for={`${checkboxLi.label + 1}`}
+                                                            inputClassName="p-[14px] text-[#626262]"
+                                                            labelClassName="block !text-[14px] text-[#627084]"
+                                                            custom_label_text={checkboxLi.label}
                                                         />
-
-                                                        <CustomLabel
-                                                            className="block mb-6 lg:mb-[30px] text-[14px] text-[#627084]"
-                                                            text={checkboxLi.label}
-                                                            htmlFor={checkboxLi.label}
-                                                        />
-
                                                     </div>
                                                 </>
                                             )
@@ -214,26 +205,24 @@ const AdContent = () => {
                                     className="w-full lg:w-1/2 h-[42px] !text-[11px] max-w-[362px] !bg-[#F9FAFB] border-[#D3DDE780] rounded-[9px] text-[#94A3B3]"
                                     placeholder="euro"
                                     value={fieldValue2}
-                                    onChange={(val) => { setFieldValue2(val) }}
+                                    onChange={(val) => { setFieldValue2(val as string) }}
                                 />
 
                                 <div className='flex flex-col md:flex-row md:flex-wrap gap-[12px] items-start md:items-center justify-start my-[24px]'>
                                     {
                                         checkboxList_3.map((checkboxLi, index6) => {
                                             return (
-                                                <>
-                                                    <div key={index6} className="flex gap-[12px] items-center justify-start">
-                                                        <CustomInput
+                                                <>                                                   
+                                                    <div key={index6} className="mb-6 lg:mb-[30px]">
+                                                        <CustomCheckbox
                                                             id={checkboxLi.label}
                                                             name={checkboxLi.label}
-                                                            type="checkbox"
-                                                            className="mb-6 lg:mb-[30px]  text-[14px] p-[14px] text-[#626262]"
-                                                            value="selectric_car"
-                                                        />
-                                                        <CustomLabel
-                                                            className="block mb-6 lg:mb-[30px]  text-[14px] text-[#627084]"
-                                                            text={checkboxLi.label}
-                                                            htmlFor={checkboxLi.label}
+                                                            value={checkboxLi.label}
+                                                            checkboxParent="justify-start"
+                                                            custom_label_for={checkboxLi.label}
+                                                            inputClassName="p-[14px] text-[#626262]"
+                                                            labelClassName="block !text-[14px] text-[#627084]"
+                                                            custom_label_text={checkboxLi.label}
                                                         />
                                                     </div>
                                                 </>
@@ -261,18 +250,16 @@ const AdContent = () => {
                                         checkboxList_4.map((checkboxLi, index7) => {
                                             return (
                                                 <>
-                                                    <div key={index7} className="flex gap-[12px] items-center justify-start">
-                                                        <CustomInput
+                                                    <div key={index7} className="mb-2 lg:mb-[20px]">
+                                                        <CustomCheckbox
                                                             id={checkboxLi.label}
                                                             name={checkboxLi.label}
-                                                            type="checkbox"
-                                                            className="mb-2 lg:mb-[20px] text-[14px] p-[14px] text-[#626262]"
-                                                            value="selectric_car"
-                                                        />
-                                                        <CustomLabel
-                                                            className="mb-2 lg:mb-[20px] lowercase block text-[14px] text-[#627084]"
-                                                            text={checkboxLi.label}
-                                                            htmlFor={checkboxLi.label}
+                                                            value={checkboxLi.label}
+                                                            checkboxParent="justify-start"
+                                                            custom_label_for={checkboxLi.label}
+                                                            inputClassName="p-[14px] text-[#626262]"
+                                                            labelClassName=" lowercase block !text-[14px] text-[#627084]"
+                                                            custom_label_text={checkboxLi.label}
                                                         />
                                                     </div>
                                                 </>
@@ -290,18 +277,16 @@ const AdContent = () => {
                                         checkboxList_5.map((checkboxLi, index8) => {
                                             return (
                                                 <>
-                                                    <div key={index8} className="flex gap-[12px] items-center justify-start">
-                                                        <CustomInput
+                                                    <div key={index8} className="mb-2 lg:mb-[20px]">
+                                                        <CustomCheckbox
                                                             id={checkboxLi.label}
                                                             name={checkboxLi.label}
-                                                            type="checkbox"
-                                                            className="mb-2 lg:mb-[20px] text-[14px] p-[14px] text-[#626262]"
-                                                            value="selectric_car"
-                                                        />
-                                                        <CustomLabel
-                                                            className="mb-2 lg:mb-[20px] lowercase block text-[14px] text-[#627084]"
-                                                            text={checkboxLi.label}
-                                                            htmlFor={checkboxLi.label}
+                                                            value={checkboxLi.label}
+                                                            checkboxParent="justify-start"
+                                                            custom_label_for={checkboxLi.label}
+                                                            inputClassName="p-[14px] text-[#626262]"
+                                                            labelClassName="lowercase block !text-[14px] text-[#627084]"
+                                                            custom_label_text={checkboxLi.label}
                                                         />
                                                     </div>
                                                 </>
@@ -350,7 +335,7 @@ const AdContent = () => {
                                                                     className="w-full !text-[11px] h-[42px] mb-[24px] !bg-[#F9FAFB] border-[#D3DDE780] rounded-[9px] text-[#94A3B3]"
                                                                     placeholder={dropdown.placeholder}
                                                                     value={fieldValue3}
-                                                                    onChange={(val) => { setFieldValue3(val) }}
+                                                                    onChange={(val) => { setFieldValue3(val as string) }}
                                                                 />
                                                             </> : <>
                                                                 <CustomSelect
@@ -387,7 +372,7 @@ const AdContent = () => {
                                                             className="w-full h-[42px] !text-[11px] max-w-[362px] !bg-[#F9FAFB] border-[#D3DDE780] rounded-[9px] text-[#94A3B3]"
                                                             placeholder="Any"
                                                             value={fieldValue2}
-                                                            onChange={(val) => { setFieldValue2(val) }}
+                                                            onChange={(val) => { setFieldValue2(val as string) }}
                                                         />
                                                     </div>
                                                 )}
@@ -396,18 +381,16 @@ const AdContent = () => {
                                                     {vehical.checkboxes && (
                                                         vehical.checkboxes.map((checkbox, index11) => {
                                                             return (
-                                                                <div key={index11} className="flex gap-[12px] items-center justify-start mt-[24px]">
-                                                                    <CustomInput
+                                                                <div key={index11} className="mb-2 lg:mb-[20px]">
+                                                                    <CustomCheckbox
                                                                         id={checkbox.label}
                                                                         name={checkbox.label}
-                                                                        type="checkbox"
-                                                                        className="text-[14px] p-[14px] text-[#626262]"
-                                                                        value="selectric_car"
-                                                                    />
-                                                                    <CustomLabel
-                                                                        text={checkbox.label}
-                                                                        htmlFor={checkbox.label}
-                                                                        className='text-[14px]'
+                                                                        value={checkbox.label}
+                                                                        checkboxParent="justify-start mt-[24px]"
+                                                                        custom_label_for={checkbox.label}
+                                                                        inputClassName="p-[14px] text-[#626262]"
+                                                                        labelClassName="lowercase block !text-[14px] text-[#627084]"
+                                                                        custom_label_text={checkbox.label}
                                                                     />
                                                                 </div>
                                                             )
@@ -452,7 +435,7 @@ const AdContent = () => {
                                                                 className="w-full !text-[11px] h-[42px] mb-[24px] !bg-[#F9FAFB] border-[#D3DDE780] rounded-[9px] text-[#94A3B3]"
                                                                 placeholder={dropdown.placeholder}
                                                                 value={fieldValue3}
-                                                                onChange={(val) => { setFieldValue3(val) }}
+                                                                onChange={(val) => { setFieldValue3(val as string) }}
                                                             />
                                                         </> : <>
                                                             <CustomSelect
@@ -505,7 +488,7 @@ const AdContent = () => {
                                                                 className="w-full !text-[11px] h-[42px] mb-[24px] !bg-[#F9FAFB] border-[#D3DDE780] rounded-[9px] text-[#94A3B3]"
                                                                 placeholder={dropdown.placeholder}
                                                                 value={fieldValue3}
-                                                                onChange={(val) => { setFieldValue3(val) }}
+                                                                onChange={(val) => { setFieldValue3(val as string) }}
                                                             />
                                                         </> : <>
                                                             <CustomSelect
@@ -522,22 +505,18 @@ const AdContent = () => {
                                         </div>
                                     )
                                 })}
-
-                                <div>
-                                    <div className="flex gap-[12px] items-center justify-start">
-                                        <CustomInput
-                                            id="data_consumed"
-                                            name="data_consumed"
-                                            type="checkbox"
-                                            className="text-[14px] p-[14px] text-[#626262]"
-                                            value="selectric_car"
-                                        />
-                                        <CustomLabel
-                                            text="I want to automatically publish consumption data with the ad."
-                                            htmlFor="data_consumed"
-                                            className='text-[14px]'
-                                        />
-                                    </div>
+                             
+                                <div className="mb-2 lg:mb-[20px]">
+                                    <CustomCheckbox
+                                        id="data_consumed"
+                                        name="data_consumed"
+                                        value="data_consumed"
+                                        checkboxParent="justify-start mt-[24px]"
+                                        custom_label_for="data_consumed"
+                                        inputClassName="p-[14px] text-[#626262]"
+                                        labelClassName="lowercase block !text-[14px] text-[#627084]"
+                                        custom_label_text="I want to automatically publish consumption data with the ad."
+                                    />
                                 </div>
                             </div>
 
@@ -555,22 +534,20 @@ const AdContent = () => {
 
                                                     <div className="flex flex-col flex-wrap gap-[12px] items-start justify-center my-[24px]">
 
-                                                    {amenities.checkboxes.map((amentiesChx, idx) => (
-                                                        <div key={idx} className="flex gap-[12px] items-center justify-start">
-                                                            <CustomInput
-                                                                id={amentiesChx.label}
-                                                                name={amentiesChx.label}
-                                                                type="checkbox"
-                                                                className="mb-2 lg:mb-[20px] max-w-[247px] text-[14px] p-[14px] text-[#626262]"
-                                                                value="selectric_car"
-                                                            />
-                                                            <CustomLabel
-                                                                className="mb-2 lg:mb-[20px] block text-[14px] text-[#627084]"
-                                                                text={amentiesChx.label}
-                                                                htmlFor={amentiesChx.label}
-                                                            />
-                                                        </div>
-                                                    ))}
+                                                        {amenities.checkboxes.map((amentiesChx, idx) => (
+                                                            <div key={idx} className="mb-2 lg:mb-[20px]">
+                                                                <CustomCheckbox
+                                                                    id={amentiesChx.label}
+                                                                    name={amentiesChx.label}
+                                                                    value={amentiesChx.label}
+                                                                    checkboxParent="justify-start"
+                                                                    custom_label_for={amentiesChx.label}
+                                                                    inputClassName="max-w-[247px] text-[14px] p-[14px] text-[#626262]"
+                                                                    labelClassName="lowercase block !text-[14px] text-[#627084]"
+                                                                    custom_label_text={amentiesChx.label}
+                                                                />
+                                                            </div>
+                                                        ))}
                                                     </div>
                                                 </div>
                                             )
@@ -593,20 +570,18 @@ const AdContent = () => {
                                 <h1 className='font-medium text-lg md:text-xl lg:text-[30px] text-black mb-6 lg:mb-[30px]'>Stock information:</h1>
                                 <p className="font-medium block lg:mt-0 mb-[12px] text-[#627084] lg:mt-0 my-[24px] text-[16px] text-[#627084] leading-[7px]">
                                     In Stock
-                                </p>
+                                </p>                              
 
-                                <div className="flex gap-[12px] items-center justify-start mt-[30px]">
-                                    <CustomInput
+                                <div className="mb-2 lg:mb-[20px]">
+                                    <CustomCheckbox
                                         id="agreeTerms"
                                         name="agreeTerms"
-                                        type="checkbox"
-                                        className="mb-2 lg:mb-[20px] max-w-[247px] text-[14px] p-[14px] text-[#626262]"
-                                        value="selectric_car"
-                                    />
-                                    <CustomLabel
-                                        className="mb-2 lg:mb-[20px] block text-[14px] text-[#627084]"
-                                        text="The offer is located at our address, which is provided upon user registration."
-                                        htmlFor="agreeTerms"
+                                        value="agreeTerms"
+                                        checkboxParent="justify-start mt-[30px]"
+                                        custom_label_for="agreeTerms"
+                                        inputClassName="max-w-[247px] text-[14px] p-[14px] text-[#626262]"
+                                        labelClassName="lowercase block !text-[14px] text-[#627084]"
+                                        custom_label_text="The offer is located at our address, which is provided upon user registration."
                                     />
                                 </div>
 

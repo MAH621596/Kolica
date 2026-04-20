@@ -1,12 +1,13 @@
 import { sectionTabsMenu, sectionInnerTabsMenu, selectionDropdownData, checkboxList, InformationParagraph } from '@/helper/data';
-import { Navbar, HeroCard, Button, CustomSelect, Tabs, Faq, CustomInput, CustomLabel, Footer } from "@/components";
-import { useState } from 'react';
+import { Navbar, HeroCard, Button, CustomSelect, Tabs, Faq, CustomLabel, CustomCheckbox, Footer } from "@/components";
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
 
 const SectionSelection = () => {
     const navigate = useNavigate();
     const [activeMainTab, setActiveMainTab] = useState<number>(3);
     const [activeTab, setActiveTab] = useState<number>(-1);
+    
     return (
         <div
             style={{
@@ -25,7 +26,7 @@ const SectionSelection = () => {
                 tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-7 gap-0"
                 tabs_list={sectionTabsMenu}
                 tabItemClass="svgInactive"
-                activeTabClass="bg-white"
+                activeTabClass="bg-white ASSSSS"
                 inActiveTabClass="hover:bg-white"
                 activeTextClass="text-[#253A86]"
                 inactiveTextClass="text-white group-hover:text-[#253A86]"
@@ -37,7 +38,7 @@ const SectionSelection = () => {
                 <HeroCard parentClass="!bg-[#F9FAFB] !py-[25px] !px-[30px]">
                     <div>
                         <Tabs
-                            className="w-full text-whites h-[42px] p-0 mb-[50px]"
+                            className="w-full text-white min-h-[42px] p-0 mb-2 sm:mb-[50px]"
                             tabContainerClass="w-full max-w-[972px] mx-auto px-0 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-[6px] lg:gap-[8px]"
                             tabs_list={sectionInnerTabsMenu}
                             tabItemClass="bg-white rounded-[6px]"
@@ -52,10 +53,10 @@ const SectionSelection = () => {
                             {activeTab !== -1 && (
                                 <div className="bg-[#F9FAFB]">
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-[20px]">
-                                        {selectionDropdownData.map((dropdown) => {
+                                        {selectionDropdownData.map((dropdown, index) => {
                                             return (
                                                 <>
-                                                    <div>
+                                                    <div key={index}>
                                                         {/* Label (common) */}
                                                         <CustomLabel
                                                             className="block text-[15px] text-[#627084] mt-[40px] lg:mt-0 mb-[12px]"
@@ -104,22 +105,16 @@ const SectionSelection = () => {
                                         {
                                             checkboxList.map((checkboxLi) => {
                                                 return (
-                                                    <>
-                                                        <div className="flex gap-[12px] items-center justify-start">
-                                                            <CustomInput
-                                                                id={checkboxLi.label}
-                                                                name={checkboxLi.label}
-                                                                type="checkbox"
-                                                                className="border-[0.64px] border-[#626262] py-[11px] px-[50px] leading-[20px] text-[10px] md:text-[12px] "
-                                                                placeholder="Advanced search with additional filters"
-                                                                value="selectric_car"
-                                                            />
-                                                            <CustomLabel
-                                                                className="text-[18px] block"
-                                                                text={checkboxLi.label}
-                                                                htmlFor={checkboxLi.label}
-                                                            />
-                                                        </div>
+                                                    <>                                                     
+                                                        <CustomCheckbox
+                                                            id={checkboxLi.label}
+                                                            name={checkboxLi.label}
+                                                            value={checkboxLi.label}
+                                                            custom_label_for={checkboxLi.label}
+                                                            inputClassName=""
+                                                            labelClassName="!text-[15px] block"
+                                                            custom_label_text={checkboxLi.label}
+                                                        />
                                                     </>
                                                 )
                                             })

@@ -26,7 +26,7 @@ const Tabs = ({
 
             const isActive =
               variant === "route"
-                ? location.pathname === tab.path
+                ? (activeTab ? activeTab === tab.id : location.pathname === tab.path)
                 : activeTab === tab.id;
 
             console.log(location.pathname, tab.path)

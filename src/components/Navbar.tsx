@@ -101,7 +101,7 @@ const Navbar = ({
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-[20px]">
           {mobileNavbarLinks.map((header, index) => {
             return (
-              <Link to={header.href} key={index} className="border border-[#C8C8C8] rounded-[10px] bg-white cursor-pointer group">
+              <Link to={header.href || "/"} key={index} className="border border-[#C8C8C8] rounded-[10px] bg-white cursor-pointer group">
                 <div className="flex items-center justify-center p-2">
                   <img src={header.icon} alt={header.link_text} className="w-[21px] h-[20px] group-hover:text-gray-500" />
                 </div>

@@ -11,6 +11,7 @@ const TextArea = ({
     <>
       <textarea
         id={id}
+        required
         placeholder={placeholder}
         value={value || ""}
         onChange={(e) => onChange?.(e.target.value)}
