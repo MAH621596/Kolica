@@ -12,6 +12,9 @@ const Tabs = ({
   inActiveTabClass,
   activeTextClass,
   inactiveTextClass,
+  variant = "route",
+  activeTab,
+  onClick,
 }: TabsProps) => {
   const location = useLocation();
 
@@ -20,25 +23,58 @@ const Tabs = ({
       <div className={className}>
         <ul className={`list-none ${tabContainerClass}`}>
           {tabs_list?.map((tab) => {
-            const isActive = location.pathname === tab.path;
+
+            const isActive =
+              variant === "route"
+                ? location.pathname === tab.path
+                : activeTab === tab.id;
+
+            console.log(location.pathname, tab.path)
 
             return (
               <li
                 key={tab.id}
-                className={`p-2 flex items-center justify-center lg:max-w-[190px] h-[42px] border border-[#FFFFFF] border-l-0 first:border-l group cursor-pointer transition-all duration-300 ease-in-out
+                onClick={() =>
+                  variant === "state" && onClick?.(tab.id)
+                }
+                className={`p-2 flex items-center justify-center text-center lg:max-w-[190px] h-[42px] border border-[#FFFFFF] border-l-0 first:border-l group cursor-pointer transition-all duration-300 ease-in-out
                 ${tabItemClass}
                 ${isActive ? activeTabClass : inActiveTabClass}`}
               >
-                <Link
-                  to={tab.path || "/"}
-                  className={`flex items-center justify-center gap-2 font-semibold text-[10px] xxl:text-[14px] capitalize transition-all duration-200
+                {variant === "route" ?
+                  <Link
+                    to={tab.path || "/"}
+                    className={`flex items-center justify-center gap-2 font-semibold text-[10px] xxl:text-[14px] capitalize transition-all duration-200
                   ${tabItemClassInner}
                   ${isActive ? activeTextClass : inactiveTextClass}`}
-                >
-                  {tab.icon && <span><img src={tab.icon as string} alt="Car" /></span>}
-                  
-                  {tab.label}
-                </Link>
+                  >
+                    {tab.icon && (
+                      <span>
+                        {typeof tab.icon === "string" ? (
+                          <img src={tab.icon} alt={tab.icon} />
+                        ) : (
+                          <span className={`${location.pathname === "/" ? "homeActive" : "homeInActive"}`}>{tab.icon}</span>
+                        )}
+                      </span>
+                    )}
+                    {tab.label}
+                  </Link>
+                  : <div
+                    className={`flex items-center justify-center gap-2 font-semibold text-[10px] xxl:text-[14px] capitalize transition-all duration-200
+                  ${tabItemClassInner}
+                  ${isActive ? activeTextClass : inactiveTextClass}`}
+                  >
+                    {tab.icon && (
+                      <span>
+                        {typeof tab.icon === "string" ? (
+                          <img src={tab.icon} alt={tab.icon} />
+                        ) : (
+                          <span className={`${location.pathname === "/" ? "homeActive" : "homeInActive"}`}>{tab.icon}</span>
+                        )}
+                      </span>
+                    )}
+                    {tab.label}
+                  </div>}
               </li>
             );
           })}

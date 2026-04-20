@@ -3,22 +3,37 @@ import { HeroCardData, dropdownData, homePagetabsMenu, mobileNavbarLinks } from 
 import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect, Car, Car1, Car2, Car3, SeeMore, Sorting, CustomInput, CustomLabel, Footer } from "@/components";
 const Home = () => {
   const [search, setSearch] = useState("");
-  const [activeMainTab, setActiveMainTab] = useState(3);
-  const [activeMainTab1, setActiveMainTab1] = useState(2);
+  const [activeMainTab, setActiveMainTab] = useState<number>(3);
+  const [activeSubTab, setActiveSubTab] = useState<number>(-1);
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem("auth") === "true"
+  );
+
+  // const login = () => {
+  //   localStorage.setItem("auth", "true");
+  //   setLoggedIn(true);
+  // };
+
+  // const logout = () => {
+  //   localStorage.setItem("auth", "false");
+  //   setLoggedIn(false);
+  // };
 
   return (
     <>
-      <Navbar />
+      <Navbar logStatus={loggedIn} />
 
       <Tabs
         className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 hidden md:block"
         tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-7 gap-0"
         tabs_list={homePagetabsMenu}
+        tabItemClass="svgInactive"
         activeTabClass="bg-white"
         inActiveTabClass="hover:bg-white"
         activeTextClass="text-[#253A86]"
         inactiveTextClass="text-white group-hover:text-[#253A86]"
         activeTab={activeMainTab}
+        variant="route"
         onClick={(id) => setActiveMainTab(id)} />
 
       <Tabs
@@ -28,8 +43,9 @@ const Home = () => {
         tabs_list={mobileNavbarLinks}
         activeTabClass="bg-white"
         inActiveTabClass="bg-[#F1F1F1] hover:bg-white"
-        activeTab={activeMainTab1}
-        onClick={(id) => setActiveMainTab1(id)} />
+        activeTab={activeSubTab}
+        onClick={(id) => setActiveSubTab(id)}
+        variant="state" />
 
       <section className="md:px-4 lg:px-0">
         <HeroCard>

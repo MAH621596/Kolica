@@ -1,37 +1,65 @@
 import Logo from "../assets/Logo.svg";
 import { navbarLinks, mobileNavbarLinks } from '@/helper/data';
 import { useState, useEffect } from "react";
+import type { NavbarProps } from "@/components/types";
 import Button from "./Button";
+import { Link, useNavigate } from "react-router-dom";
 
-function Navbar() {
+const Navbar = ({
+  className,
+  // logStatus,
+}: NavbarProps) => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClick = (linkName: string) => {
+    if (linkName === "/post-an-add") {
+      navigate(linkName);
+    //   if (!logStatus) {
+    //     navigate("/login");
+    //   } else {
+    //     navigate("/post-jwqbdq");
+    //   }
+    // } else {
+    //   navigate(linkName);
+    // }
+  }};
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
   }, [open]);
 
   return (
-    <nav className="w-full bg-[#253A86] text-white h-[86px] p-0 flex items-center relative">
+    <nav className={`w-full bg-[#253A86] text-white h-[86px] p-0 flex items-center relative ${className}`}>
       <div className="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0">
 
         {/* Top bar */}
         <div className="flex items-center justify-between w-full">
 
           {/* Logo */}
-          <a target="_self" href="https://kolica-landing-page.web.app">
+          <Link to="https://kolica-landing-page.web.app">
             <img src={Logo} alt="logo" className="w-[104px] h-[38px]" />
-          </a>
+          </Link>
 
           {/* Desktop Links */}
           <div className="hidden md:flex gap-[20px] items-center">
-
             {navbarLinks.map((link, index) => {
               return (
-                <a href={link.href} target="_blank" key={index} className="flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80">
+                <span key={index} onClick={() => handleClick(link.href)} className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80">
                   <img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />
                   {link.link_text}
-                </a>)
+                </span>)
             })}
+
+            {/* {logStatus && <span
+              className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80"
+              onClick={() => {
+                localStorage.setItem("auth", "false");
+                window.location.reload(); // quick reset
+              }}
+            >
+              Logout
+            </span>} */}
           </div>
 
           {/* Hamburger Button (Mobile) */}
@@ -73,14 +101,14 @@ function Navbar() {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-[20px]">
           {mobileNavbarLinks.map((header, index) => {
             return (
-              <a href={header.href} target="_blank" key={index} className="border border-[#C8C8C8] rounded-[10px] bg-white cursor-pointer group">
+              <Link to={header.href} key={index} className="border border-[#C8C8C8] rounded-[10px] bg-white cursor-pointer group">
                 <div className="flex items-center justify-center p-2">
                   <img src={header.icon} alt={header.link_text} className="w-[21px] h-[20px] group-hover:text-gray-500" />
                 </div>
                 <div className="border-t-1 border-[#C8C8C8] bg-[#F1F1F1] rounded-b-[10px] text-center text-black font-normal text-md p-2 group-hover:text-gray-500">
                   {header.link_text}
                 </div>
-              </a>
+              </Link>
             )
           })}
         </div>
@@ -88,9 +116,9 @@ function Navbar() {
         <div className="grid grid-cols-2 gap-[20px] mt-4">
           {navbarLinks.map((link, index) => {
             return (
-              <a href={link.href} target="_blank" key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}`}>
+              <Link to={link.href} key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}`}>
                 <Button text={link.link_text} icon={<img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-xs !text-white h-[41px] cursor-pointer w-full`} />
-              </a>)
+              </Link>)
           })}
         </div>
       </div>

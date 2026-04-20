@@ -6,10 +6,12 @@ import {
     checkboxList_6
 } from '@/helper/data';
 import { Navbar, HeroCard, Button, CustomSelect, Tabs, CustomInput, CustomLabel, Footer, TextArea } from "@/components";
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
 const AdContent = () => {
-    const [activeMainTab, setActiveMainTab] = useState(3);
+    const navigate = useNavigate();
+    const [activeMainTab, setActiveMainTab] = useState<number>(3);
     const [fieldValue1, setFieldValue1] = useState("");
     const [fieldValue2, setFieldValue2] = useState("");
     const [fieldValue3, setFieldValue3] = useState("");
@@ -31,17 +33,19 @@ const AdContent = () => {
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"
                 tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-7 gap-0"
                 tabs_list={sectionTabsMenu}
+                tabItemClass="svgInactive"
                 activeTabClass="bg-white"
                 inActiveTabClass="hover:bg-white"
                 activeTextClass="text-[#253A86]"
                 inactiveTextClass="text-white group-hover:text-[#253A86]"
+                variant="route"
                 activeTab={activeMainTab}
                 onClick={(id) => setActiveMainTab(id)} />
 
             <section className="md:px-4 lg:px-0">
                 <HeroCard parentClass="!bg-[#F9FAFB] !py-[25px] px-[20px] !md:px-[50px]">
                     <div className='flex flex-col lg:flex-row items-start gap-[50px]'>
-                        <div className="w-full lg:w-[40%] bg-white rounded-[20px] px-[20px] py-[40px] text-center md:text-left">
+                        <div className="w-full lg:w-[40%] bg-white rounded-[20px] px-[20px] py-[40px] text-left">
                             <h2 className="font-medium text-black text-xl sm:text-2xl md:text-3xl lg:text-[40px] leading-tight text-black mb-6 lg:mb-[30px]">Ad content:</h2>
                             {adContentLeftPanelData.map((data, index1) => {
                                 return (
@@ -68,7 +72,7 @@ const AdContent = () => {
                             })}
                         </div>
 
-                        <div className="w-full lg:w-[60%] bg-white rounded-[20px] px-[20px] py-[40px] text-center md:text-left">
+                        <div className="w-full lg:w-[60%] bg-white rounded-[20px] px-[20px] py-[40px] text-left">
                             <div className="mb-10 lg:mb-[50px]">
                                 <h1 className='font-medium text-lg md:text-xl lg:text-[30px] text-black mb-6 lg:mb-[30px]'>Basic vehicle information</h1>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-[20px]">
@@ -138,7 +142,7 @@ const AdContent = () => {
                                     })}
                                 </div>
 
-                                <div className='flex gap-[12px] items-center justify-start mt-[24px]'>
+                                <div className='flex flex-col md:flex-row gap-[12px] items-start md:items-center justify-start mt-[24px]'>
                                     {
                                         checkboxList_2.map((checkboxLi, index4) => {
                                             return (
@@ -167,7 +171,7 @@ const AdContent = () => {
 
                             <div className="mb-10 lg:mb-[50px]">
                                 <h1 className='font-medium text-lg md:text-xl lg:text-[30px] text-black mb-6 lg:mb-[30px]'>Offer type</h1>
-                                <div className='flex gap-[12px] items-center justify-start mt-[24px]'>
+                                <div className='flex flex-col md:flex-row gap-[12px] items-start md:items-center justify-start mt-[24px]'>
                                     {
                                         checkboxList_2.map((checkboxLi, index5) => {
                                             return (
@@ -177,12 +181,12 @@ const AdContent = () => {
                                                             id={checkboxLi.label}
                                                             name={checkboxLi.label}
                                                             type="checkbox"
-                                                            className="mt-[40px] lg:mt-0 mb-[12px] text-[14px] p-[14px] text-[#626262]"
+                                                            className="mb-6 lg:mb-[30px] text-[14px] p-[14px] text-[#626262]"
                                                             value="selectric_car"
                                                         />
 
                                                         <CustomLabel
-                                                            className="block mt-[40px] lg:mt-0 mb-[12px] text-[14px] text-[#627084]"
+                                                            className="block mb-6 lg:mb-[30px] text-[14px] text-[#627084]"
                                                             text={checkboxLi.label}
                                                             htmlFor={checkboxLi.label}
                                                         />
@@ -213,7 +217,7 @@ const AdContent = () => {
                                     onChange={(val) => { setFieldValue2(val) }}
                                 />
 
-                                <div className='flex flex-wrap gap-[12px] items-center justify-start my-[24px]'>
+                                <div className='flex flex-col md:flex-row md:flex-wrap gap-[12px] items-start md:items-center justify-start my-[24px]'>
                                     {
                                         checkboxList_3.map((checkboxLi, index6) => {
                                             return (
@@ -223,11 +227,11 @@ const AdContent = () => {
                                                             id={checkboxLi.label}
                                                             name={checkboxLi.label}
                                                             type="checkbox"
-                                                            className="mt-[40px] lg:mt-0 mb-[12px] text-[14px] p-[14px] text-[#626262]"
+                                                            className="mb-6 lg:mb-[30px]  text-[14px] p-[14px] text-[#626262]"
                                                             value="selectric_car"
                                                         />
                                                         <CustomLabel
-                                                            className="block mt-[40px] lg:mt-0 mb-[12px] text-[14px] text-[#627084]"
+                                                            className="block mb-6 lg:mb-[30px]  text-[14px] text-[#627084]"
                                                             text={checkboxLi.label}
                                                             htmlFor={checkboxLi.label}
                                                         />
@@ -609,7 +613,7 @@ const AdContent = () => {
 
                                 <div className='mb-[50px]'>
                                     <h1 className='font-medium text-lg md:text-xl lg:text-[30px] text-black my-6 lg:my-[30px]'>Contact information:</h1>
-                                    <div className="flex items-center justify-center md:justify-start">
+                                    <div className="flex items-center justify-start">
                                         <div>
                                         <svg className="w-[50px] h-[50px] lg:w-[65px] lg:h-[65px]" width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="65" height="65" rx="4" fill="#253A86" />
@@ -632,10 +636,13 @@ const AdContent = () => {
                                     </div>
                                 </div>
 
-                                                                        <div>
-                                            <Button text="Add Photo" icon={<i className="fa fa-image"></i>} className="w-full md:max-w-[385px] flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] cursor-pointer transition-all duration-200 hover:opacity-80" />
-                                            <Button text="Finish editing" className="mt-[20px] w-full md:max-w-[385px] flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] cursor-pointer transition-all duration-200 hover:opacity-80" />
-                                        </div>
+                                <div>
+                                    <Button text="Add Photo" icon={<i className="fa fa-image"></i>} 
+                                     onClick={() => console.log("Add Photos")} className="w-full md:max-w-[385px] flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+                                    <Button text="Finish editing" 
+                                    onClick={() => navigate("/select-photos")}
+                                    className="mt-[20px] w-full md:max-w-[385px] flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+                                </div>
                             </div>
                         </div>
                     </div>

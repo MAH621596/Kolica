@@ -12,6 +12,15 @@ export interface LabelProps {
   className?: string;
 }
 
+export interface NavbarProps {
+  className?: string;
+  logStatus?: boolean;
+}
+
+export interface FAQProps {
+  className?: string;
+}
+
 export interface InputProps {
   id?: string;
   icon?: ReactNode;
@@ -44,8 +53,9 @@ export interface Hero_CardProps {
 }
 
 export interface TabsProps {
+  variant?: "route" | "state";
   tabs_list?: {
-    id?: number;
+    id: number;
     label?: string;
     path?: string;
     icon?: ReactNode | string;

@@ -1,5 +1,6 @@
 import type { Hero_CardProps } from "@/components/types";
 import { Button, CustomInput } from "@/components";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const HeroCard = ({
@@ -70,7 +71,7 @@ const HeroCard = ({
                 <ul className="list-none grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-4">
                   {list?.map((item, index) => (
                     <li>
-                      <a href={`/${item}`} target="_blank" key={index} className="font-normal text-[14px] lg:text-[18px] leading-tight text-black transition-all duration-200 hover:text-[#253A86]">{item}</a>
+                      <Link to={`/${item}`} target="_blank" key={index} className="font-normal text-[14px] lg:text-[18px] leading-tight text-black transition-all duration-200 hover:text-[#253A86]">{item}</Link>
                     </li>
                   ))}
                 </ul>

@@ -22,6 +22,13 @@ body {
   border-radius: 10px;
 }
 
+.homeInActive svg path {
+  fill: #ffffff;
+}
+.svgInactive:hover .homeInActive svg path {
+   fill: #253A86;
+}
+
 @media(max-width: 768px) {
 body {
   background: #FFFFFF;

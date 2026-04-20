@@ -1,10 +1,12 @@
 import { sectionTabsMenu, sectionInnerTabsMenu, selectionDropdownData, checkboxList, InformationParagraph } from '@/helper/data';
 import { Navbar, HeroCard, Button, CustomSelect, Tabs, Faq, CustomInput, CustomLabel, Footer } from "@/components";
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const SectionSelection = () => {
-    const [activeMainTab, setActiveMainTab] = useState(3);
-    const [activeTab, setActiveTab] = useState(-1);
+    const navigate = useNavigate();
+    const [activeMainTab, setActiveMainTab] = useState<number>(3);
+    const [activeTab, setActiveTab] = useState<number>(-1);
     return (
         <div
             style={{
@@ -22,19 +24,21 @@ const SectionSelection = () => {
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"
                 tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-7 gap-0"
                 tabs_list={sectionTabsMenu}
+                tabItemClass="svgInactive"
                 activeTabClass="bg-white"
                 inActiveTabClass="hover:bg-white"
                 activeTextClass="text-[#253A86]"
                 inactiveTextClass="text-white group-hover:text-[#253A86]"
                 activeTab={activeMainTab}
+                variant="route"
                 onClick={(id) => setActiveMainTab(id)} />
 
             <section className="md:px-4 lg:px-0">
-                <HeroCard parentClass="!bg-[#F9FAFB] !py-[25px] px-[20px] !md:px-[50px]">
+                <HeroCard parentClass="!bg-[#F9FAFB] !py-[25px] !px-[30px]">
                     <div>
                         <Tabs
                             className="w-full text-whites h-[42px] p-0 mb-[50px]"
-                            tabContainerClass="w-full max-w-[972px] mx-auto px-0 grid grid-cols-3 lg:grid-cols-6 gap-[15px] lg:gap-[20px]"
+                            tabContainerClass="w-full max-w-[972px] mx-auto px-0 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-[6px] lg:gap-[8px]"
                             tabs_list={sectionInnerTabsMenu}
                             tabItemClass="bg-white rounded-[6px]"
                             tabItemClassInner="text-[11px] font-semibold text-[#253A86]"
@@ -43,6 +47,7 @@ const SectionSelection = () => {
                             activeTextClass="text-white"
                             inactiveTextClass="text-[#253A86] group-hover:text-white"
                             activeTab={activeTab}
+                            variant="state"
                             onClick={(id) => setActiveTab(id)}>
                             {activeTab !== -1 && (
                                 <div className="bg-[#F9FAFB]">
@@ -111,7 +116,7 @@ const SectionSelection = () => {
                                                             />
                                                             <CustomLabel
                                                                 className="text-[18px] block"
-                                                                text="Propellant:"
+                                                                text={checkboxLi.label}
                                                                 htmlFor={checkboxLi.label}
                                                             />
                                                         </div>
@@ -120,7 +125,9 @@ const SectionSelection = () => {
                                             })
                                         }
                                     </div>
-                                    <Button text="Click To Continue" className="w-full lg:w-[385px] flex justify-center mt-[25px] !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[18px] !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+                                    <Button text="Click To Continue" 
+                                    onClick={() => navigate("/ad-content")}
+                                    className="w-full lg:w-[385px] flex justify-center mt-[25px] !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[18px] !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
 
                                     <div className="mt-[50px]">
                                         <h2 className="mb-[30px] text-2xl lg:text-[25px] font-medium text-[#000000] mb-[30px] leading-[30px]">For your information:</h2>
@@ -139,7 +146,7 @@ const SectionSelection = () => {
 
                     {activeTab === -1 && (
                         <div className='h-[340px]'>
-                            <h2 className="text-2xl lg:text-[35px] font-medium text-[#000000] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">Choose a Section</h2>
+                            <h2 className="text-2xl lg:text-[35px] font-medium text-[#000000] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pt-[30px] sm:pt-0">Choose a Section</h2>
                         </div>
                     )}
                 </HeroCard>

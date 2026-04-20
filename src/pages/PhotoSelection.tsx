@@ -1,9 +1,15 @@
 import { sectionTabsMenu, photoSelectionData, photoSelectionCardDataContent } from '@/helper/data';
 import { Navbar, HeroCard, Button, Tabs, Footer, CarCard } from "@/components";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const PhotoSelection = () => {
-    const [activeMainTab, setActiveMainTab] = useState(3);
+    const [activeMainTab, setActiveMainTab] = useState<number>(3);
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }, []);
     // const [activeTab, setActiveTab] = useState(-1);
     return (
         <div
@@ -22,10 +28,12 @@ const PhotoSelection = () => {
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"
                 tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-7 gap-0"
                 tabs_list={sectionTabsMenu}
+                tabItemClass="svgInactive"
                 activeTabClass="bg-white"
                 inActiveTabClass="hover:bg-white"
                 activeTextClass="text-[#253A86]"
                 inactiveTextClass="text-white group-hover:text-[#253A86]"
+                variant="route"
                 activeTab={activeMainTab}
                 onClick={(id) => setActiveMainTab(id)} />
 

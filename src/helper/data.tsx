@@ -15,45 +15,52 @@ export const navbarLinks = [
   {
     icon: Plus,
     link_text: "Post an ad",
-    href: "/add"
+    href: "/post-an-add"
   },
 ];
 
 export const mobileNavbarLinks = [
   {
+    id:1,
     icon: Carr,
     link_text: "Car",
-    href: "/car"
+    // href: "/car"
   },
   {
+    id:2,
     icon: Byke,
     link_text: "Byke",
     href: "/byke"
   },
   {
+    id:3,
     icon: Moto,
     link_text: "Moto",
-    href: "/moto"
+    // href: "/moto"
   },
   {
+    id:4,
     icon: Economic,
     link_text: "Economic",
-    href: "/economic"
+    // href: "/economic"
   },
   {
+    id:5,
     icon: Mechanic,
     link_text: "Mechanization",
-    href: "/mechanic"
+    // href: "/mechanic"
   },
   {
+    id:6,
     icon: FreeTime,
     link_text: "Free time",
-    href: "/FreeTime"
+    // href: "/FreeTime"
   },
   {
+    id:7,
     icon: Parts,
     link_text: "Parts & equipment",
-    href: "/parts"
+    // href: "/parts"
   },
 ];
 
@@ -86,38 +93,38 @@ export const footerLinks = [
 export const homePagetabsMenu = [
   {
     id: 1,
-    icon: <Home_Icon className="w-[20px] h-[20px] fill-white stroke-[#253A86] group-hover:fill-[#253A86] stroke-2" />,
+    icon: <Home_Icon className="w-[20px] h-[20px] group-hover:fill-[#253A86]" />,
     path: "/"
   },
   {
     id: 2,
     label: "Moto",
-    path: "/moto"
+    // path: "/moto"
   },
   {
     id: 3,
     label: "Car",
-    path: "/car"
+    // path: "/car"
   },
   {
     id: 4,
     label: "Economic",
-    path: "/economic"
+    // path: "/economic"
   },
   {
     id: 5,
     label: "Mechanization",
-    path: "/mechanization"
+    // path: "/mechanization"
   },
   {
     id: 6,
     label: "Free time",
-    path: "/freetime"
+    // path: "/freetime"
   },
   {
     id: 7,
     label: "Parts & equipment",
-    path: "/parts_equipment"
+    // path: "/parts_equipment"
   },
 ];
 
@@ -202,33 +209,33 @@ export const photoSelectionCardDataContent = [
 export const sectionTabsMenu = [
   {
     id: 1,
-    icon: <Home_Icon className="w-[20px] h-[20px] fill-white stroke-[#253A86] group-hover:fill-[#253A86] stroke-2" />,
+    icon: <Home_Icon className="w-[20px] h-[20px] group-hover:fill-[#253A86]" />,
     path: "/"
   },
   {
     id: 2,
     label: "My ads",
-    path: "/myads"
+    // path: "/myads"
   },
   {
     id: 3,
     label: "Post a new ad",
-    path: "/postad"
+    // path: "/postad"
   },
   {
     id: 4,
     label: "Parked",
-    path: "/parked"
+    // path: "/parked"
   },
   {
     id: 5,
     label: "Archive",
-    path: "/archive"
+    // path: "/archive"
   },
   {
     id: 6,
     label: "Contact information",
-    path: "/contact"
+    // path: "/contact"
   },
   {
     id: 7,
@@ -241,32 +248,32 @@ export const sectionInnerTabsMenu = [
   {
     id: 1,
     label: "Car",
-    path: "/car"
+    // path: "/ad-selection"
   },
   {
     id: 2,
     label: "Moto",
-    path: "/moto"
+    // path: "/moto"
   },
   {
     id: 3,
     label: "Commercial Vehicles",
-    path: "/vehicles"
+    // path: "/vehicles"
   },
   {
     id: 4,
     label: "Mechanization",
-    path: "/mechanization"
+    // path: "/mechanization"
   },
   {
     id: 5,
     label: "Free Time",
-    path: "/freetime"
+    // path: "/freetime"
   },
   {
     id: 6,
     label: "Parts & equipment",
-    path: "/parts"
+    // path: "/parts"
   },
 ];
 

@@ -1,9 +1,12 @@
 import { HeroCard } from "@/components";
+import type { FAQProps } from "@/components/types";
 
-const Faqs = () => {
+const Faqs = ({
+    className,
+}: FAQProps ) => {
     return (
         <div>
-            <HeroCard parentClass="py-[25px] px-[20px] md:px-[50px]">
+            <HeroCard parentClass={`py-[25px] px-[20px] md:px-[50px] ${className}`}>
                 <div className="mb-[50px]">
                     <h2 className="text-2xl lg:text-[35px] font-medium text-[#000000] mb-[30px]">Quick help with choosing a section</h2>
                     <p className="font-roboto font-normal text-black text-sm lg:text-[18px] leading-[32px]">
