@@ -3,11 +3,13 @@ import type { ButtonProps } from "@/components/types";
 const Button = ({
   text,
   icon,
+  type,
   className,
   onClick,
 }: ButtonProps) => {
   return (
     <button
+      type={type}
       onClick={onClick}
       className={`flex items-center justify-center rounded-[5px] gap-2 px-4 ${className}`}
     >

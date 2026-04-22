@@ -7,23 +7,23 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = ({
   className,
-  // logStatus,
+  logStatus,
 }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = (linkName: string) => {
-    if (linkName === "/post-an-add") {
-      navigate(linkName);
-    //   if (!logStatus) {
-    //     navigate("/login");
-    //   } else {
-    //     navigate("/post-jwqbdq");
-    //   }
-    // } else {
-    //   navigate(linkName);
-    // }
-  }};
+    if (!logStatus) {
+      navigate("/login");
+    } else {
+      navigate("/dashboard");
+    }
+  };
+
+  // const handleLogout = () => {
+  //   localStorage.setItem("auth", "false");
+  //   setLoggedIn(false);
+  // };
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
@@ -51,19 +51,21 @@ const Navbar = ({
                 </span>)
             })}
 
-            {/* {logStatus && <span
+            {logStatus && <span
               className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80"
               onClick={() => {
                 localStorage.setItem("auth", "false");
-                window.location.reload(); // quick reset
+                // window.location.reload();
+                navigate("/");
               }}
             >
               Logout
-            </span>} */}
+            </span>}
           </div>
 
           {/* Hamburger Button (Mobile) */}
           <button
+            type="button"
             className="md:hidden text-3xl cursor-pointer"
             onClick={() => setOpen(!open)}
           >
@@ -101,14 +103,14 @@ const Navbar = ({
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-[20px]">
           {mobileNavbarLinks.map((header, index) => {
             return (
-              <Link to={header.href || "/"} key={index} className="border border-[#C8C8C8] rounded-[10px] bg-white cursor-pointer group">
+              <span onClick={() => handleClick(header.href!)} key={index} className="border border-[#C8C8C8] rounded-[10px] bg-white cursor-pointer group">
                 <div className="flex items-center justify-center p-2">
                   <img src={header.icon} alt={header.link_text} className="w-[21px] h-[20px] group-hover:text-gray-500" />
                 </div>
                 <div className="border-t-1 border-[#C8C8C8] bg-[#F1F1F1] rounded-b-[10px] text-center text-black font-normal text-md p-2 group-hover:text-gray-500">
                   {header.link_text}
                 </div>
-              </Link>
+              </span>
             )
           })}
         </div>
@@ -116,11 +118,22 @@ const Navbar = ({
         <div className="grid grid-cols-2 gap-[20px] mt-4">
           {navbarLinks.map((link, index) => {
             return (
-              <Link to={link.href} key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}`}>
-                <Button text={link.link_text} icon={<img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-xs !text-white h-[41px] cursor-pointer w-full`} />
-              </Link>)
+              <span onClick={() => handleClick(link.href)} key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}`}>
+                <Button type="button" text={link.link_text} icon={<img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-xs !text-white h-[41px] cursor-pointer w-full`} />
+              </span>)
           })}
         </div>
+
+        {logStatus && <span
+          className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80"
+          onClick={() => {
+            localStorage.setItem("auth", "false");
+            // window.location.reload(); 
+            navigate("/");
+          }}
+        >
+          Logout
+        </span>}
       </div>
     </nav>
   );

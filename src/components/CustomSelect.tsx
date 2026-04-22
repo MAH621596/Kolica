@@ -2,20 +2,22 @@ import { useState } from "react";
 import type { CustomSelectProps } from "@/components/types";
 
 const CustomSelect = ({
-  options, className, innerOptionsClass, divider, customArrows
+  options, className, innerOptionsClass, divider, customArrows, name, value, onChange, onBlur
 }: CustomSelectProps) => {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState("Any");
+  // const [selected, setSelected] = useState("Any");
 
   return (
     <div className={`relative w-full`}>
 
       {/* Select Box */}
       <div
+        onBlur={onBlur}
+        tabIndex={0}
         onClick={() => setOpen(!open)}
         className={`flex items-center justify-between text-xs font-normal border-[0.64px] border-[#626262] rounded-md px-4 py-4 cursor-pointer bg-white text-[#626262] h-[41px] ${className}`}
       >
-        <span className="text-gray-700">{selected}</span>
+        <span className="text-gray-700">{value || "Select"}</span>
 
         {customArrows ?
           <>
@@ -37,7 +39,7 @@ const CustomSelect = ({
             <div
               key={index}
               onClick={() => {
-                setSelected(option);
+                onChange?.(option);
                 setOpen(false);
               }}
               className={`px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#626262] font-normal text-xs`}

@@ -1,5 +1,5 @@
 import Home_Icon from "../assets/HomeSvg.svg?react";
-import { Carr, Byke, Moto, Economic, Mechanic, FreeTime, Parts, Saved, Profile, Plus, SampleImage } from "@/components";
+import { Carr, Byke, Moto, Economic, Mechanic, FreeTime, Parts, Saved, Profile, Plus, SampleImage, Google, Apple, User, Password, } from "@/components";
 
 export const navbarLinks = [
   {
@@ -1236,5 +1236,87 @@ export const vehicalData = [
         label: "sliding door"
       },
     ]
+  },
+];
+
+export const loginButtons = [
+  {
+    icon: Google,
+    link_text: "Sign in with Google",
+  },
+  {
+    icon: Apple,
+    link_text: "Sign in with Apple",
+  },
+];
+
+export const loginFields = [
+  {
+    id: "Email",
+    icon: User,
+    type: "text",
+    input_label: "Email",
+    placeholder:"example15@gmail.com"
+  },
+  {
+    id: "Password",
+    icon: Password,
+    type: "password",
+    input_label: "Password",
+    placeholder:"***************"
+  },
+];
+
+export const registerFields = [
+  {
+    id: "Username",
+    icon: User,
+    type: "text",
+    input_label: "Username",
+    placeholder:"Micheal Williamson"
+  },
+  {
+    id: "Email",
+    icon: User,
+    type: "text",
+    input_label: "Email",
+    placeholder:"example15@gmail.com"
+  },
+  {
+    id: "Password",
+    icon: Password,
+    type: "password",
+    input_label: "Password",
+    placeholder:"***************"
+  },
+];
+
+export const registerButtons = [
+  {
+    icon: Google,
+    link_text: "Sign up with Google",
+  },
+  {
+    icon: Apple,
+    link_text: "Sign up with Apple",
+  },
+];
+
+export const registerationPoints = [
+  {
+    id: 1,
+    point: "if you want to POST an ad as an INDIVIDUAL (*)"
+  },
+  {
+    id: 2,
+    point: "if you are a MERCHANT and want to POST MORE ADS (*)"
+  },
+  {
+    id: 3,
+    point: "when you want to save your FAVORITE search criteria"
+  },
+  {
+    id: 4,
+    point: "when you want to PARK your favorite ads"
   },
 ];

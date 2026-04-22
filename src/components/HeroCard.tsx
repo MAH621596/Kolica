@@ -34,6 +34,7 @@ const HeroCard = ({
 
           <div className="flex justify-center lg:justify-start">
             <Button
+              type="button"
               text={buttonText}
               className="!bg-[#B1222C] font-medium text-lg md:text-xl lg:text-[30px] border-[#B1222C] !text-white w-[180px] md:w-[220px] lg:w-[250px] h-[50px] md:h-[60px]"
             />
@@ -48,6 +49,7 @@ const HeroCard = ({
             className="w-full object-contain max-w-[680px] lg:max-w-full lg:min-w-[620px] lg:ml-[118px]"
           />
           <Button
+            type="button"
             text={smallbuttonText}
             className="absolute bottom-[60px] md:right-[130px] lg:bottom-[50px] lg:right-[10px] !bg-[#B1222C] font-bold text-[10px] lg:text-[14px] border-[#B1222C] p-0 !text-white w-[167px] h-[30px]"
           />
@@ -85,7 +87,7 @@ const HeroCard = ({
                   className="w-full border-0 h-[42px] pl-3 text-black placeholder:text-black"
                   placeholder="See an overview of all brands from A to Z"
                   value={inpValue}
-                  onChange={(val) => { setInpValue(val)}}
+                  onChange={(val) => { setInpValue(val as string)}}
                   />
               </div>
             </div>

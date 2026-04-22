@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
+  type: "button" | "submit";
   icon?: ReactNode;
   className?: string;
 }
@@ -25,12 +26,13 @@ export interface InputProps {
   id?: string;
   icon?: ReactNode;
   name?: string;
-  type: "text" | "checkbox";
+  type: "text" | "checkbox" | "password";
   value?: string;
   checked?: boolean;
   placeholder?: string;
   className?: string;
   onChange?: (value: string | boolean) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 export interface CheckBoxProps {
@@ -92,11 +94,14 @@ export interface TabsProps {
 
 export interface CustomSelectProps {
   options?: string[];
+  name?: string | number;
+  value?: string;
   className?: string;
   innerOptionsClass?: string;
   divider?: boolean;
   customArrows?: React.ReactNode;
-   onChange?: (value: string) => void;
+  onBlur?: () => void;
+  onChange?: (value: string) => void;
 };
 
 export interface Car_CardProps {
@@ -109,3 +114,14 @@ export interface Car_CardProps {
   imageSizeClass?: string;
   footerbutton?: boolean;
 }
+
+export type LoginFieldsProps = {
+  Email: string;
+  Password: string;
+};
+
+export type RegisterFieldsProps = {
+  Username: string;
+  Email: string;
+  Password: string;
+};

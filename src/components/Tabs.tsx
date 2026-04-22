@@ -43,7 +43,7 @@ const Tabs = ({
               >
                 {variant === "route" ?
                   <Link
-                    to={tab.path || "/"}
+                    to={tab.path || "#"}
                     className={`flex items-center justify-center gap-2 font-semibold text-[10px] xxl:text-[14px] capitalize transition-all duration-200
                   ${tabItemClassInner}
                   ${isActive ? activeTextClass : inactiveTextClass}`}
@@ -53,7 +53,7 @@ const Tabs = ({
                         {typeof tab.icon === "string" ? (
                           <img src={tab.icon} alt={tab.icon} />
                         ) : (
-                          <span className={`${location.pathname === "/" ? "homeActive" : "homeInActive"}`}>{tab.icon}</span>
+                          <span className={`${location.pathname === "#" ? "homeActive" : "homeInActive"}`}>{tab.icon}</span>
                         )}
                       </span>
                     )}
@@ -69,7 +69,7 @@ const Tabs = ({
                         {typeof tab.icon === "string" ? (
                           <img src={tab.icon} alt={tab.icon} />
                         ) : (
-                          <span className={`${location.pathname === "/" ? "homeActive" : "homeInActive"}`}>{tab.icon}</span>
+                          <span className={`${location.pathname === "#" ? "homeActive" : "homeInActive"}`}>{tab.icon}</span>
                         )}
                       </span>
                     )}

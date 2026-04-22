@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { CheckBoxProps } from "@/components/types";
 import { CheckboxIcon, CustomInput, CustomLabel } from "@/components";
 

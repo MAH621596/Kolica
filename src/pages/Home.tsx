@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { HeroCardData, dropdownData, homePagetabsMenu, mobileNavbarLinks } from '@/helper/data';
-import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect,CustomCheckbox, CheckboxIcon, Car, Car1, Car2, Car3, SeeMore, Sorting, CustomInput, CustomLabel, Footer } from "@/components";
+import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect,CustomCheckbox, Car, Car1, Car2, Car3, SeeMore, Sorting, CustomInput, CustomLabel, Footer } from "@/components";
 const Home = () => {
+  const [values, setValues] = useState<Record<string, string>>({});
   const [search, setSearch] = useState("");
   const [activeMainTab, setActiveMainTab] = useState<number>(1);
   const [activeSubTab, setActiveSubTab] = useState<number>(-1);
@@ -60,7 +61,7 @@ const Home = () => {
                 id="filter"
                 name="filter"
                 type="text"
-                className="h-[42px] w-full border-[0.64px] border-[#626262] py-[11px] pl-[50px] pr-[65px] leading-[20px] text-[10px] md:text-[12px] "
+                className="h-[42px] w-full border-[0.64px] border-[#626262] py-[11px] pl-[50px] pr-[65px] leading-[20px] text-[10px] md:text-[12px]"
                 placeholder="Advanced search with additional filters"
                 value={search}
                 onChange={(val) => { setSearch (val as string) }}
@@ -76,22 +77,31 @@ const Home = () => {
         <HeroCard>
           <div>
             <h2 className="text-2xl font-semibold text-[#000000] mb-[30px] text-center md:text-start px-4">Quick search for passenger vehicles</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[20px] justify-center items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[20px]">
               {dropdownData.map((dropdown) => {
                 return (
                   <>
                     <div>
                       <CustomLabel
-                        className="block mt-[40px] mb-[10px] lg:mt-0 mb-[12px] text-[12px] text-[#627084]"
+                        className="block mt-[40px] mb-[6px] lg:mt-0 sm:mb-[12px] text-[12px] text-[#627084] min-h-[35px] sm:min-h-[16px]"
                         text={dropdown.label}
                       />
-                      <CustomSelect key={dropdown.id} options={dropdown.options} divider={true} />
+                      <CustomSelect 
+                        key={dropdown.id} 
+                        value={values[dropdown.id] || ""}
+                        onChange={(val) =>
+                          setValues((prev) => ({
+                            ...prev,
+                            [dropdown.id]: val,
+                          }))
+                        }
+                        options={dropdown.options} divider={true} />
                     </div>
                   </>
                 )
               })}
 
-              <Button text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="hidden md:flex justify-start mt-[25px] !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+              <Button type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="hidden md:flex justify-start mt-[25px] !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
             </div>
 
             <div className="mt-[30px] gap-[30px] flex flex-col md:flex-row items-start md:items-center justify-between">
@@ -106,7 +116,7 @@ const Home = () => {
                   custom_label_text="Only electric car"
               />
 
-              <Button text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="block md:hidden w-full justify-start !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+              <Button type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="block md:hidden w-full justify-start !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
 
               <div className="flex gap-[24px] items-center justify-center">
                 <div className="flex gap-[12px] items-center justify-center cursor-pointer group">

@@ -16,6 +16,8 @@ const AdContent = () => {
     const [fieldValue2, setFieldValue2] = useState<string>("");
     const [fieldValue3, setFieldValue3] = useState<string>("");
     const [fieldValue4, setFieldValue4] = useState<string>("");
+
+      const [values, setValues] = useState<Record<string, string>>({});
     
     return (
         <div
@@ -91,6 +93,13 @@ const AdContent = () => {
                                                         key={dropdown.id}
                                                         options={dropdown.options}
                                                         divider={true}
+                                                        value={values[dropdown.id] || ""}
+                                                        onChange={(val) =>
+                                                            setValues((prev) => ({
+                                                                ...prev,
+                                                                [dropdown.id]: val,
+                                                            }))
+                                                        }
                                                         className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                         innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                     />
@@ -131,6 +140,13 @@ const AdContent = () => {
                                                         key={dropdown.id}
                                                         options={dropdown.options}
                                                         divider={true}
+                                                                                value={values[dropdown.id] || ""}
+                        onChange={(val) =>
+                          setValues((prev) => ({
+                            ...prev,
+                            [dropdown.id]: val,
+                          }))
+                        }
                                                         className="w-full lg:w-1/2 !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                         innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                     />
@@ -320,6 +336,13 @@ const AdContent = () => {
                                                                 key={`${dropdown.id}-${i}`}
                                                                 options={dropdown.options}
                                                                 divider={true}
+                                                                value={values[dropdown.id] || ""}
+                                                                onChange={(val) =>
+                                                                    setValues((prev) => ({
+                                                                        ...prev,
+                                                                        [dropdown.id]: val,
+                                                                    }))
+                                                                }
                                                                 className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                                 innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                             />
@@ -342,6 +365,13 @@ const AdContent = () => {
                                                                     key={dropdown.id}
                                                                     options={dropdown.options}
                                                                     divider={true}
+                                                                        value={values[dropdown.id] || ""}
+                                                                        onChange={(val) =>
+                                                                            setValues((prev) => ({
+                                                                                ...prev,
+                                                                                [dropdown.id]: val,
+                                                                            }))
+                                                                        }
                                                                     className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                                     innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                                 />
@@ -420,6 +450,13 @@ const AdContent = () => {
                                                             key={`${dropdown.id}-${i}`}
                                                             options={dropdown.options}
                                                             divider={true}
+                                                            value={values[dropdown.id] || ""}
+                                                            onChange={(val) =>
+                                                                setValues((prev) => ({
+                                                                    ...prev,
+                                                                    [dropdown.id]: val,
+                                                                }))
+                                                            }
                                                             className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                             innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                         />
@@ -442,6 +479,13 @@ const AdContent = () => {
                                                                 key={dropdown.id}
                                                                 options={dropdown.options}
                                                                 divider={true}
+                                                                    value={values[dropdown.id] || ""}
+                                                                    onChange={(val) =>
+                                                                        setValues((prev) => ({
+                                                                            ...prev,
+                                                                            [dropdown.id]: val,
+                                                                        }))
+                                                                    }
                                                                 className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                                 innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                             />
@@ -473,6 +517,13 @@ const AdContent = () => {
                                                             key={`${dropdown.id}-${i}`}
                                                             options={dropdown.options}
                                                             divider={true}
+                                                            value={values[dropdown.id] || ""}
+                                                            onChange={(val) =>
+                                                                setValues((prev) => ({
+                                                                    ...prev,
+                                                                    [dropdown.id]: val,
+                                                                }))
+                                                            }
                                                             className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                             innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                         />
@@ -495,6 +546,13 @@ const AdContent = () => {
                                                                 key={dropdown.id}
                                                                 options={dropdown.options}
                                                                 divider={true}
+                                                                    value={values[dropdown.id] || ""}
+                                                                    onChange={(val) =>
+                                                                        setValues((prev) => ({
+                                                                            ...prev,
+                                                                            [dropdown.id]: val,
+                                                                        }))
+                                                                    }
                                                                 className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                                 innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                             />
@@ -561,7 +619,7 @@ const AdContent = () => {
                                     <h3 className="block mt-[40px] lg:mt-0 mb-[12px] text-[15px] text-[#627084">Notes</h3>
                                     <TextArea placeholder='Type here...' className='w-full h-[262px]'  
                                     value={fieldValue4}
-                                    onChange={(val) => { setFieldValue4(val) }} />
+                                    onChange={(val) => { setFieldValue4(val as string) }} />
                                     <p className="mb-[12px] text-[#627084] my-[24px] text-[16px] text-[#627084] leading-[27px]">
                                         The field for entering notes allows for a maximum of 4000 characters (or 8000 characters if you purchase the RICH TEXT option).
                                     </p>
@@ -612,9 +670,9 @@ const AdContent = () => {
                                 </div>
 
                                 <div>
-                                    <Button text="Add Photo" icon={<i className="fa fa-image"></i>} 
+                                    <Button type="button" text="Add Photo" icon={<i className="fa fa-image"></i>} 
                                      onClick={() => console.log("Add Photos")} className="w-full md:max-w-[385px] flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] cursor-pointer transition-all duration-200 hover:opacity-80" />
-                                    <Button text="Finish editing" 
+                                    <Button type="button" text="Finish editing" 
                                     onClick={() => navigate("/select-photos")}
                                     className="mt-[20px] w-full md:max-w-[385px] flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] cursor-pointer transition-all duration-200 hover:opacity-80" />
                                 </div>
