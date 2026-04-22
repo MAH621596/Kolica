@@ -210,7 +210,7 @@ export const sectionTabsMenu = [
   {
     id: 1,
     icon: <Home_Icon className="w-[20px] h-[20px] group-hover:fill-[#253A86]" />,
-    path: "/"
+    path: "/dashboard"
   },
   {
     id: 2,
@@ -240,7 +240,7 @@ export const sectionTabsMenu = [
   {
     id: 7,
     label: "back to Kolica",
-    path: "/"
+    path: "/dashboard"
   },
 ];
 

@@ -14,10 +14,11 @@ const Navbar = ({
   const navigate = useNavigate();
 
   const handleClick = (linkName: string) => {
+    console.log("link name ?", linkName)
     if (!logStatus || linkName === "/login") {
       navigate("/login");
     } else {
-      navigate("/dashboard");
+      navigate(linkName);
     }
   };
 
