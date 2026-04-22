@@ -100,7 +100,7 @@ export interface CustomSelectProps {
   innerOptionsClass?: string;
   divider?: boolean;
   customArrows?: React.ReactNode;
-  onBlur?: () => void;
+  onBlur?: (name?: string) => void;
   onChange?: (value: string) => void;
 };
 

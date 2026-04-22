@@ -130,10 +130,12 @@ const SectionSelection = () => {
                                                                                 value={formik.values[fieldName] || ""}
                                                                                 onChange={(value) =>
                                                                                     formik.setFieldValue(fieldName, value)
-                                                                                }
-                                                                                onBlur={() =>
-                                                                                    formik.setFieldTouched(fieldName, true)
-                                                                                }
+                                                                                }                                                                                
+                                                                                onBlur={(fieldName) => {
+                                                                                    if (fieldName) {
+                                                                                        formik.setFieldTouched(fieldName, true);
+                                                                                    }
+                                                                                }} 
                                                                                 customArrows={<svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                                     <path d="M0.40625 0.40625L5.40625 5.40625L10.4062 0.40625" stroke="#94A3B3" stroke-width="0.8125" stroke-linecap="round" stroke-linejoin="round" />
                                                                                 </svg>
@@ -161,9 +163,11 @@ const SectionSelection = () => {
                                                                     onChange={(value) =>
                                                                         formik.setFieldValue(baseField, value)
                                                                     }
-                                                                    onBlur={() =>
-                                                                        formik.setFieldTouched(baseField, true)
-                                                                    }
+                                                                    onBlur={(baseField) => {
+                                                                        if (baseField) {
+                                                                            formik.setFieldTouched(baseField, true);
+                                                                        }
+                                                                    }}                                                                  
                                                                     customArrows={<svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path d="M0.40625 0.40625L5.40625 5.40625L10.4062 0.40625" stroke="#94A3B3" stroke-width="0.8125" stroke-linecap="round" stroke-linejoin="round" />
                                                                     </svg>

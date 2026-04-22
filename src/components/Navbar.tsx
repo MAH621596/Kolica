@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import type { NavbarProps } from "@/components/types";
 import Button from "./Button";
 import { Link, useNavigate } from "react-router-dom";
+import { Profile } from "@/components";
 
 const Navbar = ({
   className,
@@ -13,7 +14,7 @@ const Navbar = ({
   const navigate = useNavigate();
 
   const handleClick = (linkName: string) => {
-    if (!logStatus) {
+    if (!logStatus || linkName === "/login") {
       navigate("/login");
     } else {
       navigate("/dashboard");
@@ -45,13 +46,14 @@ const Navbar = ({
           <div className="hidden md:flex gap-[20px] items-center">
             {navbarLinks.map((link, index) => {
               return (
-                <span key={index} onClick={() => handleClick(link.href)} className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80">
+                <span key={index} onClick={() => handleClick(link.href)} className={`cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.href == "/login" && logStatus ? "hidden" : "block"}`}>
                   <img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />
                   {link.link_text}
                 </span>)
             })}
 
-            {logStatus && <span
+            {logStatus && 
+            <span
               className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80"
               onClick={() => {
                 localStorage.setItem("auth", "false");
@@ -59,6 +61,7 @@ const Navbar = ({
                 navigate("/");
               }}
             >
+              <img src={Profile} alt={Profile} className="w-[21px] h-[20px]" />
               Logout
             </span>}
           </div>
@@ -118,22 +121,22 @@ const Navbar = ({
         <div className="grid grid-cols-2 gap-[20px] mt-4">
           {navbarLinks.map((link, index) => {
             return (
-              <span onClick={() => handleClick(link.href)} key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}`}>
+              <span onClick={() => handleClick(link.href)} key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}  ${link.href == "/login" && logStatus ? "hidden" : "block"}`}>
                 <Button type="button" text={link.link_text} icon={<img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-xs !text-white h-[41px] cursor-pointer w-full`} />
               </span>)
           })}
-        </div>
 
         {logStatus && <span
-          className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80"
+          className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 col-span-1`}
           onClick={() => {
             localStorage.setItem("auth", "false");
             // window.location.reload(); 
             navigate("/");
           }}
         >
-          Logout
+           <Button type="button" text="Logout" icon={<img src={Profile} alt={Profile} className="w-[21px] h-[20px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-xs !text-white h-[41px] cursor-pointer w-full`} />
         </span>}
+      </div>
       </div>
     </nav>
   );

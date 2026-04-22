@@ -140,13 +140,13 @@ const AdContent = () => {
                                                         key={dropdown.id}
                                                         options={dropdown.options}
                                                         divider={true}
-                                                                                value={values[dropdown.id] || ""}
-                        onChange={(val) =>
-                          setValues((prev) => ({
-                            ...prev,
-                            [dropdown.id]: val,
-                          }))
-                        }
+                                                        value={values[dropdown.id] || ""}
+                                                        onChange={(val) =>
+                                                            setValues((prev) => ({
+                                                                ...prev,
+                                                                [dropdown.id]: val,
+                                                            }))
+                                                        }
                                                         className="w-full lg:w-1/2 !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                         innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                     />
@@ -365,13 +365,13 @@ const AdContent = () => {
                                                                     key={dropdown.id}
                                                                     options={dropdown.options}
                                                                     divider={true}
-                                                                        value={values[dropdown.id] || ""}
-                                                                        onChange={(val) =>
-                                                                            setValues((prev) => ({
-                                                                                ...prev,
-                                                                                [dropdown.id]: val,
-                                                                            }))
-                                                                        }
+                                                                    value={values[dropdown.id] || ""}
+                                                                    onChange={(val) =>
+                                                                        setValues((prev) => ({
+                                                                            ...prev,
+                                                                            [dropdown.id]: val,
+                                                                        }))
+                                                                    }
                                                                     className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                                     innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                                 />
@@ -479,13 +479,13 @@ const AdContent = () => {
                                                                 key={dropdown.id}
                                                                 options={dropdown.options}
                                                                 divider={true}
-                                                                    value={values[dropdown.id] || ""}
-                                                                    onChange={(val) =>
-                                                                        setValues((prev) => ({
-                                                                            ...prev,
-                                                                            [dropdown.id]: val,
-                                                                        }))
-                                                                    }
+                                                                value={values[dropdown.id] || ""}
+                                                                onChange={(val) =>
+                                                                    setValues((prev) => ({
+                                                                        ...prev,
+                                                                        [dropdown.id]: val,
+                                                                    }))
+                                                                }
                                                                 className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                                 innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                             />
@@ -519,10 +519,10 @@ const AdContent = () => {
                                                             divider={true}
                                                             value={values[dropdown.id] || ""}
                                                             onChange={(val) =>
-                                                                setValues((prev) => ({
-                                                                    ...prev,
-                                                                    [dropdown.id]: val,
-                                                                }))
+                                                            setValues((prev) => ({
+                                                                ...prev,
+                                                                [dropdown.id]: val,
+                                                            }))
                                                             }
                                                             className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                             innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
@@ -546,13 +546,13 @@ const AdContent = () => {
                                                                 key={dropdown.id}
                                                                 options={dropdown.options}
                                                                 divider={true}
-                                                                    value={values[dropdown.id] || ""}
-                                                                    onChange={(val) =>
-                                                                        setValues((prev) => ({
-                                                                            ...prev,
-                                                                            [dropdown.id]: val,
-                                                                        }))
-                                                                    }
+                                                                value={values[dropdown.id] || ""}
+                                                                onChange={(val) =>
+                                                                    setValues((prev) => ({
+                                                                        ...prev,
+                                                                        [dropdown.id]: val,
+                                                                    }))
+                                                                }
                                                                 className="w-full !bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                                 innerOptionsClass="!bg-[#F9FAFB] rounded-[9px] text-[#94A3B3]"
                                                             />

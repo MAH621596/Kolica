@@ -10,7 +10,7 @@ export const navbarLinks = [
   {
     icon: Profile,
     link_text: "Log in",
-    href: "/profile"
+    href: "/login"
   },
   {
     icon: Plus,

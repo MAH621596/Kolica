@@ -12,7 +12,7 @@ const CustomSelect = ({
 
       {/* Select Box */}
       <div
-        onBlur={onBlur}
+        onBlur={() => onBlur?.(String(name))}
         tabIndex={0}
         onClick={() => setOpen(!open)}
         className={`flex items-center justify-between text-xs font-normal border-[0.64px] border-[#626262] rounded-md px-4 py-4 cursor-pointer bg-white text-[#626262] h-[41px] ${className}`}
