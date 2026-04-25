@@ -1,10 +1,10 @@
-import Logo from "../assets/Logo.svg";
-import { navbarLinks, mobileNavbarLinks } from '@/helper/data';
+import { Logo } from "@/assets";
+import { Button } from "@/components";
 import { useState, useEffect } from "react";
-import type { NavbarProps } from "@/components/types";
-import Button from "./Button";
 import { Link, useNavigate } from "react-router-dom";
-import { Profile } from "@/components";
+import type { NavbarProps } from "@/components/types";
+import { navbarLinks, mobileNavbarLinks } from '@/helper/data';
+// import { Profile } from "@/assets";
 
 const Navbar = ({
   className,
@@ -14,13 +14,17 @@ const Navbar = ({
   const navigate = useNavigate();
 
   const handleClick = (linkName: string) => {
-    console.log("link name ?", linkName)
-    if (!logStatus || linkName === "/login") {
-      navigate("/login");
-    } else {
-      navigate(linkName);
-    }
+    navigate(linkName);
   };
+
+  // const handleClick = (linkName: string) => {
+  //   console.log("link name ?", linkName)
+  //   if (!logStatus || linkName === "/login") {
+  //     navigate("/login");
+  //   } else {
+  //     navigate(linkName);
+  //   }
+  // };
 
   // const handleLogout = () => {
   //   localStorage.setItem("auth", "false");
@@ -47,30 +51,30 @@ const Navbar = ({
           <div className="hidden md:flex gap-[20px] items-center">
             {navbarLinks.map((link, index) => {
               return (
-                <span key={index} onClick={() => handleClick(link.href)} className={`cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.href == "/login" && logStatus ? "hidden" : "block"}`}>
-                  <img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />
+                <span key={index} onClick={() => handleClick(link.href)} className={`cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80 ${link.href == "/login!" && logStatus ? "hidden" : "block"}`}>
+                  <img src={link.icon} alt="img" className="w-[15px] h-[17px]" />
                   {link.link_text}
                 </span>)
             })}
 
-            {logStatus && 
+            {/* {logStatus && 
             <span
-              className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80"
+              className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80"
               onClick={() => {
                 localStorage.setItem("auth", "false");
                 // window.location.reload();
                 navigate("/");
               }}
             >
-              <img src={Profile} alt={Profile} className="w-[21px] h-[20px]" />
+              <img src={Profile} alt="img" className="w-[15px] h-[17px]" />
               Logout
-            </span>}
+            </span>} */}
           </div>
 
           {/* Hamburger Button (Mobile) */}
           <button
             type="button"
-            className="md:hidden text-3xl cursor-pointer"
+            className="md:hidden text-3xl cursor-pointer hover:scale-110"
             onClick={() => setOpen(!open)}
           >
             <div className="relative w-8 h-8 flex items-center justify-center">
@@ -109,9 +113,9 @@ const Navbar = ({
             return (
               <span onClick={() => handleClick(header.href!)} key={index} className="border border-[#C8C8C8] rounded-[10px] bg-white cursor-pointer group">
                 <div className="flex items-center justify-center p-2">
-                  <img src={header.icon} alt={header.link_text} className="w-[21px] h-[20px] group-hover:text-gray-500" />
+                  <img src={header.icon} alt="img" className="w-[15px] h-[17px] group-hover:text-gray-500" />
                 </div>
-                <div className="border-t-1 border-[#C8C8C8] bg-[#F1F1F1] rounded-b-[10px] text-center text-black font-normal text-md p-2 group-hover:text-gray-500">
+                <div className="border-t-1 border-[#C8C8C8] bg-[#F1F1F1] rounded-b-[10px] text-center text-black font-normal text-sm p-2 group-hover:text-gray-500">
                   {header.link_text}
                 </div>
               </span>
@@ -122,21 +126,21 @@ const Navbar = ({
         <div className="grid grid-cols-2 gap-[20px] mt-4">
           {navbarLinks.map((link, index) => {
             return (
-              <span onClick={() => handleClick(link.href)} key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}  ${link.href == "/login" && logStatus ? "hidden" : "block"}`}>
-                <Button type="button" text={link.link_text} icon={<img src={link.icon} alt={link.icon} className="w-[21px] h-[20px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-xs !text-white h-[41px] cursor-pointer w-full`} />
+              <span onClick={() => handleClick(link.href)} key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}  ${link.href == "/login!" && logStatus ? "hidden" : "block"}`}>
+                <Button type="button" text={link.link_text} icon={<img src={link.icon} alt="img" className="w-[15px] h-[17px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-sm !text-white h-[41px] hover:scale-110 w-full`} />
               </span>)
           })}
 
-        {logStatus && <span
-          className={`flex items-center justify-start gap-[10px] font-semibold text-lg leading-[22px] transition-all duration-200 hover:opacity-80 col-span-1`}
+        {/* {logStatus && <span
+          className={`flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80 col-span-1`}
           onClick={() => {
             localStorage.setItem("auth", "false");
             // window.location.reload(); 
             navigate("/");
           }}
         >
-           <Button type="button" text="Logout" icon={<img src={Profile} alt={Profile} className="w-[21px] h-[20px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-xs !text-white h-[41px] cursor-pointer w-full`} />
-        </span>}
+           <Button type="button" text="Logout" icon={<img src={Profile} alt="img" className="hover:scale-110 w-[15px] h-[17px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-sm !text-white h-[41px] cursor-pointer w-full`} />
+        </span>} */}
       </div>
       </div>
     </nav>

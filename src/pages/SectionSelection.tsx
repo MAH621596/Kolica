@@ -1,58 +1,77 @@
-import { sectionTabsMenu, sectionInnerTabsMenu, selectionDropdownData, checkboxList, InformationParagraph } from '@/helper/data';
-import { Navbar, HeroCard, Button, CustomSelect, Tabs, Faq, CustomLabel, CustomCheckbox, Footer } from "@/components";
-import { useNavigate } from "react-router-dom";
+import * as Yup from "yup";
 import { useState } from 'react';
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
+import { Navbar, HeroCard, Button, CustomSelect, Tabs, Faq, CustomLabel, CustomCheckbox, Footer } from "@/components";
+import { sectionTabsMenu, sectionInnerTabsMenu, selectionDropdownData, checkboxList, InformationParagraph } from '@/helper/data';
 
 const fieldMap: Record<number, string> = {
-  1: "Brand",
-  2: "Model",
-  3: "Body_Shape",
-  4: "Year_Month",
+    1: "Brand",
+    2: "Model",
+    3: "Body_Shape",
+    4: "Year_Month",
 };
 
 const SectionSelection = () => {
     const navigate = useNavigate();
-    
+
     const [activeMainTab, setActiveMainTab] = useState<number>(3);
     const [activeTab, setActiveTab] = useState<number>(-1);
 
-// FIXED VALIDATION (must match initialValues keys)
-  const validationSchema = Yup.object().shape({
-    Brand: Yup.string().required("Brand Name is Required."),
-    Model: Yup.string().required("Model Name is Required."),
-    Body_Shape: Yup.string().required("Body Shape is Required."),
-    Year_Month: Yup.string().required("Year & Month is Required."),
-  });
+    // FIXED VALIDATION (must match initialValues keys)
+    const validationSchema = Yup.object().shape({
+        Brand: Yup.string().required("Brand Name is Required."),
+        Model: Yup.string().required("Model Name is Required."),
+        Body_Shape: Yup.string().required("Body Shape is Required."),
+        Year_Month: Yup.string().required("Year & Month is Required."),
+        fuelType: Yup.array()
+            .min(1, "Minimum 1 fuel type is required.")
+            .max(1, "Maximum 1 fuel type is required.")
+            .required("Fuel Type is required."),
+    });
 
-  type FormValues = {
-  Brand: string;
-  Model: string;
-  Body_Shape: string;
-  Year_Month: string;
-  [key: string]: any;
-};
+    type FormValues = {
+        Brand: string;
+        Model: string;
+        Body_Shape: string;
+        Year_Month: string;
+        fuelType: string[],
+        [key: string]: any;
+    };
 
-  // FIXED INITIAL VALUES (MAIN ISSUE FIXED)
-  const formik = useFormik<FormValues>({
-    initialValues: {
-      Brand: "",
-      Model: "",
-      Body_Shape: "",
-      Year_Month: "",
-    },
+    const initialFuel = checkboxList
+        .filter((item) => item.check)
+        .map((item) => item.label);
 
-    validationSchema,
+    // FIXED INITIAL VALUES (MAIN ISSUE FIXED)
+    const formik = useFormik<FormValues>({
+        initialValues: {
+            Brand: "",
+            Model: "",
+            Body_Shape: "",
+            Year_Month: "",
+            fuelType: initialFuel,
+        },
 
-    onSubmit: (values, { resetForm }) => {
-      console.log("onsubmit values", values);
+        validationSchema,
 
-      resetForm();
+        onSubmit: (values, { resetForm }) => {
+            console.log("onsubmit values", values);
 
-      navigate("/ad-content");
-    },
-  });
+            resetForm();
+
+            navigate("/ad-content");
+        },
+    });
+
+    const handleCheckboxChange = (value: string) => {
+        formik.setFieldValue("fuelType", [value]);
+        formik.setFieldTouched("fuelType", true);
+    };
+
+    const handleBlur = () => {
+        formik.setFieldTouched("fuelType", true);
+    };
 
     // const values = formik.values as Record<string, any>;
     const errors = formik.errors as Record<string, any>;
@@ -130,12 +149,12 @@ const SectionSelection = () => {
                                                                                 value={formik.values[fieldName] || ""}
                                                                                 onChange={(value) =>
                                                                                     formik.setFieldValue(fieldName, value)
-                                                                                }                                                                                
+                                                                                }
                                                                                 onBlur={(fieldName) => {
                                                                                     if (fieldName) {
                                                                                         formik.setFieldTouched(fieldName, true);
                                                                                     }
-                                                                                }} 
+                                                                                }}
                                                                                 customArrows={<svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                                     <path d="M0.40625 0.40625L5.40625 5.40625L10.4062 0.40625" stroke="#94A3B3" stroke-width="0.8125" stroke-linecap="round" stroke-linejoin="round" />
                                                                                 </svg>
@@ -167,7 +186,7 @@ const SectionSelection = () => {
                                                                         if (baseField) {
                                                                             formik.setFieldTouched(baseField, true);
                                                                         }
-                                                                    }}                                                                  
+                                                                    }}
                                                                     customArrows={<svg width="11" height="6" viewBox="0 0 11 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path d="M0.40625 0.40625L5.40625 5.40625L10.4062 0.40625" stroke="#94A3B3" stroke-width="0.8125" stroke-linecap="round" stroke-linejoin="round" />
                                                                     </svg>
@@ -191,15 +210,19 @@ const SectionSelection = () => {
                                             className="mt-[24px] mb-[20px] block"
                                             text="Propellant:"
                                         />
-                                        <div className='flex flex-wrap items-center justify-start gap-[20px] mb-[50px]'>
+                                        <div className='flex flex-wrap items-center justify-start gap-[20px] mb-[50px] relative'>
                                             {
                                                 checkboxList.map((checkboxLi) => {
                                                     return (
                                                         <>
                                                             <CustomCheckbox
+                                                                key={checkboxLi.id}
                                                                 id={checkboxLi.label}
                                                                 name={checkboxLi.label}
-                                                                value={checkboxLi.label}
+                                                                value={formik.values[checkboxLi.label] || ""}
+                                                                checked={formik.values.fuelType.includes(checkboxLi.label)}
+                                                                onChange={() => handleCheckboxChange(checkboxLi.label)}
+                                                                onBlur={handleBlur}
                                                                 custom_label_for={checkboxLi.label}
                                                                 inputClassName=""
                                                                 labelClassName="!text-[15px] block"
@@ -209,14 +232,21 @@ const SectionSelection = () => {
                                                     )
                                                 })
                                             }
+                                            <div className='absolute bottom-[-35px] left-0'>
+                                                {formik.touched.fuelType && formik.errors.fuelType && (
+                                                    <div className="text-red-600 text-sm mt-2">
+                                                        {formik.errors.fuelType}
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
 
                                         <Button text="Click To Continue"
                                             type="submit"
-                                            className="w-full lg:w-[385px] flex justify-center mt-[25px] !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[18px] !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+                                            className="w-full lg:w-[385px] flex justify-center mt-[25px] !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[18px] !text-white h-[41px] hover:scale-110" />
 
                                         <div className="mt-[50px]">
-                                            <h2 className="mb-[30px] text-2xl lg:text-[25px] font-medium text-[#000000] mb-[30px] leading-[30px]">For your information:</h2>
+                                            <h2 className="mb-[30px] text-2xl lg:text-[25px] font-medium text-[#000000] leading-[30px]">For your information:</h2>
                                             {InformationParagraph.map((paragraphic) => {
                                                 return (
                                                     <p key={paragraphic.id} className="font-roboto font-normal text-black text-sm lg:text-[18px] leading-[32px] mb-[25px]">

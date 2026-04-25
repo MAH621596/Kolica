@@ -1,0 +1,36 @@
+{/* PNG FILES */}
+export { default as Car } from "../assets/Pngs/Car.png";
+export { default as Car1 } from "../assets/Pngs/Car1.png";
+export { default as Car2 } from "../assets/Pngs/Car2.png";
+export { default as Car3 } from "../assets/Pngs/Car3.png";
+export { default as Carr } from "../assets/Pngs/Carr.png";
+export { default as Byke } from "../assets/Pngs/Byke.png";
+export { default as Moto } from "../assets/Pngs/Moto.png";
+export { default as User } from "../assets/Pngs/User.png";
+export { default as Parts } from "../assets/Pngs/Parts.png";
+export { default as Apple } from "../assets/Pngs/Apple.png";
+export { default as Google } from "../assets/Pngs/Google.png";
+export { default as SeeMore } from "../assets/Pngs/SeeMore.png";
+export { default as Economic } from "../assets/Pngs/Economic.png";
+export { default as Mechanic } from "../assets/Pngs/Mechanic.png";
+export { default as FreeTime } from "../assets/Pngs/Free Time.png";
+export { default as Password } from "../assets/Pngs/Password_.png";
+export { default as SampleImage } from "../assets/Pngs/Sample-Image.png";
+
+{/* SVG FILES */}
+export { default as Web } from "../assets/Svgs/Web.svg";
+export { default as Logo } from "../assets/Svgs/Logo.svg";
+export { default as Saved } from "../assets/Svgs/Saved.svg";
+export { default as Plus } from "../assets/Svgs/Plus-Icon.svg";
+export { default as Stats } from "../assets/Svgs/StatsIcon.svg";
+export { default as Sorting } from "../assets/Svgs/Sorting.svg";
+export { default as Profile } from "../assets/Svgs/Profile.svg";
+export { default as Ellipse } from "../assets/Svgs/Ellipse.svg";
+export { default as Insta } from "../assets/Svgs/Instagram.svg";
+export { default as Twitter } from "../assets/Svgs/Twitter.svg";
+export { default as Facebook } from "../assets/Svgs/Facebook.svg";
+export { default as EuroIcon } from "../assets/Svgs/EuroIcon.svg";
+export { default as CrossIcon } from "../assets/Svgs/CrossIcon.svg";
+export { default as ProfileInfo } from "../assets/Svgs/ProfileInfo.svg";
+export { default as Home_Icon } from "../assets/Svgs/HomeSvg.svg?react";
+export { default as ContactInfo } from "../assets/Svgs/ContactInfo.svg";

@@ -1,6 +1,6 @@
-import { sectionTabsMenu, photoSelectionData, photoSelectionCardDataContent } from '@/helper/data';
-import { Navbar, HeroCard, Button, Tabs, Footer, CarCard } from "@/components";
 import { useState, useEffect } from 'react';
+import { Navbar, HeroCard, Button, Tabs, Footer, CarCard } from "@/components";
+import { sectionTabsMenu, photoSelectionData, photoSelectionCardDataContent } from '@/helper/data';
 
 const PhotoSelection = () => {
     const [activeMainTab, setActiveMainTab] = useState<number>(3);
@@ -42,7 +42,7 @@ const PhotoSelection = () => {
                     <div>
                         <h2 className="text-center text-2xl font-semibold text-[#000000] mb-[30px]">1. Click on the SELECT photos to post button </h2>
                         <div className="relative">
-                            <Button type="button" text="Select a Photo to post" className="mx-auto w-full lg:w-[385px] flex justify-center mt-[25px] !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[18px] !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+                            <Button type="button" text="Select a Photo to post" className="mx-auto w-full lg:w-[385px] flex justify-center mt-[25px] !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[18px] !text-white h-[41px] hover:scale-110" />
                         </div>
                     </div>
                 </HeroCard>
@@ -57,7 +57,7 @@ const PhotoSelection = () => {
                             )
                         })}                        
                     </div>
-                    <Button type="button" text="Finish editing" className="mt-[50px] w-full flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+                    <Button type="button" text="Finish editing" className="mt-[50px] w-full flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] hover:scale-110" />
                 </HeroCard>
 
                 <HeroCard parentClass="py-[25px] px-[20px] md:px-[50px]">

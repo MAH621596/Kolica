@@ -3,8 +3,8 @@ import { useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 // import type { LoginFieldsProps, RegisterFieldsProps } from "@/components/types";
-import { homePagetabsMenu, loginButtons, loginFields, registerFields, registerButtons, registerationPoints } from '@/helper/data';
 import { Navbar, HeroCard, Button, Tabs, CustomCheckbox, CustomInput, CustomLabel, Footer } from "@/components";
+import { homePagetabsMenu, loginButtons, loginFields, registerFields, registerButtons, registerationPoints } from '@/helper/data';
 
 const Login = ({ setLoggedIn }: any) => {
   const navigate = useNavigate();
@@ -152,21 +152,22 @@ const Login = ({ setLoggedIn }: any) => {
         variant="route"
         onClick={(id) => setActiveMainTab(id)} />
 
-      <section className="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 md:px-4 lg:px-0 my-[50px] flex flex-col lg:flex-row gap-[20px] lg:gap-[40px] items-start">
-        <HeroCard parentClass="!max-w-[624px] !p-0 !rounded-[20px]">
-          <div className="flex items-center h-[57px] bg-white rounded-t-[20px]">
-            <div className="w-full h-full flex items-center justify-center cursor-pointer rounded-tl-[20px]" onClick={handleLoginTab}>
-              <h2 className="text-[18px] md:text-[25px] font-medium text-[#000000] leading-[30px]">Log In</h2>
+      <section className="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 md:px-4 lg:px-0 my-[50px] 
+              flex flex-col lg:flex-row gap-[20px] lg:gap-[30px] items-start">
+        <HeroCard parentClass="!max-w-[624px] !p-0 !rounded-[6px]">
+          <div className="flex items-center h-[57px] bg-white rounded-t-[6px]">
+            <div className="w-full h-full flex items-center justify-center cursor-pointer rounded-tl-[6px]" onClick={handleLoginTab}>
+              <h2 className="text-[1.2rem] md:text-[1.5rem] font-medium text-[#000000] leading-[30px]">Log In</h2>
             </div>
-            <div className="w-full h-full flex items-center justify-center cursor-pointer bg-[#F1F1F1] rounded-tr-[20px]" onClick={handleRegisterTab}>
-              <h2 className="text-[18px] md:text-[25px] font-medium text-[#000000] leading-[30px]">Register</h2>
+            <div className="w-full h-full flex items-center justify-center cursor-pointer bg-[#F1F1F1] rounded-tr-[6px]" onClick={handleRegisterTab}>
+              <h2 className="text-[1.2rem] md:text-[1.5rem] font-medium text-[#000000] leading-[30px]">Register</h2>
             </div>
           </div>
 
-          <div className={`px-[40px] py-[30px] rounded-b-[20px] ${showLogin ? "bg-white" : "bg-[#F1F1F1]"}`}>
+          <div className={`p-[1.25rem] rounded-b-[6px] ${showLogin ? "bg-white" : "bg-[#F1F1F1]"}`}>
             {showLogin &&
               <div>
-                <h2 className="text-[18px] md:text-[25px] font-medium text-[#000000] mb-[30px] text-center md:text-start px-4">
+                <h2 className="text-[1.2rem] md:text-[1.5rem] font-medium text-[#000000] mb-[30px] text-center md:text-start px-4">
                   Hello! Welcome back!</h2>
                 <div className="">
 
@@ -174,10 +175,10 @@ const Login = ({ setLoggedIn }: any) => {
                     return (
                       <Button type="button" key={index} text={button.link_text}
                         onClick={() => console.log(button.link_text)}
-                        icon={<img src={button.icon} alt="Icon" />}
+                        icon={<img src={button.icon} alt="img" />}
                         className="w-full h-[41px] lowercase bg-white border-[0.64px] border-[#626262] 
-                        font-normal text-xs text-[#626262] mb-[15px] cursor-pointer 
-                        transition-all duration-200 hover:opacity-80" />
+                        font-normal text-xs text-[#626262] mb-[15px] hover:scale-90 
+                        " />
                     )
                   })}
 
@@ -200,7 +201,7 @@ const Login = ({ setLoggedIn }: any) => {
                             <CustomInput
                               type={field.type === "password" && !showLoginPassword ? "password" : "text"}
                               name={field.id}
-                              icon={<img src={field.icon} alt={field.icon} />}
+                              icon={<img src={field.icon} alt="img" />}
                               placeholder={field.placeholder}
                               onBlur={loginFormik.handleBlur}
                               onChange={(value) => {
@@ -240,7 +241,7 @@ const Login = ({ setLoggedIn }: any) => {
                       className="mt-[30px] w-full flex justify-center 
                       !bg-[#B1222C] border-[#B1222C] 
                       font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
-                      cursor-pointer transition-all duration-200 hover:opacity-80" />
+                      hover:scale-90" />
                   </form>
 
                 </div>
@@ -249,7 +250,7 @@ const Login = ({ setLoggedIn }: any) => {
 
             {showRegister &&
               <div>
-                <h2 className="text-[18px] md:text-[25px] font-medium text-[#000000] mb-[30px] text-center md:text-start px-4">
+                <h2 className="text-[1.2rem] md:text-[1.5rem] font-medium text-[#000000] mb-[30px] text-center md:text-start px-4">
                   Want to Register?</h2>
                 <div className="">
 
@@ -257,10 +258,10 @@ const Login = ({ setLoggedIn }: any) => {
                     return (
                       <Button type="button" key={index} text={button.link_text}
                         onClick={() => console.log(button.link_text)}
-                        icon={<img src={button.icon} alt="Icon" />}
+                        icon={<img src={button.icon} alt="img" />}
                         className="w-full h-[41px] lowercase bg-[#F1F1F1] border-[0.64px] border-[#626262] 
-                        font-normal text-xs text-[#626262] mb-[15px] cursor-pointer 
-                        transition-all duration-200 hover:opacity-80" />
+                        font-normal text-xs text-[#626262] mb-[15px] hover:scale-90 
+                        " />
                     )
                   })}
 
@@ -283,7 +284,7 @@ const Login = ({ setLoggedIn }: any) => {
                           <CustomInput
                             type={field.type === "password" && !showRegisterPassword ? "password" : "text"}
                             name={field.id}
-                            icon={<img src={field.icon} alt={field.icon} />}
+                            icon={<img src={field.icon} alt="img" />}
                             placeholder={field.placeholder}
                             onBlur={registerFormik.handleBlur}
                               onChange={(value) => {
@@ -322,7 +323,7 @@ const Login = ({ setLoggedIn }: any) => {
                     className="mt-[30px] w-full flex justify-center 
                     !bg-[#B1222C] border-[#B1222C] 
                     font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
-                    cursor-pointer transition-all duration-200 hover:opacity-80" />
+                    hover:scale-90" />
                 </form>
 
                 </div>
@@ -331,36 +332,36 @@ const Login = ({ setLoggedIn }: any) => {
           </div>
         </HeroCard>
 
-        <HeroCard parentClass="!max-w-[624px] !p-0 !rounded-[20px]">
-          <div className="h-[57px] bg-white rounded-t-[20px]">
-            <div className="w-full h-full flex items-center justify-start cursor-pointer rounded-tl-[20px]">
-              <h2 className="text-[18px] md:text-[25px] font-medium text-[#000000] leading-[30px] px-[50px]">Not registered yet?</h2>
+        <HeroCard parentClass="!max-w-[624px] !p-0 !rounded-[6px]">
+          <div className="h-[57px] bg-white rounded-t-[6px]">
+            <div className="w-full h-full flex items-center justify-start cursor-pointer rounded-tl-[6px]">
+              <h2 className="text-[1.2rem] md:text-[1.5rem] font-medium text-[#000000] leading-[30px] px-[50px]">Not registered yet?</h2>
             </div>
           </div>
 
-          <div className={`px-[40px] py-[30px] rounded-b-[20px]`}>
+          <div className={`p-[1.25rem] rounded-b-[6px]`}>
             <div>
               <h3 className="font-medium text-[16px] lg:text-[18px] leading-[27px] text-[#627084]">When is registration required:</h3>
               <div>
 
-                <ul className="list-disc list-inside my-6 lg:my-[27px]">
+                <ul className="list-disc list-inside my-6 lg:my-[18px]">
                   {registerationPoints.map((regPoint) => {
                     return (
-                      <li key={regPoint.id} className="font-normal text-[14px] lg:text-[16px] text-[#94A3B3] leading-[32px]">
+                      <li key={regPoint.id} className="font-normal text-[14px] text-[#94A3B3] leading-[26px]">
                         {regPoint.point}
                       </li>
                     )
                   })}
                 </ul>
 
-                <h4 className="mb-[15px] font-normal text-[14px] lg:text-[16px] text-[#94A3B3] leading-[32px]">The number of posts may be limited or dependent on the type of registration and subscription.</h4>
+                <h4 className="mb-[15px] font-normal text-[14px] text-[#94A3B3] leading-[26px]">The number of posts may be limited or dependent on the type of registration and subscription.</h4>
               </div>
 
               <Button type="button" text="I want to register"
                 className="mt-[30px] w-full flex justify-center 
                 !bg-[#B1222C] border-[#B1222C] 
                 font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
-                cursor-pointer transition-all duration-200 hover:opacity-80" />
+                hover:scale-90" />
             </div>
           </div>
         </HeroCard>

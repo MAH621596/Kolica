@@ -1,7 +1,7 @@
-import type { Hero_CardProps } from "@/components/types";
-import { Button, CustomInput } from "@/components";
-import { Link } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { Button, CustomInput } from "@/components";
+import type { Hero_CardProps } from "@/components/types";
 
 const HeroCard = ({
   image,
@@ -36,7 +36,8 @@ const HeroCard = ({
             <Button
               type="button"
               text={buttonText}
-              className="!bg-[#B1222C] font-medium text-lg md:text-xl lg:text-[30px] border-[#B1222C] !text-white w-[180px] md:w-[220px] lg:w-[250px] h-[50px] md:h-[60px]"
+              className="!bg-[#B1222C] font-medium text-lg md:text-xl lg:text-[30px] border-[#B1222C] 
+              !text-white w-[180px] md:w-[220px] lg:w-[250px] h-[50px] md:h-[60px] hover:scale-110"
             />
           </div>
         </div>
@@ -51,7 +52,10 @@ const HeroCard = ({
           <Button
             type="button"
             text={smallbuttonText}
-            className="absolute bottom-[60px] md:right-[130px] lg:bottom-[50px] lg:right-[10px] !bg-[#B1222C] font-bold text-[10px] lg:text-[14px] border-[#B1222C] p-0 !text-white w-[167px] h-[30px]"
+            className="absolute bottom-[60px] md:right-[130px] lg:bottom-[50px] lg:right-[10px] 
+            !bg-[#B1222C] 
+            font-bold text-[10px] lg:text-[14px] border-[#B1222C] p-0 !text-white w-[167px] h-[30px] 
+            hover:scale-110"
           />
         </div>
       </div>
@@ -64,8 +68,8 @@ const HeroCard = ({
             className={`flex items-center justify-between gap-8 ${className}`}
           >
             {/* TEXT SECTION */}
-            <div className="w-full py-4 text-start md:text-left">
-              <h3 className="font-medium text-2xl leading-tight text-[#253A86] mb-4 md:mb-[30px]">
+            <div className="w-full text-start md:text-left">
+              <h3 className="font-medium text-[21px] leading-tight text-[#253A86] mb-4 md:mb-[30px]">
                 {heading}
               </h3>
 
@@ -73,7 +77,7 @@ const HeroCard = ({
                 <ul className="list-none grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-4">
                   {list?.map((item, index) => (
                     <li>
-                      <Link to={`/${item}`} target="_blank" key={index} className="font-normal text-[14px] lg:text-[18px] leading-tight text-black transition-all duration-200 hover:text-[#253A86]">{item}</Link>
+                      <Link to={`/${item}`} target="_blank" key={index} className="font-normal text-sm leading-tight text-black transition-all duration-200 hover:text-[#253A86]">{item}</Link>
                     </li>
                   ))}
                 </ul>
@@ -81,10 +85,10 @@ const HeroCard = ({
               <hr className="border-[#000000] w-full my-[30px]" />
 
               <div className="flex items-center justify-start">
-                <i className="fa fa-search"></i>
+                <i className="fa fa-search text-sm"></i>
                 <CustomInput  
                   type="text"
-                  className="w-full border-0 h-[42px] pl-3 text-black placeholder:text-black"
+                  className="!text-sm w-full border-0 h-[42px] pl-3 text-black placeholder:text-black"
                   placeholder="See an overview of all brands from A to Z"
                   value={inpValue}
                   onChange={(val) => { setInpValue(val as string)}}

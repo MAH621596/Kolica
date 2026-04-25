@@ -117,7 +117,7 @@ const Register = () => {
                 <div className="input-feedback">{formik.errors.password}</div>
               )}
             </div>
-            <button type="submit" className="btn btn-lg btn-primary btn-block" onClick={() => console.log("BUTTON CLICKED")}>
+            <button type="submit" className="btn btn-lg btn-primary btn-block hover:scale-110" onClick={() => console.log("BUTTON CLICKED")}>
               Register!
             </button>
           </form>          

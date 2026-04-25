@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { HeroCardData, dropdownData, homePagetabsMenu, mobileNavbarLinks } from '@/helper/data';
-import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect,CustomCheckbox, Car, Car1, Car2, Car3, SeeMore, Sorting, CustomInput, CustomLabel, Footer } from "@/components";
+import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect, CustomCheckbox, CustomInput, CustomLabel, Footer } from "@/components";
+import { Car, Car1, Car2, Car3, SeeMore, Sorting } from "@/assets";
+
 const Home = () => {
   const [values, setValues] = useState<Record<string, string>>({});
   const [search, setSearch] = useState("");
@@ -53,7 +55,7 @@ const Home = () => {
       <section className="md:px-4 lg:px-0">
         <HeroCard>
           <div>
-            <h2 className="text-2xl font-semibold text-[#000000] mb-[30px]">Millions of cars. A simple search.</h2>
+            <h2 className="text-[21px] font-semibold text-[#000000] mb-[30px]">Millions of cars. A simple search.</h2>
             <div className="relative">
               <img src={Sorting} alt="sort" className="absolute top-0 bottom-0 my-auto left-[16px]" />
 
@@ -61,7 +63,7 @@ const Home = () => {
                 id="filter"
                 name="filter"
                 type="text"
-                className="h-[42px] w-full border-[0.64px] border-[#626262] py-[11px] pl-[50px] pr-[65px] leading-[20px] text-[10px] md:text-[12px]"
+                className="h-[42px] w-full border-[0.64px] border-[#626262] py-[11px] pl-[50px] pr-[65px] leading-[20px] !text-sm"
                 placeholder="Advanced search with additional filters"
                 value={search}
                 onChange={(val) => { setSearch (val as string) }}
@@ -76,7 +78,7 @@ const Home = () => {
 
         <HeroCard>
           <div>
-            <h2 className="text-2xl font-semibold text-[#000000] mb-[30px] text-center md:text-start px-4">Quick search for passenger vehicles</h2>
+            <h2 className="text-[21px] font-semibold text-[#000000] mb-[30px] text-center md:text-start">Quick search for passenger vehicles</h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[20px]">
               {dropdownData.map((dropdown) => {
                 return (
@@ -101,7 +103,7 @@ const Home = () => {
                 )
               })}
 
-              <Button type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="hidden md:flex justify-start mt-[25px] !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+              <Button type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="hidden md:flex justify-start mt-[25px] !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] hover:scale-110" />
             </div>
 
             <div className="mt-[30px] gap-[30px] flex flex-col md:flex-row items-start md:items-center justify-between">
@@ -116,7 +118,7 @@ const Home = () => {
                   custom_label_text="Only electric car"
               />
 
-              <Button type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="block md:hidden w-full justify-start !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] cursor-pointer transition-all duration-200 hover:opacity-80" />
+              <Button type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="block md:hidden w-full justify-start !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] hover:scale-110" />
 
               <div className="flex gap-[24px] items-center justify-center">
                 <div className="flex gap-[12px] items-center justify-center cursor-pointer group">
@@ -157,7 +159,7 @@ const Home = () => {
           <CarCard image={Car1} heading="BMW 320d xDrive" price="$28,900" />
           <CarCard image={Car2} heading="Mercedes-Benz C 200" price="$28,900" />
           <CarCard image={Car3} heading="Audi A4 Avant" price="$28,900" />
-          <CarCard dealerText={"All dealers ads"} icon={SeeMore} />
+          <CarCard dealerText={"All dealers ads"} dealerTextClass="h-[206px] w-[206px]" icon={SeeMore} />
         </div>
       </section>
 

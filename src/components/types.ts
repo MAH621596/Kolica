@@ -45,6 +45,7 @@ export interface CheckBoxProps {
   checkboxParent?: string;
   inputClassName?: string;
   labelClassName?: string;
+  onBlur?: (name?: string) => void;
   onChange?: (value: string | boolean) => void;
 }
 
@@ -110,6 +111,8 @@ export interface Car_CardProps {
   price?: number | string;
   className?: string;
   dealerText?: string;
+  dealerTextClass?: string;
+  dealerHeadingClass?: string;
   icon?: string;
   imageSizeClass?: string;
   footerbutton?: boolean;
@@ -125,3 +128,16 @@ export type RegisterFieldsProps = {
   Email: string;
   Password: string;
 };
+
+export interface DashboardProps {
+  cardHeaderText?: string;
+  cardFooterText?: string;
+  cardBodyIcon?: ReactNode;
+  cardBodyHeading?: string;
+  cardBodySubHeading?: string;
+  className?: string;
+  parentCardClass?: string;
+  svgClass?: string;
+  imageClass?: string;
+}
+

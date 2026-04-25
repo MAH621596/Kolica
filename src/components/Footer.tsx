@@ -1,11 +1,7 @@
-import Logo from "../assets/Logo.svg";
-import Facebook from "../assets/Facebook.svg";
-import Insta from "../assets/Instagram.svg";
-import Twitter from "../assets/Twitter.svg";
-import Web from "../assets/Web.svg";
-import { footerLinks } from '@/helper/data';
+import { Logo, Facebook, Insta, Twitter, Web } from "@/assets";
+
 import { Link } from "react-router-dom";
-// import Ellipse from "../assets/Ellipse.svg";
+import { footerLinks } from '@/helper/data';
 
 const Footer = () => {
     return (
@@ -47,7 +43,7 @@ const Footer = () => {
                             <img src={Facebook} alt="fb" className="w-[40px] h-[40px]" />
                         </Link>
                         <Link to="/instagram" className="transition-all duration-200 hover:scale-110">
-                            <img src={Insta} alt="ins" className="w-[40px] h-[40px]" />
+                            <img src={Insta} alt="inst" className="w-[40px] h-[40px]" />
                         </Link>
                         <Link to="/web" className="transition-all duration-200 hover:scale-110">
                             <img src={Web} alt="ellp" className="w-[40px] h-[40px]" />

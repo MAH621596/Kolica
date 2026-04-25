@@ -1,5 +1,5 @@
-import Home_Icon from "../assets/HomeSvg.svg?react";
-import { Carr, Byke, Moto, Economic, Mechanic, FreeTime, Parts, Saved, Profile, Plus, SampleImage, Google, Apple, User, Password, } from "@/components";
+import { Home_Icon, Carr, Byke, Moto, Economic, Mechanic, FreeTime, Parts, Saved, 
+  Profile, Plus, SampleImage, Google, Apple, User, Password, CrossIcon, EuroIcon } from "@/assets";
 
 export const navbarLinks = [
   {
@@ -93,7 +93,7 @@ export const footerLinks = [
 export const homePagetabsMenu = [
   {
     id: 1,
-    icon: <Home_Icon className="w-[20px] h-[20px] group-hover:fill-[#253A86]" />,
+    icon: <Home_Icon className="w-[15px] h-[18px] group-hover:fill-[#253A86]" />,
     path: "/"
   },
   {
@@ -209,8 +209,8 @@ export const photoSelectionCardDataContent = [
 export const sectionTabsMenu = [
   {
     id: 1,
-    icon: <Home_Icon className="w-[20px] h-[20px] group-hover:fill-[#253A86]" />,
-    path: "/dashboard"
+    icon: <Home_Icon className="w-[15px] h-[18px] group-hover:fill-[#253A86]" />,
+    path: "/"
   },
   {
     id: 2,
@@ -240,7 +240,7 @@ export const sectionTabsMenu = [
   {
     id: 7,
     label: "back to Kolica",
-    path: "/dashboard"
+    path: "/"
   },
 ];
 
@@ -703,32 +703,38 @@ export const checkboxList = [
   {
     id: 1,
     label: "Gasoline",
-    value: "Gasoline"
+    value: "Gasoline",
+    check: true,
   },
   {
     id: 2,
     label: "Diesel",
-    value: "Diesel"
+    value: "Diesel",
+    check: false,
   },
   {
     id: 3,
     label: "Hybrid Drive",
-    value: "Hybrid Drive"
+    value: "Hybrid Drive",
+    check: false,
   },
   {
     id: 4,
     label: "E-Drive",
     value: "E-Drive",
+    check: false,
   },
   {
     id: 5,
     label: "LPG Autogas",
-    value: "LPG Autogas"
+    value: "LPG Autogas",
+    check: false,
   },
   {
     id: 6,
     label: "CMG Natural Gas",
     value: "CMG Natural Gas",
+    check: false,
   },
 ];
 
@@ -1318,5 +1324,64 @@ export const registerationPoints = [
   {
     id: 4,
     point: "when you want to PARK your favorite ads"
+  },
+];
+
+export const dashboardRegistrationData = [
+  {
+    id: 1,
+    heading: "ADVERTISER TYPE",
+    subHeading: `Registered as a user on kolica since ${<br/>} 5.8.2025 22:19:00`
+  },
+  {
+    id: 2,
+    icon: CrossIcon,
+    heading: "STATISTICS",
+    subHeading: "Available only for merchants"
+  },
+  {
+    id: 3,
+    icon: CrossIcon,
+    heading: "HD PHOTOS",
+    subHeading: "Not available yet"
+  },
+  {
+    id: 4,
+    icon: CrossIcon,
+    heading: "SPECIAL PRICES",
+    subHeading: "Available only for merchants"
+  },
+  {
+    id: 5,
+    icon: EuroIcon,
+    heading: "TOP OFFER",
+    subHeading: "Optional additional payment for advertising"
+  },
+  {
+    id: 6,
+    icon: CrossIcon,
+    heading: "RICH TEXT Editor",
+    subHeading: "Available only for merchants"
+  },
+  {
+    id: 7,
+    icon: CrossIcon,
+    heading: "COMMENT option",
+    subHeading: "Available only for merchants"
+  },
+];
+
+export const barChartContent = [
+  {
+    id: 1,
+    point: "daily (total) statistics of views of ALL merchant ads for a particular day, for the past 7 days, are displayed."
+  },
+  {
+    id: 2,
+    point: " we only count an ad VIEW when a visitor views your ad IN DETAIL."
+  },
+  {
+    id: 3,
+    point: "ad views among search results (i.e. when a visitor sees your ad but does not click on it) are NOT counted."
   },
 ];
