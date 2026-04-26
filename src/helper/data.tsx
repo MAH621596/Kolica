@@ -1,5 +1,5 @@
 import { Home_Icon, Carr, Byke, Moto, Economic, Mechanic, FreeTime, Parts, Saved, 
-  Profile, Plus, SampleImage, Google, Apple, User, Password, CrossIcon, EuroIcon } from "@/assets";
+  Profile, Plus, SampleImage, Google, Apple, User, Password, CrossIcon, EuroIcon, ContactInfo } from "@/assets";
 
 export const navbarLinks = [
   {
@@ -215,27 +215,27 @@ export const sectionTabsMenu = [
   {
     id: 2,
     label: "My ads",
-    // path: "/myads"
+    path: "/my-ads"
   },
   {
     id: 3,
     label: "Post a new ad",
-    // path: "/postad"
+    path: "/postad"
   },
   {
     id: 4,
     label: "Parked",
-    // path: "/parked"
+    path: "/parked"
   },
   {
     id: 5,
     label: "Archive",
-    // path: "/archive"
+    path: "/archive"
   },
   {
     id: 6,
     label: "Contact information",
-    // path: "/contact"
+    path: "/contact"
   },
   {
     id: 7,
@@ -1383,5 +1383,252 @@ export const barChartContent = [
   {
     id: 3,
     point: "ad views among search results (i.e. when a visitor sees your ad but does not click on it) are NOT counted."
+  },
+];
+
+export const barChartLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+export const barChartData = [
+  { bar: 30 },
+  { bar: 10 },
+  { bar: 20 },
+  { bar: 30 },
+  { bar: 20 },
+  { bar: 10 },
+  { bar: 20 },
+  { bar: 10 },
+  { bar: 10 },
+  { bar: 20 },
+  { bar: 60 },
+  { bar: 30 },
+]
+
+export const sellerCardData = [
+  {
+    id: 1,
+    icon: ContactInfo,
+    phoneNo: "04 / 2798000",
+    location: "Office",
+  },
+  {
+    id: 2,
+    phoneNo: "041 / 208 - 568",
+    location: "Primoz",
+  },
+  {
+    id: 3,
+    phoneNo: "031 / 480 - 648",
+    location: "Gasper",
+  },
+  {
+    id: 4,
+    phoneNo: "040 / 275 - 866",
+    location: "Eric",
+  },
+];
+
+export const workingHoursData = [
+  {
+    id: 1,
+    tableHeader: "Monday",
+    tableData: "from 8:00 to 16:00",
+  },
+  {
+    id: 2,
+    tableHeader: "Tuesday",
+    tableData: "from 8:00 to 16:00",
+  },
+  {
+    id: 3,
+    tableHeader: "Wednesday",
+    tableData: "from 8:00 to 16:00",
+  },
+  {
+    id: 4,
+    tableHeader: "Thursday",
+    tableData: "from 8:00 to 16:00",
+  },
+  {
+    id: 5,
+    tableHeader: "Friday",
+    tableData: "from 8:00 to 16:00",
+  },
+  {
+    id: 6,
+    tableHeader: "Saturday",
+    tableData: "CLOSED",
+  },
+  {
+    id: 7,
+    tableHeader: "Sunday",
+    tableData: "CLOSED",
+  },
+];
+
+export const additionalOptionsData = [
+  {
+    id: 1,
+    icon: <i className="fa fa-lg fa-list-ol font-weight-bold"></i>,
+    label: "all dealer ads",
+  },
+  {
+    id: 2,
+    icon: <i className="fa fa-lg fa-print font-weight-bold"></i>,
+    label: "print offer",
+  },
+  {
+    id: 3,
+    icon: <i className="fa fa-lg fa-backward font-weight-bold"></i>,
+    label: "back to the previous page",
+  },
+  {
+    id: 4,
+    icon: <i className="fa fa-lg fa-envelope font-weight-bold"></i>,
+    label: "Tell a friend about the offer",
+  },
+  {
+    id: 5,
+    icon: <i className="fa fa-lg fa-comment font-weight-bold"></i>,
+    label: "reporting a controversial ad",
+  },
+  {
+    id: 6,
+    icon: <i className="fa fa-lg fa-star font-weight-bold"></i>,
+    label: "park at moj.avto.net",
+  },
+  {
+    id: 7,
+    label: "Buy safely",
+  },
+  {
+    id: 8,
+    icon: <i className="fa fa-lg fa-exclamation-triangle font-weight-bold"></i>,
+    label: "list of stolen vehicles",
+  },
+  {
+    id: 9,
+    icon: <i className="fa fa-lg fa-book font-weight-bold"></i>,
+    label: "register of liens",
+  },
+  {
+    id: 10,
+    icon: <i className="fa fa-lg fa-shield font-weight-bold"></i>,
+    label: "safety tips",
+  },
+];
+
+export const basicData = [
+  {
+    id: 1,
+    tableHeader: "Age:",
+    tableData: "new",
+  },
+  {
+    id: 2,
+    tableHeader: "Working hours:",
+    tableData: "",
+  },
+  {
+    id: 3,
+    tableHeader: "Shape:",
+    tableData: "agricultural machinery (mulcher)",
+  },
+  {
+    id: 4,
+    tableHeader: "Internal number:",
+    tableData: "",
+  },
+  {
+    id: 5,
+    tableHeader: "Place of visit:",
+    tableData: "Voklo 49, Šenčur",
+  },
+];
+
+export const municipalData_1 = [
+  {
+    id: 1,
+    tableLabel: "Working width of the mulcher head: 105 cm",
+  },
+  {
+    id: 2,
+    tableLabel: "Reach - arm length: 5 m (measured from the middle of the tractor)",
+  },
+  {
+    id: 3,
+    tableLabel: "Own weight: approx. 650 - 700 kg",
+  },
+];
+
+export const municipalData_2 = [
+  {
+    id: 1,
+    tableLabel: "Type: knives / mulcher head width 105 cm",
+  },
+  {
+    id: 2,
+    tableLabel: "Front protective chains in front of the mulcher head",
+  },
+  {
+    id: 3,
+    tableLabel: "Rear tractor connection cat II",
+  },
+  {
+    id: 4,
+    tableLabel: "Tandem hydraulic pump 60 ltr + 15 ltr",
+  },
+  {
+    id: 5,
+    tableLabel: "Pump drive via cardan shaft / hydraulic installation independent of the tractor",
+  },
+  {
+    id: 6,
+    tableLabel: "Oil tank 100 ltr",
+  },
+  {
+    id: 7,
+    tableLabel: "Mechanical protection in case of collision",
+  },
+  {
+    id: 8,
+    tableLabel: "Self-leveling floating head",
+  },
+  {
+    id: 9,
+    tableLabel: "Lights and road signs",
+  },
+  {
+    id: 10,
+    tableLabel: "Working head turns 200 degrees",
+  },
+];
+
+export const municipalData_3 = [
+  {
+    id: 1,
+    tableLabel: "Electric on / off via joystick",
+  },
+  {
+    id: 2,
+    tableLabel: "Oil cooler",
+  },
+  {
+    id: 3,
+    tableLabel: "Surcharge for HF2 knives 16 pcs / max thickness 5 cm",
+  },
+];
+
+export const municipalData_4 = [
+  {
+    id: 1,
+    tableLabel: "- HALF -",
+  },
+  {
+    id: 2,
+    tableLabel: "- THIRD -",
+  },
+  {
+    id: 3,
+    tableLabel: "- QUARTER -",
   },
 ];

@@ -159,7 +159,7 @@ const Home = () => {
           <CarCard image={Car1} heading="BMW 320d xDrive" price="$28,900" />
           <CarCard image={Car2} heading="Mercedes-Benz C 200" price="$28,900" />
           <CarCard image={Car3} heading="Audi A4 Avant" price="$28,900" />
-          <CarCard dealerText={"All dealers ads"} dealerTextClass="h-[206px] w-[206px]" icon={SeeMore} />
+          <CarCard dealerText={"All Dealers Ads"} dealerTextClass="h-[206px] w-[206px]" icon={SeeMore} />
         </div>
       </section>
 

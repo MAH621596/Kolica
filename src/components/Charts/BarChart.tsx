@@ -8,6 +8,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { barChartLabels, barChartData } from '@/helper/data';
 
 ChartJS.register(
   CategoryScale,
@@ -106,34 +107,18 @@ const createDiagonalPattern = (color: string) => {
   return ctx.createPattern(canvas, 'repeat');
 };
 
-const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const realData = [
-  { bar: 30 },
-  { bar: 10 },
-  { bar: 20 },
-  { bar: 30 },
-  { bar: 20 },
-  { bar: 10 },
-  { bar: 20 },
-  { bar: 10 },
-  { bar: 10 },
-  { bar: 20 },
-  { bar: 60 },
-  { bar: 30 },
-]
-
 const data = {
-  labels,
+  barChartLabels,
   datasets: [
     {
       label: 'Expenses',
-      data: realData.map((item) => { return (item.bar) }),
+      data: barChartData.map((item) => { return (item.bar) }),
       backgroundColor: createDiagonalPattern("#EBEBEB") || "#FFFFFF",
       borderRadius: 30,
     },
     {
       label: 'Income',
-      data: realData.map((item) => { return (item.bar) }),
+      data: barChartData.map((item) => { return (item.bar) }),
       backgroundColor: createDiagonalPattern("#EBEBEB") || "#FFFFFF",
       borderRadius: 30,
     },

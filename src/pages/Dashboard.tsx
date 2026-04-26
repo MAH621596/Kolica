@@ -46,7 +46,7 @@ const Dashboard = () => {
           <p className="text-[#627084] text-sm md:text-[14px] font-normal capitalize text-[#627084] mb-[13px]">
             {field.subHeading}
           </p>
-          <div><img src={field.icon} alt="img" className={`mx-auto`} /></div>
+          { field.icon && <div><img src={field.icon} alt="img" className={`mx-auto`} /></div> }
         </div>
       </div>
     );

@@ -3,18 +3,23 @@ export { default as Car } from "../assets/Pngs/Car.png";
 export { default as Car1 } from "../assets/Pngs/Car1.png";
 export { default as Car2 } from "../assets/Pngs/Car2.png";
 export { default as Car3 } from "../assets/Pngs/Car3.png";
+export { default as Car4 } from "../assets/Pngs/Car4.png";
+export { default as Car5 } from "../assets/Pngs/Car5.png";
+export { default as Car6 } from "../assets/Pngs/Car6.png";
 export { default as Carr } from "../assets/Pngs/Carr.png";
 export { default as Byke } from "../assets/Pngs/Byke.png";
 export { default as Moto } from "../assets/Pngs/Moto.png";
 export { default as User } from "../assets/Pngs/User.png";
 export { default as Parts } from "../assets/Pngs/Parts.png";
 export { default as Apple } from "../assets/Pngs/Apple.png";
+export { default as Medal } from "../assets/Pngs/Medal.png";
 export { default as Google } from "../assets/Pngs/Google.png";
 export { default as SeeMore } from "../assets/Pngs/SeeMore.png";
 export { default as Economic } from "../assets/Pngs/Economic.png";
 export { default as Mechanic } from "../assets/Pngs/Mechanic.png";
 export { default as FreeTime } from "../assets/Pngs/Free Time.png";
 export { default as Password } from "../assets/Pngs/Password_.png";
+export { default as GlobTrade } from "../assets/Gif/TradeLogo.gif";
 export { default as SampleImage } from "../assets/Pngs/Sample-Image.png";
 
 {/* SVG FILES */}

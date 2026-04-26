@@ -131,13 +131,17 @@ export type RegisterFieldsProps = {
 
 export interface DashboardProps {
   cardHeaderText?: string;
-  cardFooterText?: string;
+  cardFooterText?: string | React.ReactNode;
   cardBodyIcon?: ReactNode;
   cardBodyHeading?: string;
   cardBodySubHeading?: string;
   className?: string;
+  headerClass?: string;
   parentCardClass?: string;
+  cardHeadingClass?: string;
+  cardSubHeadingClass?: string;
   svgClass?: string;
   imageClass?: string;
+  children?: React.ReactNode;
 }
 
