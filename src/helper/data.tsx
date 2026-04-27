@@ -1,5 +1,16 @@
-import { Home_Icon, Carr, Byke, Moto, Economic, Mechanic, FreeTime, Parts, Saved, 
-  Profile, Plus, SampleImage, Google, Apple, User, Password, CrossIcon, EuroIcon, ContactInfo } from "@/assets";
+import {
+  Home_Icon, Carr, Byke, Moto, Economic, Mechanic, FreeTime, Parts, Saved,
+  Profile, Plus, SampleImage, Google, Apple, User, Password, CrossIcon, EuroIcon,
+  ContactInfo, ModernCar, EcoCar, LuxuryCar, RentalCar, ClassicCar, CrashedCar, 
+  CatalogCar, FloodedCar, CarParts, CarTires, CarRims, EBike1, EBike2, EScooter, 
+  FourWheeler, GoKart, MiniByke, Motorcycle, OldTimer, RentalOffer, Scooter, 
+  SnowMobile, Mopped, Containers, UTV, Buses, Cargo, Trucks, DeliveryTruck,
+  FarmMachine,
+  Machinery,
+  Troller,
+  ForkLifts,
+  MunicipalMachine,
+} from "@/assets";
 
 export const navbarLinks = [
   {
@@ -21,46 +32,46 @@ export const navbarLinks = [
 
 export const mobileNavbarLinks = [
   {
-    id:1,
+    id: 1,
     icon: Carr,
     link_text: "Car",
-    // href: "/car"
+    href: "/car-category"
   },
   {
-    id:2,
+    id: 2,
     icon: Byke,
     link_text: "Byke",
-    href: "/byke"
+    href: "/moto-category"
   },
   {
-    id:3,
+    id: 3,
     icon: Moto,
     link_text: "Moto",
-    // href: "/moto"
+    href: "/moto-category"
   },
   {
-    id:4,
+    id: 4,
     icon: Economic,
     link_text: "Economic",
-    // href: "/economic"
+    href: "/economic-category"
   },
   {
-    id:5,
+    id: 5,
     icon: Mechanic,
     link_text: "Mechanization",
-    // href: "/mechanic"
+    href: "/mechanic-category"
   },
   {
-    id:6,
+    id: 6,
     icon: FreeTime,
     link_text: "Free time",
-    // href: "/FreeTime"
+    href: "/FreeTime-category"
   },
   {
-    id:7,
+    id: 7,
     icon: Parts,
     link_text: "Parts & equipment",
-    // href: "/parts"
+    href: "/parts-equimpments-category"
   },
 ];
 
@@ -99,32 +110,32 @@ export const homePagetabsMenu = [
   {
     id: 2,
     label: "Moto",
-    // path: "/moto"
+    path: "/moto-category"
   },
   {
     id: 3,
     label: "Car",
-    // path: "/car"
+    path: "/car-category"
   },
   {
     id: 4,
     label: "Economic",
-    // path: "/economic"
+    path: "/economic-category"
   },
   {
     id: 5,
     label: "Mechanization",
-    // path: "/mechanization"
+    path: "/mechanic-category"
   },
   {
     id: 6,
     label: "Free time",
-    // path: "/freetime"
+    path: "/freetime-category"
   },
   {
     id: 7,
     label: "Parts & equipment",
-    // path: "/parts_equipment"
+    path: "/parts-equimpments-category"
   },
 ];
 
@@ -559,7 +570,7 @@ export const adContentRightPanel_2 = [
     label: "fuel:",
     dropDownCount: 0,
     inputField: true,
-    placeholder:"bencin"
+    placeholder: "bencin"
   },
   {
     id: 2, // Price Range
@@ -630,7 +641,7 @@ export const adContentRightPanel_3 = [
     label: "number of seats:",
     dropDownCount: 0,
     inputField: true,
-    placeholder:"0"
+    placeholder: "0"
   },
   {
     id: 2, // Price Range
@@ -673,7 +684,7 @@ export const adContentRightPanel_4 = [
     label: "Combined driving:",
     dropDownCount: 0,
     inputField: true,
-    placeholder:"0"
+    placeholder: "0"
   },
   {
     id: 2, // Price Range
@@ -695,7 +706,7 @@ export const adContentRightPanel_4 = [
     label: "CO2 emission:",
     dropDownCount: 0,
     inputField: true,
-    placeholder:"0"
+    placeholder: "0"
   },
 ];
 
@@ -838,285 +849,285 @@ export const checkboxList_6 = [
   {
     id: 1,
     heading: "Chassis:",
-    checkboxes : [
+    checkboxes: [
       {
-        label : "brake system (ABS)"
+        label: "brake system (ABS)"
       },
       {
-        label : "four-wheel drive (4x4 / 4WD / Quattro...)"
+        label: "four-wheel drive (4x4 / 4WD / Quattro...)"
       },
       {
-        label : "brake assist (BAS / DBC / EBV)"
+        label: "brake assist (BAS / DBC / EBV)"
       },
       {
-        label : "traction control (ASR / DTC)"
+        label: "traction control (ASR / DTC)"
       },
       {
-        label : "automatic differential lock (ASD / EDS ...)"
+        label: "automatic differential lock (ASD / EDS ...)"
       },
       {
-        label : "electronic system for better wheel traction ETS"
+        label: "electronic system for better wheel traction ETS"
       },
       {
-        label : "electronic system for better wheel traction ETS"
+        label: "electronic system for better wheel traction ETS"
       },
       {
-        label : "sports chassis"
+        label: "sports chassis"
       },
       {
-        label : "electronic damper control (EDC)"
+        label: "electronic damper control (EDC)"
       },
       {
-        label : "active suspension (ABC - Active Body Control)"
+        label: "active suspension (ABC - Active Body Control)"
       },
       {
-        label : "chassis level control (ADS)"
+        label: "chassis level control (ADS)"
       },
       {
-        label : "air suspension"
+        label: "air suspension"
       },
       {
-        label : "four-wheel steering (4WS / 4CONTROL)"
+        label: "four-wheel steering (4WS / 4CONTROL)"
       },
     ]
   },
   {
     id: 2,
     heading: "Security:",
-    checkboxes : [
+    checkboxes: [
       {
-        label : "RDK tire pressure monitoring"
+        label: "RDK tire pressure monitoring"
       },
       {
-        label : "3rd brake light"
+        label: "3rd brake light"
       },
       {
-        label : "xenon headlights"
+        label: "xenon headlights"
       },
       {
-        label : "headlight washer"
+        label: "headlight washer"
       },
       {
-        label : "bi-xenon headlights"
+        label: "bi-xenon headlights"
       },
       {
-        label : "alarm device"
+        label: "alarm device"
       },
       {
-        label : "automatic high beam control"
+        label: "automatic high beam control"
       },
       {
-        label : "engine immobilisation"
+        label: "engine immobilisation"
       },
       {
-        label : "LED headlights"
+        label: "LED headlights"
       },
       {
-        label : "code-protected engine ignition"
+        label: "code-protected engine ignition"
       },
       {
-        label : "front (daytime) LED lights"
+        label: "front (daytime) LED lights"
       },
       {
-        label : "automatic emergency braking system"
+        label: "automatic emergency braking system"
       },
       {
-        label : "rear LED lights"
+        label: "rear LED lights"
       },
       {
-        label : "lane departure warning system"
+        label: "lane departure warning system"
       },
       {
-        label : "fog lights"
+        label: "fog lights"
       },
       {
-        label : "lane keeping system"
+        label: "lane keeping system"
       },
       {
-        label : "Run-Flat tires"
+        label: "Run-Flat tires"
       },
       {
-        label : "blind spot warning system"
+        label: "blind spot warning system"
       },
       {
-        label : "Distance warning"
+        label: "Distance warning"
       },
       {
-        label : "traffic sign recognition system"
+        label: "traffic sign recognition system"
       },
     ]
   },
   {
     id: 3,
     heading: "Interior:",
-    checkboxes : [
+    checkboxes: [
       {
-        label : "Virtual Cockpit"
+        label: "Virtual Cockpit"
       },
       {
-        label : "seats: height adjustment"
+        label: "seats: height adjustment"
       },
       {
-        label : "ambient interior lighting"
+        label: "ambient interior lighting"
       },
       {
-        label : "seats: electric adjustment"
+        label: "seats: electric adjustment"
       },
       {
-        label : "wooden interior accessories"
+        label: "wooden interior accessories"
       },
       {
-        label : "seats: Memory package"
+        label: "seats: Memory package"
       },
       {
-        label : "ALU interior accessories"
+        label: "ALU interior accessories"
       },
       {
-        label : "seats: heated front"
+        label: "seats: heated front"
       },
       {
-        label : "carbon interior accessories"
+        label: "carbon interior accessories"
       },
       {
-        label : "chrome interior accessories"
+        label: "chrome interior accessories"
       },
       {
-        label : "seats: cooling / ventilation"
+        label: "seats: cooling / ventilation"
       },
       {
-        label : "package for smokers"
+        label: "package for smokers"
       },
       {
-        label : "seats: massage function"
+        label: "seats: massage function"
       },
       {
-        label : "seats: sports"
+        label: "seats: sports"
       },
       {
-        label : "center armrest between the seats"
+        label: "center armrest between the seats"
       },
       {
-        label : "seats: comfortable"
+        label: "seats: comfortable"
       },
       {
-        label : "refrigerator compartment"
+        label: "refrigerator compartment"
       },
       {
-        label : "seats: orthopedic"
+        label: "seats: orthopedic"
       },
       {
-        label : "12V socket"
+        label: "12V socket"
       },
     ]
   },
   {
     id: 4,
     heading: "Comfort:",
-    checkboxes : [
+    checkboxes: [
       {
-        label : "air conditioning - manual"
+        label: "air conditioning - manual"
       },
       {
-        label : "Keyless Go"
+        label: "Keyless Go"
       },
       {
-        label : "automatic air conditioning / digital"
+        label: "automatic air conditioning / digital"
       },
       {
-        label : "Start-Stop system"
+        label: "Start-Stop system"
       },
       {
-        label : "air conditioning - 2 zones"
+        label: "air conditioning - 2 zones"
       },
       {
-        label : "electrical package"
+        label: "electrical package"
       },
       {
-        label : "air conditioning - 3 zones"
+        label: "air conditioning - 3 zones"
       },
       {
-        label : "height-adjustable steering wheel"
+        label: "height-adjustable steering wheel"
       },
       {
-        label : "air conditioning - 4 zoness"
+        label: "air conditioning - 4 zoness"
       },
       {
-        label : "depth-adjustable steering wheel"
+        label: "depth-adjustable steering wheel"
       },
       {
-        label : "stationary vehicle heating (Webasto)"
+        label: "stationary vehicle heating (Webasto)"
       },
       {
-        label : "tinted windows"
+        label: "tinted windows"
       },
       {
-        label : "leather-wrapped steering wheel"
+        label: "leather-wrapped steering wheel"
       },
       {
-        label : "electric front windows"
+        label: "electric front windows"
       },
       {
-        label : "multifunction steering wheel"
+        label: "multifunction steering wheel"
       },
       {
-        label : "electric front and rear windows"
+        label: "electric front and rear windows"
       },
       {
-        label : "sports steering wheel"
+        label: "sports steering wheel"
       },
       {
-        label : "electrically adjustable exterior mirrors"
+        label: "electrically adjustable exterior mirrors"
       },
       {
-        label : "heated steering wheel"
+        label: "heated steering wheel"
       },
       {
-        label : "heated exterior mirrors"
+        label: "heated exterior mirrors"
       },
       {
-        label : "steering wheel gearshift paddles + -"
+        label: "steering wheel gearshift paddles + -"
       },
       {
-        label : "electrically folding exterior mirrorss"
+        label: "electrically folding exterior mirrorss"
       },
       {
-        label : "cruise control"
+        label: "cruise control"
       },
       {
-        label : "central locking"
+        label: "central locking"
       },
       {
-        label : "adaptive cruise control (Adaptive Cruise Control)"
+        label: "adaptive cruise control (Adaptive Cruise Control)"
       },
       {
-        label : "central locking with remote control"
+        label: "central locking with remote control"
       },
       {
-        label : "electric parking brake"
+        label: "electric parking brake"
       },
       {
-        label : "Soft-Close closing system"
+        label: "Soft-Close closing system"
       },
       {
-        label : "electric trunk closing"
+        label: "electric trunk closing"
       },
       {
-        label : "rear window sunshade"
+        label: "rear window sunshade"
       },
       {
-        label : "heated windshield"
+        label: "heated windshield"
       },
       {
-        label : "Soft-Close closing system"
+        label: "Soft-Close closing system"
       },
       {
-        label : "electric trunk closing"
+        label: "electric trunk closing"
       },
       {
-        label : "rear window sunshade"
+        label: "rear window sunshade"
       },
       {
-        label : "heated windshield"
+        label: "heated windshield"
       },
     ]
   },
@@ -1216,7 +1227,7 @@ export const vehicalData = [
   {
     id: 1,
     input_label: "vehicle color:",
-    checkboxes : [
+    checkboxes: [
       {
         label: "metallic"
       },
@@ -1228,7 +1239,7 @@ export const vehicalData = [
   {
     id: 2,
     input_label: "vehicle roof:",
-    checkboxes : [
+    checkboxes: [
       {
         label: "electric movement"
       },
@@ -1237,7 +1248,7 @@ export const vehicalData = [
   {
     id: 3,
     input_label: "number of doors:",
-    checkboxes : [
+    checkboxes: [
       {
         label: "sliding door"
       },
@@ -1262,14 +1273,14 @@ export const loginFields = [
     icon: User,
     type: "text",
     input_label: "Email",
-    placeholder:"example15@gmail.com"
+    placeholder: "example15@gmail.com"
   },
   {
     id: "Password",
     icon: Password,
     type: "password",
     input_label: "Password",
-    placeholder:"***************"
+    placeholder: "***************"
   },
 ];
 
@@ -1279,21 +1290,21 @@ export const registerFields = [
     icon: User,
     type: "text",
     input_label: "Username",
-    placeholder:"Micheal Williamson"
+    placeholder: "Micheal Williamson"
   },
   {
     id: "Email",
     icon: User,
     type: "text",
     input_label: "Email",
-    placeholder:"example15@gmail.com"
+    placeholder: "example15@gmail.com"
   },
   {
     id: "Password",
     icon: Password,
     type: "password",
     input_label: "Password",
-    placeholder:"***************"
+    placeholder: "***************"
   },
 ];
 
@@ -1331,7 +1342,7 @@ export const dashboardRegistrationData = [
   {
     id: 1,
     heading: "ADVERTISER TYPE",
-    subHeading: `Registered as a user on kolica since ${<br/>} 5.8.2025 22:19:00`
+    subHeading: `Registered as a user on kolica since ${<br />} 5.8.2025 22:19:00`
   },
   {
     id: 2,
@@ -1630,5 +1641,310 @@ export const municipalData_4 = [
   {
     id: 3,
     tableLabel: "- QUARTER -",
+  },
+];
+
+export const carCategoryData = [
+  {
+    id: 1,
+    icon: <ModernCar className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Car ads – advanced search",
+  },
+  {
+    id: 2,
+    icon: <ModernCar className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Overview by brand",
+  },
+  {
+    id: 3,
+    icon: <EcoCar className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Eco vehicles",
+  },
+  {
+    id: 4,
+    icon: <LuxuryCar className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Luxury vehicles",
+  },
+  {
+    id: 5,
+    icon: <ClassicCar className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Classic cars",
+  },
+  {
+    id: 6,
+    icon: <CrashedCar className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Crashed vehicles",
+  },
+  {
+    id: 7,
+    icon: <CatalogCar className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "New vehicle catalog",
+  },
+  {
+    id: 8,
+    icon: <RentalCar className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Rental offers",
+  },
+  {
+    id: 9,
+    icon: <FloodedCar className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Flooded vehicles",
+  },
+];
+
+export const carSparePartsData = [
+  {
+    id: 1,
+    icon: <CarParts className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Car parts and equipment",
+  },
+  {
+    id: 2,
+    icon: <CarTires className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Tires",
+  },
+  {
+    id: 3,
+    icon: <CarRims className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Rims",
+  },
+];
+
+export const motoCategoryData = [
+  {
+    id: 1,
+    icon: <Motorcycle className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Motorcycle",
+  },
+  {
+    id: 2,
+    icon: <Scooter className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Scooter, Maxi-scooter, 3-4 scooter",
+  },
+  {
+    id: 3,
+    icon: <Mopped className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Moped, motorized bicycle",
+  },
+  {
+    id: 4,
+    icon: <FourWheeler className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "4-wheeler, ATV, UTV, 3-wheeler",
+  },
+  {
+    id: 5,
+    icon: <MiniByke className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Minibike",
+  },
+  {
+    id: 6,
+    icon: <OldTimer className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Oldtimer",
+  },
+  {
+    id: 7,
+    icon: <GoKart className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Go-kart",
+  },
+  {
+    id: 8,
+    icon: <SnowMobile className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Snowmobile",
+  },
+  {
+    id: 9,
+    icon: <EScooter className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "E-scooter",
+  },
+  {
+    id: 10,
+    icon: <RentalOffer className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Rental offers",
+  },
+  {
+    id: 11,
+    icon: <EBike1 className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "E-Bike",
+  },
+  {
+    id: 12,
+    icon: <EBike2 className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "E-Bike",
+  },
+];
+
+export const motoSparePartsData = [
+  {
+    id: 1,
+    icon: <CarParts className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Motocycle parts and equipment",
+  },
+  {
+    id: 2,
+    icon: <CarTires className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Tires",
+  },
+  {
+    id: 3,
+    icon: <CarRims className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Rims",
+  },
+];
+
+export const economicCategoryData = [
+  {
+    id: 1,
+    icon: <DeliveryTruck className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Delivery vehicles",
+  },
+  {
+    id: 2,
+    icon: <Trucks className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Trucks",
+  },
+  {
+    id: 3,
+    icon: <Buses className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Buses",
+  },
+  {
+    id: 4,
+    icon: <Cargo className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Cargo trailers",
+  },
+  {
+    id: 5,
+    icon: <UTV className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "UTV vehicles",
+  },
+    {
+    id: 6,
+    icon: <RentalOffer className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Rental offers",
+  },
+];
+
+export const economicSparePartsData = [
+  {
+    id: 1,
+    icon: <Containers className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Containers",
+  },
+  {
+    id: 2,
+    icon: <CarParts className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Motocycle parts and equipment",
+  },
+  {
+    id: 3,
+    icon: <CarTires className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Tires",
+  },
+];
+
+export const mechanizationCategoryData = [
+  {
+    id: 1,
+    icon: <Machinery className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Construction machinery",
+  },
+  {
+    id: 2,
+    icon: <FarmMachine className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Agricultural machinery",
+  },
+  {
+    id: 3,
+    icon: <ForkLifts className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Forklifts",
+  },
+  {
+    id: 4,
+    icon: <Troller className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Forestry machinery",
+  },
+  {
+    id: 5,
+    icon: <MunicipalMachine className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Municipal machinery",
+  },
+  {
+    id: 6,
+    icon: <RentalOffer className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Rental offers",
+  },
+];
+
+export const mechanizationSparePartsData = [
+  {
+    id: 1,
+    icon: <Machinery className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "For agricultural machinery",
+  },
+  {
+    id: 2,
+    icon: <FarmMachine className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "For agricultural machinery",
+  },
+  {
+    id: 3,
+    icon: <Troller className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Cargo trailers",
+  },
+];
+
+export const freeTimeCategoryData = [
+  {
+    id: 1,
+    icon: <Machinery className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Motorhome",
+  },
+  {
+    id: 2,
+    icon: <FarmMachine className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Holiday trailer",
+  },
+  {
+    id: 3,
+    icon: <ForkLifts className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Mobile home",
+  },
+  {
+    id: 4,
+    icon: <Troller className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Removable lounger",
+  },
+  {
+    id: 5,
+    icon: <MunicipalMachine className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Tent trailer",
+  },
+  {
+    id: 6,
+    icon: <RentalOffer className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Rental offers",
+  },
+  {
+    id: 7,
+    icon: <Troller className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Nautical",
+  },
+  {
+    id: 8,
+    icon: <MunicipalMachine className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "bike",
+  },
+  {
+    id: 9,
+    icon: <RentalOffer className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "E-scooter",
+  },
+];
+
+export const freeTimeSparePartsData = [
+  {
+    id: 1,
+    icon: <Machinery className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    subcategory: "Camping equipment",
   },
 ];

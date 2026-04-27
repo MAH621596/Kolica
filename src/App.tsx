@@ -1,13 +1,9 @@
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import MyAds from "./pages/MyAds";
 import Form from "./components/Form"
-import Dashboard from "./pages/Dashboard";
-import AdContent from "./pages/AdContent";
 import { Routes, Route } from "react-router-dom";
-import ProductDetail from "./pages/ProductDetail";
-import PhotoSelection from "./pages/PhotoSelection";
-import SectionSelection from "./pages/SectionSelection";
+
+import { Home, Login, Dashboard, MyAds, AdContent,
+   ProductDetail, PhotoSelection, SectionSelection, 
+   CarCategory, MotoCategory, EconomicCategory, MechanizationCategory, FreeTimeCategory, PartsEquimpCategory } from "@/pages";
 
 function App() {
   return (
@@ -16,6 +12,12 @@ function App() {
         <Route path="/form" element={<Form />} />
         <Route path="/login" element={<Login />} />
         <Route path="/my-ads" element={<MyAds />} />
+        <Route path="/car-category" element={<CarCategory />} />
+        <Route path="/moto-category" element={<MotoCategory />} />
+        <Route path="/economic-category" element={<EconomicCategory />} />
+        <Route path="/mechanic-category" element={<MechanizationCategory />} />
+        <Route path="/freetime-category" element={<FreeTimeCategory />} />
+        <Route path="/parts-equimpments-category" element={<PartsEquimpCategory />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/ad-content" element={<AdContent />} />
         <Route path="/post-an-add" element={<SectionSelection />} />

@@ -74,7 +74,7 @@ const HeroCard = ({
               </h3>
 
               <div className="">
-                <ul className="list-none grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0 md:gap-4">
+                <ul className="list-none grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-0">
                   {list?.map((item, index) => (
                     <li>
                       <Link to={`/${item}`} target="_blank" key={index} className="font-normal text-sm leading-tight text-black transition-all duration-200 hover:text-[#253A86]">{item}</Link>

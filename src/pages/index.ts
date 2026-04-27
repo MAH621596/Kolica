@@ -1,0 +1,14 @@
+export { default as Home } from "../pages/Home";
+export { default as Login } from "../pages/Login";
+export { default as MyAds } from "../pages/MyAds";
+export { default as Dashboard } from "../pages/Dashboard";
+export { default as AdContent } from "../pages/AdContent";
+export { default as ProductDetail } from "../pages/ProductDetail";
+export { default as PhotoSelection } from "../pages/PhotoSelection";
+export { default as SectionSelection } from "../pages/SectionSelection";
+export { default as CarCategory } from "../pages/Categories/CarCategory";
+export { default as MotoCategory } from "../pages/Categories/MotoCategory";
+export { default as EconomicCategory } from "../pages/Categories/EconomicCategory";
+export { default as FreeTimeCategory } from "../pages/Categories/FreeTimeCategory";
+export { default as PartsEquimpCategory } from "../pages/Categories/Parts-EquimpmentsCategory";
+export { default as MechanizationCategory } from "../pages/Categories/MechanizationCategory";

@@ -13,4 +13,5 @@ export { default as BarChart } from "../components/Charts/BarChart";
 export { default as CustomSelect } from "../components/CustomSelect";
 export { default as DashboardCard } from "../components/DashboardCard";
 export { default as CustomCheckbox } from "../components/CustomCheckbox";
+export { default as CategoriesCard } from "../components/CategoriesCard";
 export { default as LightBoxGallery } from "../components/Sliders/LightBox";

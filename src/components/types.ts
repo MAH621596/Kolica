@@ -118,6 +118,12 @@ export interface Car_CardProps {
   footerbutton?: boolean;
 }
 
+export interface CategoriesCardProps {
+  className?: string;
+  subcategory?: string; 
+  icon?: ReactNode | string;
+}
+
 export type LoginFieldsProps = {
   Email: string;
   Password: string;

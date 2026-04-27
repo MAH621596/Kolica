@@ -7,7 +7,7 @@ const Home = () => {
   const [values, setValues] = useState<Record<string, string>>({});
   const [search, setSearch] = useState("");
   const [activeMainTab, setActiveMainTab] = useState<number>(1);
-  const [activeSubTab, setActiveSubTab] = useState<number>(-1);
+  const [activeSubTab, setActiveSubTab] = useState<number>(1);
   const [loggedIn, setLoggedIn] = useState(
     localStorage.getItem("auth") === "true"
   );
@@ -55,7 +55,7 @@ const Home = () => {
       <section className="md:px-4 lg:px-0">
         <HeroCard>
           <div>
-            <h2 className="text-[21px] font-semibold text-[#000000] mb-[30px]">Millions of cars. A simple search.</h2>
+            <h2 className="text-[21px] font-semibold text-[#000000] mb-[30px] text-center capitalize">Millions of cars. A simple search.</h2>
             <div className="relative">
               <img src={Sorting} alt="sort" className="absolute top-0 bottom-0 my-auto left-[16px]" />
 

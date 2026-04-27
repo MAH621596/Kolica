@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {  
     Medal, 
     GlobTrade,
@@ -31,6 +31,13 @@ const ProductDetail = () => {
     const [loggedIn, setLoggedIn] = useState(
         localStorage.getItem("auth") === "true"
     );
+
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }, []);
 
     console.log(setLoggedIn);
 
@@ -71,7 +78,7 @@ const ProductDetail = () => {
                 onClick={(id) => setActiveMainTab(id)} />
 
             <section className="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0">
-                <HeroCard parentClass="!m-0 !rounded-t-none !py-[18px] !px-[30px] sticky top-0 z-1000 shadow-[0_1px_2px_0_rgba(0,0,0,.5)]">
+                <HeroCard parentClass="!m-0 !rounded-t-none !rounded-b-[20px] !py-[18px] !px-[30px] sticky top-0 z-20 shadow-[0_1px_2px_0_rgba(0,0,0,.5)]">
                     <h2 className="font-medium text-md md:text-2xl lg:text-[24px] text-black leading-tight">Hongqi H9 2.0T MHEV</h2>
                 </HeroCard>
 
@@ -270,7 +277,7 @@ const ProductDetail = () => {
                                                 </div>
                                             </>
                                             :
-                                            <Link to={optionsData.label} key={optionsData.id}
+                                            <Link to="#" key={optionsData.id}
                                                 className="text-sm py-[12px] px-[18px] 
                                             capitalize border-b border-b-[#d3dde7] last:border-b-0
                                             leading-6 text-black 
@@ -375,7 +382,7 @@ const ProductDetail = () => {
                                 <i className="fa fa-external-link pr-2"></i>
                                 https://www.euro-globtrade.si</Link>
 
-                            <div className="flex flex-col lg:flex-row items-center gap-5 px-[14px] pb-[16px]">
+                            <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-5 px-[14px] pb-[16px]">
                                 <Button type="button" text="Email"
                                     icon={<i className="fa fa-envelope"></i>}
                                     className="w-full hover:scale-110 
@@ -402,7 +409,7 @@ const ProductDetail = () => {
                 </DashboardCard>
                 <div className="px-[12px] !py-[10px] text-sm font-bold mb-[50px] 
                     capitalize text-black text-center bg-[#E9E9E9] shadow-[0_1px_2px_0_rgba(0,0,0,.5)]">Subscriber of the advertisement:
-                    <h2 className="font-normal text-sm text-black leading-tight mb-[0px]">
+                    <h2 className="font-normal text-[10px] md:text-sm text-black leading-tight mb-[0px]">
                         EURO GLOBTRADE, doo, Voklo, Voklo 49, 4208 Šenčur, Slovenia, DŠ:SI66080533</h2></div>
             </section>
             <Footer />

@@ -44,7 +44,7 @@ const Gallery = () => {
                     <img
                         key={i}
                         src={img}
-                        className={`w-[70px] h-[55px] sm:w-[80px] sm:h-[60px] md:w-[90px] md:h-[70px] object-cover rounded cursor-pointer border-2 transition ${activeIndex === i
+                        className={`w-[90px] h-[70px] object-cover rounded cursor-pointer border-2 transition ${activeIndex === i
                             ? "border-[#253A86]"
                             : "border-transparent hover:border-gray-300"
                             }`}
@@ -54,7 +54,7 @@ const Gallery = () => {
 
                 {/* VIEW MORE BOX */}
                 <div
-                    className="w-[70px] h-[55px] sm:w-[80px] sm:h-[60px] md:w-[90px] md:h-[70px] flex flex-col items-center 
+                    className="min-w-[90px] h-[70px] flex flex-col items-center 
                     justify-center bg-black rounded cursor-pointer hover:opacity-80 transition"
                     onClick={() => setOpen(true)}
                 >

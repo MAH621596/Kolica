@@ -1,5 +1,6 @@
+
 import type { TabsProps } from "@/components/types";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Tabs = ({
   className,
@@ -16,6 +17,7 @@ const Tabs = ({
   activeTab,
   onClick,
 }: TabsProps) => {
+  const navigate = useNavigate();
   const location = useLocation();
 
   return (
@@ -67,7 +69,10 @@ const Tabs = ({
                     {tab.icon && (
                       <span>
                         {typeof tab.icon === "string" ? (
-                          <img src={tab.icon} alt="img" />
+                          <img src={tab.icon} alt="img"
+                            onClick={() => {
+                              navigate(`${tab.href}`);
+                            }} />
                         ) : (
                           <span className={`${location.pathname === "#" ? "homeActive" : "homeInActive"}`}>{tab.icon}</span>
                         )}

@@ -30,7 +30,7 @@ const CarCard = ({
                         <span className="font-bold text-sm leading-[20px] text-[#000000] group-hover:underline decoration-1">{heading}</span>
                     </div>
 
-                    <div className="card_body">
+                    <div className="card_body relative">
                         <img
                             src={image}
                             alt="img"
@@ -38,6 +38,13 @@ const CarCard = ({
                                 "h-[125px] w-[281px]"
                                 }`}
                         />
+                        {/* OVERLAY */}
+                        <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition duration-300 rounded-lg"></div>
+
+                        {/* ZOOM ICON */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                            <i className="fa fa-search text-white text-lg"></i>
+                        </div>
                     </div>
                     <div className="card_footer flex items-center justify-center h-[40px] w-full">
                         {footerbutton ? <Button type="button" text="Add" className="hover:scale-110 w-full max-w-[233px] flex justify-center
