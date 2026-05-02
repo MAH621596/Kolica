@@ -324,7 +324,7 @@ const Login = ({ setLoggedIn }: any) => {
                     !bg-[#B1222C] border-[#B1222C] 
                     font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
                     hover:scale-90" />
-                </form>
+                  </form>
 
                 </div>
               </div>

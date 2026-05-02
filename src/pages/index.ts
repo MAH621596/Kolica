@@ -4,6 +4,7 @@ export { default as MyAds } from "../pages/MyAds";
 export { default as Dashboard } from "../pages/Dashboard";
 export { default as AdContent } from "../pages/AdContent";
 export { default as ProductDetail } from "../pages/ProductDetail";
+export { default as ProductListing } from "../pages/ProductListings";
 export { default as PhotoSelection } from "../pages/PhotoSelection";
 export { default as SectionSelection } from "../pages/SectionSelection";
 export { default as CarCategory } from "../pages/Categories/CarCategory";
@@ -12,3 +13,4 @@ export { default as EconomicCategory } from "../pages/Categories/EconomicCategor
 export { default as FreeTimeCategory } from "../pages/Categories/FreeTimeCategory";
 export { default as PartsEquimpCategory } from "../pages/Categories/Parts-EquimpmentsCategory";
 export { default as MechanizationCategory } from "../pages/Categories/MechanizationCategory";
+export { default as BusinessPostAd } from "../pages/BusinessPostAd";

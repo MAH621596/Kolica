@@ -2,8 +2,8 @@ import Form from "./components/Form"
 import { Routes, Route } from "react-router-dom";
 
 import { Home, Login, Dashboard, MyAds, AdContent,
-   ProductDetail, PhotoSelection, SectionSelection, 
-   CarCategory, MotoCategory, EconomicCategory, MechanizationCategory, FreeTimeCategory, PartsEquimpCategory } from "@/pages";
+   ProductDetail, ProductListing, PhotoSelection, SectionSelection, 
+   CarCategory, MotoCategory, EconomicCategory, MechanizationCategory, FreeTimeCategory, PartsEquimpCategory, BusinessPostAd, } from "@/pages";
 
 function App() {
   return (
@@ -23,6 +23,8 @@ function App() {
         <Route path="/post-an-add" element={<SectionSelection />} />
         <Route path="/select-photos" element={<PhotoSelection />} />
         <Route path="/product-detail" element={<ProductDetail />} />
+        <Route path="/product-listing" element={<ProductListing />} />
+        <Route path="/business-post-ad" element={<BusinessPostAd />} />
       </Routes>
   );
 }

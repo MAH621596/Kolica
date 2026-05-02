@@ -10,6 +10,10 @@ import {
   Troller,
   ForkLifts,
   MunicipalMachine,
+  Car1,
+  Car2,
+  Car3,
+  Car5,
 } from "@/assets";
 
 export const navbarLinks = [
@@ -1946,5 +1950,141 @@ export const freeTimeSparePartsData = [
     id: 1,
     icon: <Machinery className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
     subcategory: "Camping equipment",
+  },
+];
+
+export const userDashboardTabsMenu = [
+  {
+    id: 1,
+    icon: <Home_Icon className="w-[15px] h-[18px] group-hover:fill-[#253A86]" />,
+    path: "/"
+  },
+  {
+    id: 2,
+    label: "Ad overview",
+    path: "/ad-overview"
+  },
+  {
+    id: 3,
+    label: "Post an ad",
+    path: "/post-add-user"
+  },
+  {
+    id: 4,
+    label: "Archive",
+    path: "/archive-user"
+  },
+  {
+    id: 5,
+    label: "Statistics",
+    path: "/statistics-user"
+  },
+  {
+    id: 6,
+    label: "Parked",
+    path: "/parked-user"
+  },
+  {
+    id: 7,
+    label: "Contacts",
+    path: "/contacts-user"
+  },
+  {
+    id: 8,
+    label: "back to Kolica",
+    path: "/"
+  },
+];
+
+export const productListingDetails = [
+  {
+    image: Car5,
+    heading: "Forthing U-Tour 1.5T ADA.",
+    list: [
+      "Year of first registration: 2024",
+      "20140 km",
+      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
+      "Automatic transmission",
+    ],
+    mainPrice: "€15,970",
+    discountedPrice: "or €13,090 + VAT",
+    fromDate: "22.3.2026 18:43:00",
+    toDate: "20.4.2026 10:50:00",
+    stockAge: "37",
+  },
+  {
+    image: Car1,
+    heading: "Forthing U-Tour 1.5T ADA.",
+    list: [
+      "Year of first registration: 2024",
+      "20140 km",
+      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
+      "Automatic transmission",
+    ],
+    mainPrice: "€15,970",
+    discountedPrice: "or €13,090 + VAT",
+    fromDate: "22.3.2026 18:43:00",
+    toDate: "20.4.2026 10:50:00",
+    stockAge: "37",
+  },
+  {
+    image: Car2,
+    heading: "Forthing U-Tour 1.5T ADA.",
+    list: [
+      "Year of first registration: 2024",
+      "20140 km",
+      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
+      "Automatic transmission",
+    ],
+    mainPrice: "€15,970",
+    discountedPrice: "or €13,090 + VAT",
+    fromDate: "22.3.2026 18:43:00",
+    toDate: "20.4.2026 10:50:00",
+    stockAge: "37",
+  },
+  {
+    image: Car3,
+    heading: "Forthing U-Tour 1.5T ADA.",
+    list: [
+      "Year of first registration: 2024",
+      "20140 km",
+      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
+      "Automatic transmission",
+    ],
+    mainPrice: "€15,970",
+    discountedPrice: "or €13,090 + VAT",
+    fromDate: "22.3.2026 18:43:00",
+    toDate: "20.4.2026 10:50:00",
+    stockAge: "37",
+  },
+  {
+    image: Car3,
+    heading: "Forthing U-Tour 1.5T ADA.",
+    list: [
+      "Year of first registration: 2024",
+      "20140 km",
+      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
+      "Automatic transmission",
+    ],
+    mainPrice: "€15,970",
+    discountedPrice: "or €13,090 + VAT",
+    fromDate: "22.3.2026 18:43:00",
+    toDate: "20.4.2026 10:50:00",
+    stockAge: "37",
+  },
+  {
+    image: Car3,
+    heading: "Forthing U-Tour 1.5T ADA.",
+    list: [
+      "Year of first registration: 2024",
+      "20140 km",
+      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
+      "Automatic transmission",
+    ],
+    mainPrice: "€15,970",
+    discountedPrice: "or €13,090 + VAT",
+    fromDate: "22.3.2026 18:43:00",
+    toDate: "20.4.2026 10:50:00",
+    stockAge: "37",
   },
 ];

@@ -116,6 +116,16 @@ export interface Car_CardProps {
   icon?: string;
   imageSizeClass?: string;
   footerbutton?: boolean;
+    products_list?: {
+    heading?: string;
+    list?: string[];
+    mainPrice: string;
+    discountedPrice: string;
+    fromDate: string;
+    toDate: string;
+    stockAge: string;
+    image?: string;
+  }[];
 }
 
 export interface CategoriesCardProps {
