@@ -1,27 +1,27 @@
 import { useState } from "react";
-import { 
-  Stats, 
-  Plus, 
-  SeeMore, 
-  ProfileInfo, 
+import {
+  Stats,
+  Plus,
+  SeeMore,
+  ProfileInfo,
 } from "@/assets";
-import { 
-  sectionTabsMenu, 
-  dashboardRegistrationData, 
+import {
+  sectionTabsMenu,
+  dashboardRegistrationData,
   barChartContent,
 } from '@/helper/data';
-import { 
-  Tabs, 
-  Navbar, 
-  Button, 
-  Footer, 
-  CarCard, 
-  HeroCard, 
-  BarChart, 
-  DashboardCard, 
+import {
+  Tabs,
+  Navbar,
+  Button,
+  Footer,
+  CarCard,
+  HeroCard,
+  BarChart,
+  DashboardCard,
 } from "@/components";
 
-const Dashboard = () => {
+const UserDashboard = () => {
 
   const [activeMainTab, setActiveMainTab] = useState<number>(1);
   const [loggedIn, setLoggedIn] = useState(
@@ -46,7 +46,7 @@ const Dashboard = () => {
           <p className="text-[#627084] text-sm md:text-[14px] font-normal capitalize text-[#627084] mb-[13px]">
             {field.subHeading}
           </p>
-          { field.icon && <div><img src={field.icon} alt="img" className={`mx-auto`} /></div> }
+          {field.icon && <div><img src={field.icon} alt="img" className={`mx-auto`} /></div>}
         </div>
       </div>
     );
@@ -106,12 +106,12 @@ const Dashboard = () => {
             cardBodyIcon={Stats}
             cardBodyHeading="Statistics overview"
           />
-          
+
           <CarCard
-              dealerHeadingClass="text-sm md:text-[18px] !text-[22px]"
-              dealerTextClass="min-h-[150px] flex-1 rounded-[20px] hover:scale-110"
-              dealerText={"View All Post"} icon={SeeMore}
-            />          
+            dealerHeadingClass="text-sm md:text-[18px] !text-[22px]"
+            dealerTextClass="min-h-[150px] flex-1 rounded-[20px] hover:scale-110"
+            dealerText={"View All Post"} icon={SeeMore}
+          />
         </div>
 
         <div className="flex flex-col md:flex-row gap-[25px] mb-[30px]">
@@ -122,7 +122,7 @@ const Dashboard = () => {
                 <p className="text-sm md:text-[16px] font-medium capitalize text-[#627084] mb-[30px]">
                   ou currently have no ads in your post. To post a new ad, click the button below.
                 </p>
-                <Button type="button" text="Post a new ad"
+                <Button pre={true} type="button" text="Post a new ad"
                   icon={<img src={Plus} alt="+" />}
                   className="w-full hover:scale-110 
                   flex justify-center mt-[25px] !bg-[#B1222C] border-[#B1222C] font-semibold text-xs 
@@ -135,8 +135,20 @@ const Dashboard = () => {
             <div>
               <h2 className="font-normal text-sm md:text-md lg:text-[22px] text-black leading-tight mb-[0px]">Review statistics for the last 7 days</h2>
               <div className="relative">
-                <BarChart />
 
+                <BarChart
+                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}                  
+                  ySuffix="k"
+                  legendPosition="top"
+                  categoryPercentage={0.9}
+                  tooltipBg="#B1222C"                  
+                  borderRadius={40}
+                  datasets={[
+                    { label: "Expense", data: [37, 10, 80, 30, 40, 10, 20, 10, 10, 20, 60, 30], color: "#ccc", pattern: true },
+                    // { label: "Income", data: [20, 80, 40, 60, 80, 30, 10, 70, 19, 66, 33, 70], color: "#B1222C", },
+                  ]}
+                />                              
+                
                 <div className="mt-[50px]">
                   <h3 className="font-normal text-sm md:text-md lg:text-[22px] text-black leading-[27px]">Legend:</h3>
 
@@ -148,7 +160,7 @@ const Dashboard = () => {
                         </li>
                       )
                     })}
-                  </ul>                  
+                  </ul>
                 </div>
               </div>
             </div>
@@ -181,7 +193,7 @@ const Dashboard = () => {
             <h2 className="capitalize font-medium text-md md:text-2xl lg:text-[20px] text-black leading-tight">
               Do you have a registered business and want to advertise as a merchant?</h2>
 
-            <Button type="button" text="I want to continue advertising as a merchant"
+            <Button post={true} type="button" text="I want to continue advertising as a merchant"
               className="w-full hover:scale-110
                   flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs 
                   lg:text-[18px] !text-white h-[41px]" />
@@ -194,4 +206,4 @@ const Dashboard = () => {
   );
 }
 
-export default Dashboard;
+export default UserDashboard;

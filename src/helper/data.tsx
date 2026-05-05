@@ -1,10 +1,10 @@
 import {
   Home_Icon, Carr, Byke, Moto, Economic, Mechanic, FreeTime, Parts, Saved,
   Profile, Plus, SampleImage, Google, Apple, User, Password, CrossIcon, EuroIcon,
-  ContactInfo, ModernCar, EcoCar, LuxuryCar, RentalCar, ClassicCar, CrashedCar, 
-  CatalogCar, FloodedCar, CarParts, CarTires, CarRims, EBike1, EBike2, EScooter, 
-  FourWheeler, GoKart, MiniByke, Motorcycle, OldTimer, RentalOffer, Scooter, 
-  SnowMobile, Mopped, Containers, UTV, Buses, Cargo, Trucks, DeliveryTruck,
+  ContactInfo, ModernCar, EcoCar, LuxuryCar, RentalCar, ClassicCar, CrashedCar,
+  CatalogCar, FloodedCar, CarParts, CarTires, CarRims, EBike1, EBike2, EScooter,
+  FourWheeler, GoKart, MiniByke, Motorcycle, OldTimer, RentalOffer, Scooter,
+  SnowMobile, Mopped, Containers, UTV, Buses, Cargo, Trucks, DeliveryTruck, GlobTrade,
   FarmMachine,
   Machinery,
   Troller,
@@ -15,6 +15,7 @@ import {
   Car3,
   Car5,
 } from "@/assets";
+import { CustomInput } from "@/components";
 
 export const navbarLinks = [
   {
@@ -1401,23 +1402,6 @@ export const barChartContent = [
   },
 ];
 
-export const barChartLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-export const barChartData = [
-  { bar: 30 },
-  { bar: 10 },
-  { bar: 20 },
-  { bar: 30 },
-  { bar: 20 },
-  { bar: 10 },
-  { bar: 20 },
-  { bar: 10 },
-  { bar: 10 },
-  { bar: 20 },
-  { bar: 60 },
-  { bar: 30 },
-]
-
 export const sellerCardData = [
   {
     id: 1,
@@ -1821,7 +1805,7 @@ export const economicCategoryData = [
     icon: <UTV className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
     subcategory: "UTV vehicles",
   },
-    {
+  {
     id: 6,
     icon: <RentalOffer className="fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
     subcategory: "Rental offers",
@@ -1987,7 +1971,7 @@ export const userDashboardTabsMenu = [
   {
     id: 7,
     label: "Contacts",
-    path: "/contacts-user"
+    path: "/edit-user-data"
   },
   {
     id: 8,
@@ -1998,28 +1982,14 @@ export const userDashboardTabsMenu = [
 
 export const productListingDetails = [
   {
-    image: Car5,
-    heading: "Forthing U-Tour 1.5T ADA.",
-    list: [
-      "Year of first registration: 2024",
-      "20140 km",
-      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
-      "Automatic transmission",
-    ],
-    mainPrice: "€15,970",
-    discountedPrice: "or €13,090 + VAT",
-    fromDate: "22.3.2026 18:43:00",
-    toDate: "20.4.2026 10:50:00",
-    stockAge: "37",
-  },
-  {
+    id: 1,
     image: Car1,
     heading: "Forthing U-Tour 1.5T ADA.",
     list: [
-      "Year of first registration: 2024",
-      "20140 km",
-      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
-      "Automatic transmission",
+      { label: "registrationYear", value: "Year of first registration: 2024" },
+      { label: "mileage", value: "20140 km" },
+      { label: "engineSpecs", value: "Petrol Engine, 1332 cc, 100 kW / 136 hp" },
+      { label: "transmission", value: "Automatic transmission" },
     ],
     mainPrice: "€15,970",
     discountedPrice: "or €13,090 + VAT",
@@ -2028,63 +1998,238 @@ export const productListingDetails = [
     stockAge: "37",
   },
   {
+    id: 2,
     image: Car2,
     heading: "Forthing U-Tour 1.5T ADA.",
     list: [
-      "Year of first registration: 2024",
-      "20140 km",
-      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
-      "Automatic transmission",
+      { label: "registrationYear", value: "Year of first registration: 2024" },
+      { label: "mileage", value: "20140 km" },
+      { label: "engineSpecs", value: "Petrol Engine, 1332 cc, 100 kW / 136 hp" },
+      { label: "transmission", value: "Automatic transmission" },
     ],
     mainPrice: "€15,970",
     discountedPrice: "or €13,090 + VAT",
     fromDate: "22.3.2026 18:43:00",
     toDate: "20.4.2026 10:50:00",
-    stockAge: "37",
+    stockAge: "17",
   },
   {
+    id: 3,
     image: Car3,
     heading: "Forthing U-Tour 1.5T ADA.",
     list: [
-      "Year of first registration: 2024",
-      "20140 km",
-      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
-      "Automatic transmission",
+      { label: "registrationYear", value: "Year of first registration: 2024" },
+      { label: "mileage", value: "20140 km" },
+      { label: "engineSpecs", value: "Petrol Engine, 1332 cc, 100 kW / 136 hp" },
+      { label: "transmission", value: "Automatic transmission" },
     ],
     mainPrice: "€15,970",
     discountedPrice: "or €13,090 + VAT",
     fromDate: "22.3.2026 18:43:00",
     toDate: "20.4.2026 10:50:00",
-    stockAge: "37",
+    stockAge: "15",
   },
   {
-    image: Car3,
+    id: 4,
+    image: "",
     heading: "Forthing U-Tour 1.5T ADA.",
     list: [
-      "Year of first registration: 2024",
-      "20140 km",
-      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
-      "Automatic transmission",
+      { label: "registrationYear", value: "Year of first registration: 2024" },
+      { label: "mileage", value: "20140 km" },
+      { label: "engineSpecs", value: "Petrol Engine, 1332 cc, 100 kW / 136 hp" },
+      { label: "transmission", value: "Automatic transmission" },
     ],
     mainPrice: "€15,970",
     discountedPrice: "or €13,090 + VAT",
     fromDate: "22.3.2026 18:43:00",
     toDate: "20.4.2026 10:50:00",
-    stockAge: "37",
+    stockAge: "30",
   },
   {
-    image: Car3,
+    id: 5,
+    image: Car5,
     heading: "Forthing U-Tour 1.5T ADA.",
     list: [
-      "Year of first registration: 2024",
-      "20140 km",
-      "Petrol Engine, 1332 cc, 100 kW / 136 hp",
-      "Automatic transmission",
+      { label: "registrationYear", value: "Year of first registration: 2024" },
+      { label: "mileage", value: "20140 km" },
+      { label: "engineSpecs", value: "Petrol Engine, 1332 cc, 100 kW / 136 hp" },
+      { label: "transmission", value: "Automatic transmission" },
     ],
     mainPrice: "€15,970",
     discountedPrice: "or €13,090 + VAT",
     fromDate: "22.3.2026 18:43:00",
     toDate: "20.4.2026 10:50:00",
-    stockAge: "37",
+    stockAge: "48",
+  },
+];
+
+export const merchantListingData = [
+  {
+    id: 1,
+    label: "Merchant",
+    image: GlobTrade,
+    list: [
+      { label: "brand", value: "S-AVTO, Zan Guzej sp" },
+      { label: "medium", value: "Vehicle purchase and sale" },
+      { label: "variant", value: "DVOR 12A" },
+      { label: "type", value: "Smarje pri Jelsah" },
+    ],
+    link: "view website...",
+    card_subHeader: "The dealer's entire offer:",
+    card_subHeaderText: "Categories",
+    inner_list: [
+      { label: "Car", value: "18" },
+      { label: "Moped, Motorcycle", value: "1" },
+      { label: "Rim", value: "1" },
+    ],
+  },
+];
+
+export const adsListingData = [
+  {
+    id: 1,
+    label: "Showing 18 ads",
+    adsDesc: "AUTO Section",
+    card_subHeader: "Limit Display:",
+    specs: [
+      {
+        innerHeading: "Offer type",
+        innerListing: [
+          { label: "sale", value: "18" },
+        ]
+      },
+      {
+        innerHeading: "Brand",
+        innerListing: [
+          { label: "BMW", value: "2" },
+          { label: "Citroen", value: "1" },
+          { label: "Flat", value: "1" },
+          { label: "Hyndai", value: "1" },
+          { label: "Mercedes-Benz", value: "2" },
+          { label: "Suzuki", value: "1" },
+          { label: "Damage", value: "1" },
+          { label: "Volkswagen", value: "9" },
+        ]
+      },
+      {
+        innerHeading: "Shape",
+        innerListing: [
+          { label: "limousine", value: "2" },
+        ]
+      },
+    ],
+  },
+];
+
+export const searchListingData = [
+  {
+    id: 1,
+    label: "Quick search by ID or VIN",
+    buttonLabel: "Show ad",
+  },
+];
+
+export const reviewMyAdsData = [
+  {
+    icon: <ModernCar className="w-10 h-10 fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    label: "Car",
+    count: "18"
+  },
+  {
+    icon: <Mopped className="w-10 h-10 fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    label: "Moped Motorcycle",
+    count: "1"
+  },
+  {
+    icon: <CarRims className="w-10 h-10 fill-current text-[#7E9DB8] group-hover:text-[#253A86]" />,
+    label: "Rims",
+    count: "1"
+  },
+]
+
+export const userDashboardData = [
+  {
+    merchantID: "20943",
+    website: "my.Kolica.net"
+  },
+]
+
+export const editUserData = [
+  {
+    id: 1,
+    label: "User Data",
+    field: [
+      {
+        icon: <i className={`fa fa-info-circle`} aria-hidden="true"></i>,
+        field_desc: `An icon for additional comments may be displayed next to certain input fields. 
+                The comment appears when you hover your mouse over the selected icon.`,
+      },
+      {
+        icon: <i className={`fa fa-asterisk`} aria-hidden="true"></i>,
+        label: "Example",
+        field_desc: `Required fields are additionally marked/colored.`,
+        field_input: <CustomInput
+          type="text"
+          value="obvezno polij"
+          className="!text-xs w-full border-[0.64px] !h-[16px]"
+        />
+      },
+      {
+        icon: <i className={`fa fa-asterisk`} aria-hidden="true"></i>,
+        label: "Example",
+        field_desc: `When you nake a mistake while entering data. It will be highlighted in red.`,
+        field_input: <CustomInput
+          type="text"
+          value="obvezno polij"
+          className="!text-xs w-full border-[0.64px] !h-[16px] bg-red-700 text-white"
+        />
+      }
+    ],
+  },
+];
+
+export const userData = [
+  {
+    id: 1,
+    label: "Basic data about the trader (source: AJPES - Business Register of Siovenia)",
+    list: [
+      { label: "Title", value: "S-AVTO, Zan Guzej sp" },
+      { label: "Address", value: "Courtyard 12A" },
+      { label: "Post Office, City", value: "3240 Smarje Pri Jeisah" },
+      { label: "Tax number", value: "12710717" },
+    ],
+    card_subHeader: "Subscription relationship",
+    subHeader_list: [
+      { label: "Contact Person", value: "ZAN GUZEJ" },
+      { label: "Contact Email", value: "guzej12@gmail.com" },
+      { label: "Contact Phone", value: "041787993" },
+    ],
+  },
+];
+
+const custom_field_input = <CustomInput
+  type="text"
+  value="obvezno polij"
+  className="!text-xs w-full border-[0.64px] !h-[16px]"
+/>
+
+export const userInfoEdit = [
+  {
+    id: 1,
+    label: "Information that will be published with your offer",
+    list: [
+      { label: "Title", value: "S-AVTO, Zan Guzej sp" },
+      { label: "Branch name", field_input: custom_field_input },
+      { label: "Address", field_input: custom_field_input },
+      { label: "Post Office, City", field_input: custom_field_input },
+    ],
+    card_subHeader: "Contact Information",
+    subHeader_list: [
+      { label: "Phone", field_input: custom_field_input },
+      { label: "Comment", field_input: custom_field_input },
+      { label: "Fax", field_input: custom_field_input },
+      { label: "Email", field_input: custom_field_input },
+      { label: "Website", field_input: custom_field_input },
+    ],
   },
 ];

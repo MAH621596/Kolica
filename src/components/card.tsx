@@ -1,8 +1,9 @@
 
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Button, CustomInput } from "@/components";
-import type { Car_CardProps, Hero_CardProps, CategoriesCardProps, DashboardProps } from "@/components/types";
+import { Link } from "react-router-dom";
+import { SampleImage, Caret } from "@/assets";
+import { Button, CustomCheckbox, CustomInput } from "@/components";
+import type { Car_CardProps, Hero_CardProps, CategoriesCardProps, DashboardProps, ListingCardProps } from "@/components/types";
 
 export const CarCard = ({
   image,
@@ -49,7 +50,7 @@ export const CarCard = ({
             </div>
           </div>
           <div className="card_footer flex items-center justify-center h-[40px] w-full">
-            {footerbutton ? <Button type="button" text="Add" className="hover:scale-110 w-full max-w-[233px] flex justify-center
+            {footerbutton ? <Button post={true} type="button" text="Add" className="hover:scale-110 w-full max-w-[233px] flex justify-center
                      !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] 
                      " />
               :
@@ -84,11 +85,13 @@ export const DashboardCard = ({
   svgClass,
   imageClass,
   headerClass,
+  footerClass,
   cardBodyIcon,
   cardHeaderText,
   cardFooterText,
   parentCardClass,
   cardBodyHeading,
+  caretColorClass,
   cardHeadingClass,
   cardSubHeadingClass,
   cardBodySubHeading,
@@ -96,11 +99,12 @@ export const DashboardCard = ({
   return (
     <div className={`bg-white rounded-[20px] cursor-pointer transition-all duration-300 ease-in-out ${parentCardClass}`}>
       {cardHeaderText &&
-        <div className={`px-[30px] pt-[30px] text-sm lg:text-[18px] font-medium capitalize text-black ${headerClass}`}>
+        <div className={`relative px-[30px] pt-[30px] text-sm lg:text-[18px] font-medium capitalize text-black ${headerClass}`}>
           <h4>{cardHeaderText}</h4>
+          <Caret caretColor={caretColorClass} />
         </div>}
 
-      {(cardBodyHeading || cardBodySubHeading) &&
+      {(cardBodyHeading || cardBodySubHeading || cardBodyIcon) &&
         <div className={`flex items-center justify-start gap-[18px] py-[30px] px-[30px] ${className}`}>
           {cardBodyIcon && (
             <span>
@@ -112,16 +116,18 @@ export const DashboardCard = ({
             </span>
           )}
 
+          {(cardBodyHeading || cardBodySubHeading) &&
           <div className={`text-black`}>
             <div className={`text-sm md:text-[18px] lg:text-[22px] font-medium capitalize leading-[25px] ${cardHeadingClass}`}>{cardBodyHeading}</div>
             {cardBodySubHeading && <div className={`text-[14px] lg:text-[18px] font-normal capitalize text-[#94A3B3] leading-[25px] ${cardSubHeadingClass}`}>{cardBodySubHeading}</div>}
           </div>
+          }
         </div>}
 
       {children && <>{children}</>}
 
       {cardFooterText &&
-        <div className="leading-[28px] px-[30px] pb-[30px] text-sm lg:text-[18px] font-medium capitalize text-black">
+        <div className={`leading-[28px] px-[30px] pb-[30px] text-sm lg:text-base font-medium capitalize text-black ${footerClass}`}>
           <h4>{cardFooterText}</h4>
         </div>}
     </div>
@@ -159,6 +165,7 @@ export const HeroCard = ({
 
           <div className="flex justify-center lg:justify-start">
             <Button
+              post={true}
               type="button"
               text={buttonText}
               className="!bg-[#B1222C] font-medium text-lg md:text-xl lg:text-[30px] border-[#B1222C] 
@@ -175,6 +182,7 @@ export const HeroCard = ({
             className="w-full object-contain max-w-[680px] lg:max-w-full lg:min-w-[620px] lg:ml-[118px]"
           />
           <Button
+            post={true}
             type="button"
             text={smallbuttonText}
             className="absolute bottom-[60px] md:right-[130px] lg:bottom-[50px] lg:right-[10px] 
@@ -186,7 +194,10 @@ export const HeroCard = ({
       </div>
     )
       : children ? <>
-        <div className={`w-full max-w-[972px] mx-auto px-[28px] py-[46px] md:px-[45px] md:py-[50px] md:mb-[50px] relative z-10 bg-white text-black md:rounded-[20px] ${parentClass}`}>{children}</div>
+        <div className={`w-full max-w-[972px] mx-auto px-[28px] py-[46px] md:px-[45px] md:py-[50px] md:mb-[50px] 
+          relative z-10 bg-white text-black md:rounded-[20px] ${parentClass}`}>
+          {children}
+        </div>
       </> : (
         <>
           <div
@@ -229,45 +240,63 @@ export const HeroCard = ({
 export const ListingCard = ({
   className,
   products_list,
-  imageSizeClass,
-}: Car_CardProps) => {
+}: ListingCardProps) => {
+  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
+  const handleCheckboxChange = (id: string) => {
+    setCheckedItems((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   return (
-    <Link to="/product-detail">
+    <>
       {products_list?.map((product, index) => {
+
+        const infoData = [
+          { value: product.fromDate, icon: "fa fa-calendar" },
+          { value: product.toDate, icon: "fa fa-pencil-square" },
+          { value: product.stockAge, icon: "fa fa-calendar-times-o", isStock: true },
+        ];
+
+        const id = String(product.id ?? index);
+
         return (
           <>
-            <div key={index} className={`flex flex-col sm:flex-row items-start justify-between cursor-pointer gap-4 lg:gap-0 py-[8px] border-b border-b-[#C8C8C8] ${className}`}>
+            <div key={index} className={`flex flex-col md:flex-row items-start justify-between cursor-pointer gap-4 lg:gap-0 py-[8px] border-b border-b-[#C8C8C8] ${className}`}>
               <div className="group relative border border-[#C8C8C8] rounded-none pb-6 p-1 w-full md:w-auto">
                 <img
-                  src={product.image}
-                  alt="img"
-                  className={`w-full object-cover transition-all duration-300 group-hover:scale-98 ${imageSizeClass ? imageSizeClass :
-                    "h-[140px] sm:h-[125px] sm:max-w-[160px]"
-                    }`}
+                  src={product.image || SampleImage}
+                  alt={product.heading}
+                  className={`w-full object-cover transition-all duration-300 h-[180px] md:h-[125px] md:max-w-[160px] 
+                    ${product.image ? "group-hover:scale-98" : ""}`}
                 />
-                {/* OVERLAY */}
-                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition duration-300 rounded-lg"></div>
+                {product.image &&
+                  <>
+                    {/* OVERLAY */}
+                    <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-30 transition duration-300 rounded-lg"></div>
 
-                {/* ZOOM ICON */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                  <i className="fa fa-search text-white text-lg"></i>
-                </div>
+                    {/* ZOOM ICON */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                      <i className="fa fa-search text-white text-lg"></i>
+                    </div>
+                  </>}
               </div>
 
-              <div className="w-full md:w-auto text-center sm:text-start">
-                <h2 className="font-bold text-sm lg:text-base text-black leading-[27px]">{product.heading} </h2>
-                <ul className="list-none sm:list-disc list-inside">
+              <div className="w-full md:w-auto text-center md:text-start">
+                <h2 className="font-bold text-sm lg:text-base text-black leading-[27px]">{product.heading}</h2>
+                <ul className="list-none md:list-disc list-inside">
                   {product.list?.map((P_list, Qindex) => {
                     return (
                       <li key={Qindex} className="font-roboto font-normal text-black text-sm leading-tight">
-                        {P_list}
+                        {P_list.value}
                       </li>
                     )
                   })}
                 </ul>
               </div>
 
-              <div className={`sm:flex items-start gap-4 w-full md:w-auto`}>
+              <div className={`md:flex items-start gap-3 w-full md:w-auto`}>
                 <div>
                   <div className="mb-[16px] bg-white border border-[#C8C8C8] rounded-none h-[90px]">
                     <div className="flex items-center justify-center gap-[18px] py-[20px] px-[35px] h-full">
@@ -281,24 +310,31 @@ export const ListingCard = ({
                     </div>
                   </div>
 
-                  <div className="mb-[8px] pl-[10px] flex items-center justify-center md:justify-start cursor-pointer hover:opacity-80">
-                    <span className="text-black text-sm leading-tight font-normal"><i className="fa fa-calendar text-base" aria-hidden="true"></i> {product.fromDate}</span>
-                  </div>
-                  <div className="mb-[8px] pl-[10px] flex items-center justify-center md:justify-start cursor-pointer hover:opacity-80">
-                    <span className="text-black text-sm leading-tight font-normal"><i className="fa fa-pencil-square text-base" aria-hidden="true"></i> {product.toDate}</span>
-                  </div>
-                  <div className="mb-[8px] pl-[10px] flex items-center justify-center md:justify-start cursor-pointer hover:opacity-80">
-                    <span className="text-black text-sm leading-tight font-normal"><i className="fa fa-calendar-times-o text-base" aria-hidden="true"></i> Stock age: {product.stockAge}</span>
-                  </div>
+                  {infoData.map((item, index) => (
+                    <div key={index} className="mb-[8px] pl-[10px] text-center md:text-start cursor-pointer hover:opacity-80">
+                      <span className="text-black text-sm leading-tight font-normal">
+                        <i className={`${item.icon} text-base pr-2`} aria-hidden="true"></i>
+                        {item.isStock ? `Stock age: ${item.value}` : item.value}
+                      </span>
+                    </div>
+                  ))}
                 </div>
 
-                <div className="hidden sm:block border border-[#C8C8C8] h-5 w-5">
-                </div>
+                <CustomCheckbox
+                  id={`checkbox-${id}`}
+                  name={`checkbox-${id}`}
+                  value={product.id as string}
+                  checkboxParent="md:justify-end"
+                  inputClassName="hidden md:block !border-1 !border-[#C8C8C8] !rounded-none !h-5 !w-5"
+                  custom_label_for={`checkbox-${id}`}
+                  checked={checkedItems[id] || false}
+                  onChange={() => handleCheckboxChange(id as string)}
+                />
               </div>
             </div>
           </>
         )
       })}
-    </Link>
+    </>
   );
 }

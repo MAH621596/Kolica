@@ -1,4 +1,4 @@
-import { Logo } from "@/assets";
+import { Logo, Profile } from "@/assets";
 import { Button } from "@/components";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -13,18 +13,18 @@ const Navbar = ({
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleClick = (linkName: string) => {
-    navigate(linkName);
-  };
-
   // const handleClick = (linkName: string) => {
-  //   console.log("link name ?", linkName)
-  //   if (!logStatus || linkName === "/login") {
-  //     navigate("/login");
-  //   } else {
-  //     navigate(linkName);
-  //   }
+  //   navigate(linkName);
   // };
+
+  const handleClick = (linkName: string) => {
+    console.log("link name ?", linkName)
+    if (!logStatus || linkName === "/login") {
+      navigate("/login");
+    } else {
+      navigate(linkName);
+    }
+  };
 
   // const handleLogout = () => {
   //   localStorage.setItem("auth", "false");
@@ -51,13 +51,13 @@ const Navbar = ({
           <div className="hidden md:flex gap-[20px] items-center">
             {navbarLinks.map((link, index) => {
               return (
-                <span key={index} onClick={() => handleClick(link.href)} className={`cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80 ${link.href == "/login!" && logStatus ? "hidden" : "block"}`}>
+                <span key={index} onClick={() => handleClick(link.href)} className={`cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80 ${link.href == "/login" && logStatus ? "hidden" : "block"}`}>
                   <img src={link.icon} alt="img" className="w-[15px] h-[17px]" />
                   {link.link_text}
                 </span>)
             })}
 
-            {/* {logStatus && 
+            {logStatus && 
             <span
               className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80"
               onClick={() => {
@@ -68,7 +68,7 @@ const Navbar = ({
             >
               <img src={Profile} alt="img" className="w-[15px] h-[17px]" />
               Logout
-            </span>} */}
+            </span>}
           </div>
 
           {/* Hamburger Button (Mobile) */}
@@ -126,12 +126,12 @@ const Navbar = ({
         <div className="grid grid-cols-2 gap-[20px] mt-4">
           {navbarLinks.map((link, index) => {
             return (
-              <span onClick={() => handleClick(link.href)} key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}  ${link.href == "/login!" && logStatus ? "hidden" : "block"}`}>
+              <span onClick={() => handleClick(link.href)} key={index} className={`flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80 ${link.link_text == "Saved" ? "col-span-2" : ""}  ${link.href == "/login" && logStatus ? "hidden" : "block"}`}>
                 <Button type="button" text={link.link_text} icon={<img src={link.icon} alt="img" className="w-[15px] h-[17px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-sm !text-white h-[41px] hover:scale-110 w-full`} />
               </span>)
           })}
 
-        {/* {logStatus && <span
+        {logStatus && <span
           className={`flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80 col-span-1`}
           onClick={() => {
             localStorage.setItem("auth", "false");
@@ -140,7 +140,7 @@ const Navbar = ({
           }}
         >
            <Button type="button" text="Logout" icon={<img src={Profile} alt="img" className="hover:scale-110 w-[15px] h-[17px]" />} className={`!bg-[#B1222C] border-[#B1222C] justify-start font-normal text-sm !text-white h-[41px] cursor-pointer w-full`} />
-        </span>} */}
+        </span>}
       </div>
       </div>
     </nav>

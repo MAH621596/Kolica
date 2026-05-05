@@ -87,3 +87,5 @@ export { default as MunicipalMachine } from "../assets/Svgs/MechanizationCategor
 export { default as Troller } from "../assets/Svgs/MechanizationCategories/Troller.svg?react";
 export { default as ForkLifts } from "../assets/Svgs/MechanizationCategories/ForkLifts.svg?react";
 
+
+export { default as Caret } from "../assets/TooltipCaret/Caret";

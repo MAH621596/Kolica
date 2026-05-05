@@ -195,7 +195,7 @@ const ProductDetail = () => {
                             className="!h-full !justify-center !px-0"
                             cardHeaderText="Seller"
                             headerClass="bg-[#253A86] !text-white !py-[10px] !rounded-t-[20px]"
-                            cardFooterText={<Button type="button" text="Send an email to the seller"
+                            cardFooterText={<Button pre={true} type="button" text="Send an email to the seller"
                                 icon={<i className="fa fa-envelope"></i>}
                                 className="w-full hover:scale-110 
                                 flex justify-center mt-[25px] !bg-[#B1222C] 
@@ -308,7 +308,7 @@ const ProductDetail = () => {
                                     <p className="text-sm md:text-[16px] font-medium capitalize text-[#627084] mb-[30px]">
                                         ou currently have no ads in your post. To post a new ad, click the button below.
                                     </p>
-                                    <Button type="button" text="Post a new ad"
+                                    <Button pre={true} type="button" text="Post a new ad"
                                         icon={<img src={Plus} alt="+" />}
                                         className="w-full hover:scale-110 
                                             flex justify-center mt-[25px] !bg-[#B1222C] border-[#B1222C] font-semibold text-xs 
@@ -383,21 +383,21 @@ const ProductDetail = () => {
                                 https://www.euro-globtrade.si</Link>
 
                             <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-5 px-[14px] pb-[16px]">
-                                <Button type="button" text="Email"
+                                <Button pre={true} type="button" text="Email"
                                     icon={<i className="fa fa-envelope"></i>}
                                     className="w-full hover:scale-110 
                                 flex justify-center !bg-[#B1222C] 
                                 border-[#B1222C] font-semibold text-xs 
                                 lg:text-sm !text-white h-[36px]" />
 
-                                <Button type="button" text="Location"
+                                <Button pre={true} type="button" text="Location"
                                     icon={<i className="fa fa-map-marker"></i>}
                                     className="w-full hover:scale-110 
                                 flex justify-center !bg-[#B1222C] 
                                 border-[#B1222C] font-semibold text-xs 
                                 lg:text-sm !text-white h-[36px]" />
 
-                                <Button type="button" text="Working hours"
+                                <Button pre={true} type="button" text="Working hours"
                                     icon={<i className="fa fa-clock"></i>}
                                     className="w-full hover:scale-110 
                                 flex justify-center !bg-[#B1222C] 

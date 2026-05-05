@@ -1,9 +1,10 @@
 import Form from "./components/Form"
 import { Routes, Route } from "react-router-dom";
 
-import { Home, Login, Dashboard, MyAds, AdContent,
+import { Home, Login, UserDashboard, BusinessDashboard, MyAds, AdContent,
    ProductDetail, ProductListing, PhotoSelection, SectionSelection, 
-   CarCategory, MotoCategory, EconomicCategory, MechanizationCategory, FreeTimeCategory, PartsEquimpCategory, BusinessPostAd, } from "@/pages";
+   CarCategory, MotoCategory, EconomicCategory, MechanizationCategory, 
+   FreeTimeCategory, PartsEquimpCategory, BusinessPostAd, EditUserData } from "@/pages";
 
 function App() {
   return (
@@ -18,7 +19,9 @@ function App() {
         <Route path="/mechanic-category" element={<MechanizationCategory />} />
         <Route path="/freetime-category" element={<FreeTimeCategory />} />
         <Route path="/parts-equimpments-category" element={<PartsEquimpCategory />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/user-dashboard" element={<UserDashboard />} />
+        <Route path="/business-dashboard" element={<BusinessDashboard />} />
+        <Route path="/edit-user-data" element={<EditUserData />} />
         <Route path="/ad-content" element={<AdContent />} />
         <Route path="/post-an-add" element={<SectionSelection />} />
         <Route path="/select-photos" element={<PhotoSelection />} />

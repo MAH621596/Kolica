@@ -241,7 +241,7 @@ const SectionSelection = () => {
                                             </div>
                                         </div>
 
-                                        <Button text="Click To Continue"
+                                        <Button pre={true} text="Click To Continue"
                                             type="submit"
                                             className="w-full lg:w-[385px] flex justify-center mt-[25px] !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[18px] !text-white h-[41px] hover:scale-110" />
 

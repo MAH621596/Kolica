@@ -1,7 +1,9 @@
 export { default as Home } from "../pages/Home";
 export { default as Login } from "../pages/Login";
 export { default as MyAds } from "../pages/MyAds";
-export { default as Dashboard } from "../pages/Dashboard";
+export { default as UserDashboard } from "../pages/UserDashboard";
+export { default as BusinessDashboard } from "../pages/BusinessDashboard";
+export { default as EditUserData } from "../pages/EditUserData";
 export { default as AdContent } from "../pages/AdContent";
 export { default as ProductDetail } from "../pages/ProductDetail";
 export { default as ProductListing } from "../pages/ProductListings";

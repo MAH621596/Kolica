@@ -1,21 +1,13 @@
 import { useState, useEffect } from "react";
 import {
     Plus,
-    Medal,
-    GlobTrade,
-    Car, Car1, Car2, Car3,
-    Logo,
+    Caret,
 } from "@/assets";
 import {
-    basicData,
-    municipalData_1,
-    municipalData_2,
-    municipalData_3,
-    municipalData_4,
-    sellerCardData,
-    workingHoursData,
+    adsListingData,
+    searchListingData,
+    merchantListingData,
     userDashboardTabsMenu,
-    additionalOptionsData,
     productListingDetails,
 } from '@/helper/data';
 import {
@@ -24,19 +16,17 @@ import {
     Button,
     Footer,
     HeroCard,
-    CarCard,
     CustomInput,
     CustomLabel,
     ListingCard,
     DashboardCard,
-    LightBoxGallery,
 } from "@/components";
-import { Link } from "react-router-dom";
 
 const ProductListing = () => {
 
+    const [searchFilter, setSearchFilter] = useState<string>("");
     const [priceFilter, setPriceFilter] = useState<string>("");
-    const [activeMainTab, setActiveMainTab] = useState<number>(1);
+    const [activeMainTab, setActiveMainTab] = useState<number>(2);
     const [loggedIn, setLoggedIn] = useState(
         localStorage.getItem("auth") === "true"
     );
@@ -75,7 +65,7 @@ const ProductListing = () => {
 
             <Tabs
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 hidden md:block"
-                tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-7 gap-0"
+                tabContainerClass="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0 grid grid-cols-8 gap-0"
                 tabs_list={userDashboardTabsMenu}
                 tabItemClass="svgInactive"
                 activeTabClass="bg-white"
@@ -86,116 +76,133 @@ const ProductListing = () => {
                 variant="route"
                 onClick={(id) => setActiveMainTab(id)} />
 
-            <section className="w-full max-w-[972px] mx-auto px-[30px] md:px-4 lg:px-0">
-                <HeroCard parentClass="flex flex-col sm:flex-row justify-between items-center gap-4 !m-0 !rounded-t-none !rounded-b-[20px] !py-[18px] !px-[30px] sticky top-0 z-20 shadow-[0_1px_2px_0_rgba(0,0,0,.5)]">
-                    <h2 className="font-semibold text-md md:text-2xl lg:text-[24px] text-black leading-tight">Displaying ads: Passenger Vehicle</h2>
-                    <Button type="button" text="Post a new ad"
+            <section className="w-full max-w-[972px] mx-auto px-8 md:px-4 lg:px-0">
+                <HeroCard parentClass="flex flex-col md:flex-row justify-between items-center gap-4 !m-0 !rounded-t-none !rounded-b-[20px] !py-[18px] !px-[30px] sticky top-0 z-20 shadow-[0_1px_2px_0_rgba(0,0,0,.5)]">
+                    <h2 className="font-semibold text-base md:text-2xl text-black leading-tight">Displaying ads: Passenger Vehicles</h2>
+                    <Button pre={true} type="button" text="Post a new ad"
                         icon={<img src={Plus} alt="+" />}
                         className="w-full md:w-max hover:scale-110 
-                        flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs 
-                        lg:text-[18px] !text-white h-[41px]" />
+                        !bg-[#B1222C] border-[#B1222C] font-semibold 
+                        text-sm text-white h-[34px]" />
                 </HeroCard>
 
                 <div className="flex flex-col lg:flex-row gap-[15px] my-[30px] bg-white px-[15px] py-[15px] rounded-[20px]">
+                     {/* { LEFT SIDE } */}
                     <div className="basis-full md:basis-[230px]">
+                        {merchantListingData.map((merchant) => (
+                            <DashboardCard key={merchant.id}
+                                parentCardClass="bg-[#E9ECEF] text-center"
+                                className="!h-full !justify-center !px-0"
+                                cardHeaderText={`${merchant.label}:`}
+                                caretColorClass="!border-t-[#253A86]"
+                                headerClass="bg-[#253A86] !text-base !text-white !py-[10px] !rounded-t-[20px]"
+                            >
+                                <div className="px-4.5 py-[10px] bg-[#E9ECEF]">
+                                    <div className="bg-white p-4 border border-[#d3dde7] py-[16px] text-center rounded-lg">
+                                        <img src={merchant.image} alt="trade" className="mx-auto w-[150px] h-[50px]" />
+                                    </div>
 
-                        <DashboardCard
-                            parentCardClass="bg-[#E9ECEF] text-center"
-                            className="!h-full !justify-center !px-0"
-                            cardHeaderText="Merchant"
-                            headerClass="bg-[#253A86] !text-base !text-white !py-[10px] !rounded-t-[20px]"
-                        >
-                            <div className="px-[20px] py-[10px] bg-[#E9ECEF]">
-                                <div className="bg-white p-4 border border-[#d3dde7] py-[16px] text-center">
-                                    <img src={GlobTrade} alt="trade" className="mx-auto w-[150px] h-[50px]" />
+                                    <div className="capitalize border-t border-t-[#d3dde7] pt-[12px] mt-[10px] -mx-[20px] text-center leading-tight text-black">
+                                        {merchant.list.map((item, index) => (
+                                            <p key={index} className="font-semibold text-sm">{item.value}</p>
+                                        ))}
+                                    </div>
+
+                                    <div className="mb-[8px] pl-[10px] pt-4 flex items-center justify-center lg:justify-start cursor-pointer hover:opacity-80">
+                                        <span className="text-black text-sm leading-tight font-normal pt-4">
+                                            <i className="fa fa-globe pr-3" aria-hidden="true"></i>
+                                            {merchant.link}</span>
+                                    </div>
                                 </div>
 
-                                <div className="capitalize border-t border-t-[#d3dde7] pt-[12px] mt-[10px] text-center leading-tight text-black">
-                                    <p className="font-semibold text-sm">EURO GLOBTRADE Voklo</p>
-                                    <p className="font-semibold text-sm">Voklo BTRADE 49 Voklo </p>
-                                    <p className="font-semibold text-sm">Šenčur Voklo</p>
+                                <div className="relative px-4.5 py-[10px] text-sm lg:text-base font-medium 
+                                        bg-[#253A86] text-white">
+                                    <h4>{merchant.card_subHeader}</h4>
+                                    <Caret caretColor="!border-t-[#253A86]" />
                                 </div>
 
-                                <div className="mb-[8px] pl-[10px] flex items-center justify-center md:justify-start cursor-pointer hover:opacity-80">
-                                    <span className="text-black text-sm leading-tight font-normal pt-4">
-                                        <i className="fa fa-globe pr-3" aria-hidden="true"></i>
-                                        view website</span>
+                                <div className="px-4.5 py-[10px] bg-[#E9ECEF] !rounded-b-[20px]">
+                                    <h2 className="text-start font-bold text-sm lg:text-base text-black leading-[27px] mb-1">{merchant.card_subHeaderText}</h2>
+                                    <ul className="list-disc list-inside text-start">
+                                        {merchant.inner_list.map((item, index) => (
+                                            <li key={index} className="font-roboto font-normal text-black text-sm leading-[23px] flex justify-between">
+                                                {item.label} <span>{item.value}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
-                            </div>
+                            </DashboardCard>
+                        ))}
 
-                            <div className="px-[20px] py-[10px] text-sm lg:text-base font-medium 
+                        {searchListingData.map((adsLi) => (
+                            <DashboardCard
+                                parentCardClass="bg-[#E9ECEF] text-center mt-[30px]"
+                                className="!h-full !justify-center !px-0"
+                                cardHeaderText={`${adsLi.label}:`}
+                                caretColorClass="!border-t-[#253A86]"
+                                headerClass="bg-[#253A86] !text-base !text-white !px-[10px] !py-[10px] !normal-case !rounded-t-[20px]"
+                            >
+                                <div className="relative px-[20px] py-[10px] text-sm lg:text-base font-medium 
+                                        capitalize bg-[#E9ECEF] !rounded-b-[20px] text-white">
+
+                                    <CustomInput
+                                        type="text"
+                                        name="price_filter"
+                                        placeholder="Enter your internal ID or VIN"
+                                        value={searchFilter}
+                                        onChange={(val) => { setSearchFilter(val as string) }}
+                                        className="!text-[12px] w-full border-[0.64px] !h-[34px] p-[14px]"
+                                    />
+
+                                    <Button post={true} type="button" text={adsLi.buttonLabel}
+                                        icon={<i className="fa fa-search"></i>}
+                                        className="w-full hover:scale-110 
+                                        !bg-[#B1222C] border-[#B1222C] font-semibold 
+                                        text-sm text-white h-[34px] mt-3" />
+
+                                </div>
+                            </DashboardCard>
+                        ))}  
+
+                        {adsListingData.map((adsLi) => (
+                            <DashboardCard
+                                parentCardClass="bg-[#E9ECEF] text-center mt-[30px]"
+                                className="!h-full !justify-center !px-0"
+                                cardHeaderText={adsLi.label}
+                                caretColorClass="!border-t-[#253A86]"
+                                headerClass="bg-[#253A86] !text-base !text-white !py-[10px] !rounded-t-[20px]"
+                            >
+                                <div className="px-[20px] py-[10px] bg-[#E9ECEF]">
+                                    <div className="capitalize text-start leading-tight text-black">
+                                        <p className="font-semibold text-base">{adsLi.adsDesc}</p>
+                                    </div>
+                                </div>
+
+                                <div className="relative px-[20px] py-[10px] text-sm lg:text-base font-medium 
                                         capitalize bg-[#253A86] text-white">
-                                <h4>The dealer's entire offer</h4>
-                            </div>
-
-                            <div className="px-[20px] py-[10px] bg-[#E9ECEF] !rounded-b-[20px]">
-                                <h2 className="text-start font-bold text-sm lg:text-base text-black leading-[27px] mb-2">Categories </h2>
-                                <ul className="list-disc list-inside text-start">
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        Car <span>18</span>
-                                    </li>
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        Mooped, Motorcycle<span>1</span>
-                                    </li>
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        Rim<span>1</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </DashboardCard>
-
-                        <DashboardCard
-                            parentCardClass="bg-[#E9ECEF] text-center mt-[30px]"
-                            className="!h-full !justify-center !px-0"
-                            cardHeaderText="Showing 18 ads"
-                            headerClass="bg-[#253A86] !text-base !text-white !py-[10px] !rounded-t-[20px]"
-                        >
-                            <div className="px-[20px] py-[10px] bg-[#E9ECEF]">
-                                <div className="capitalize text-start leading-tight text-black">
-                                    <p className="font-semibold text-base">AUTO Section</p>
+                                    <h4>{adsLi.card_subHeader}</h4>
+                                    <Caret caretColor="!border-t-[#253A86]" />
                                 </div>
-                            </div>
 
-                            <div className="px-[20px] py-[10px] text-sm lg:text-base font-medium 
-                                        capitalize bg-[#253A86] text-white">
-                                <h4>Limit Display</h4>
-                            </div>
-
-                            <div className="px-[20px] py-[10px] bg-[#E9ECEF] !rounded-b-[20px]">
-                                <h2 className="text-start font-bold text-sm lg:text-base text-black leading-[27px] mb-2">Offer type</h2>
-                                <ul className="list-disc list-inside text-start">
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        sale <span className="ml-auto">18</span>
-                                    </li>
-                                </ul>
-                                <h2 className="text-start font-bold text-sm lg:text-base text-black leading-[27px] mb-2">Brand</h2>
-                                <ul className="list-disc list-inside text-start">
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        BMW <span className="ml-auto">18</span>
-                                    </li>
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        Citroen <span className="ml-auto">18</span>
-                                    </li>
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        Flat <span className="ml-auto">18</span>
-                                    </li>
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        Hyndai <span className="ml-auto">18</span>
-                                    </li>
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        Suzuki <span className="ml-auto">18</span>
-                                    </li>
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        Damage <span className="ml-auto">18</span>
-                                    </li>
-                                    <li className="font-roboto font-normal text-black text-sm leading-[27px] flex justify-between">
-                                        Mercedes <span className="ml-auto">18</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </DashboardCard>                
+                                <div className="py-[10px] bg-[#E9ECEF] !rounded-b-[20px]">
+                                    {adsLi.specs.map((spec, index) => (
+                                        <div key={index} className="border-b border-b-[#d3dde7] last:border-none py-[8px]">
+                                            <h2 className="px-[20px] text-start font-bold text-sm lg:text-base text-black leading-[23px]">{spec.innerHeading}</h2>
+                                            <ul className="px-[20px] list-disc list-inside text-start">
+                                                {spec.innerListing.map((liItem) => (
+                                                    <li className="font-roboto font-normal text-black text-sm leading-[23px] flex justify-between">
+                                                        {liItem.label} <span className="ml-auto">{liItem.value}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    ))}
+                                </div>
+                            </DashboardCard>
+                        ))}            
                     </div>
 
+                    {/* { RIGHT SIDE } */}
                     <div className="flex-1">
                         <HeroCard parentClass="!bg-[#E9ECEF] flex justify-between items-center !mb-[20px] !m-0 !rounded-b-none !rounded-t-[20px] !py-[12px] !px-[20px]">
                             <h2 className="font-normal text-sm lg:base text-black leading-tight">Results 1-18 of 18 total</h2>

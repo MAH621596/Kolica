@@ -2,6 +2,8 @@ import type { ReactNode } from "react";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text?: string;
+  pre?: boolean;
+  post?: boolean;
   type: "button" | "submit";
   icon?: ReactNode;
   className?: string;
@@ -117,14 +119,29 @@ export interface Car_CardProps {
   imageSizeClass?: string;
   footerbutton?: boolean;
     products_list?: {
+    toDate: string;
+    image?: string;
+    stockAge: string;
     heading?: string;
-    list?: string[];
+    fromDate: string;
     mainPrice: string;
     discountedPrice: string;
-    fromDate: string;
-    toDate: string;
-    stockAge: string;
+    list?: { label: string; value: string }[];
+  }[];
+}
+
+export interface ListingCardProps {
+  className?: string;
+  products_list?: {
+    id?: number | string;
+    toDate?: string;
     image?: string;
+    stockAge?: string;
+    heading?: string;
+    fromDate?: string;
+    mainPrice?: string;
+    discountedPrice?: string;
+    list?: { label: string; value: string }[];
   }[];
 }
 
@@ -153,11 +170,38 @@ export interface DashboardProps {
   cardBodySubHeading?: string;
   className?: string;
   headerClass?: string;
+  footerClass?: string;
   parentCardClass?: string;
   cardHeadingClass?: string;
   cardSubHeadingClass?: string;
   svgClass?: string;
   imageClass?: string;
+  caretColorClass?: string;
   children?: React.ReactNode;
 }
 
+export type caretProps = {
+  caretColor?: string;
+};
+
+export type DatasetType = {
+  label: string;
+  data: number[];
+  color?: string;
+  usePattern?: boolean;
+};
+
+export type BarChartProps = {
+  labels: string[];
+  datasets: DatasetType[];
+  showPattern?: boolean;
+  options?: any;
+};
+
+export type ChartOptionsProps = {
+  title?: string;
+  showTitle?: boolean;
+  legendPosition?: "top" | "bottom" | "left" | "right";
+  tooltipBg?: string;
+  ySuffix?: string; // e.g "k", "%", "$"
+};

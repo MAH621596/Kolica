@@ -678,9 +678,9 @@ const AdContent = () => {
                                 </div>
 
                                 <div>
-                                    <Button type="button" text="Add Photo" icon={<i className="fa fa-image"></i>} 
+                                    <Button pre={true} type="button" text="Add Photo" icon={<i className="fa fa-image"></i>} 
                                      onClick={() => console.log("Add Photos")} className="w-full md:max-w-[385px] flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] hover:scale-110" />
-                                    <Button type="button" text="Finish editing" 
+                                    <Button pre={true} type="button" text="Finish editing" 
                                     onClick={() => navigate("/select-photos")}
                                     className="mt-[20px] w-full md:max-w-[385px] flex justify-center !bg-[#B1222C] border-[#B1222C] font-semibold text-xs lg:text-[16px] !text-white h-[35px] hover:scale-110" />
                                 </div>

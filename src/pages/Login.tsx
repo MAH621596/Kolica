@@ -9,6 +9,8 @@ import { homePagetabsMenu, loginButtons, loginFields, registerFields, registerBu
 const Login = ({ setLoggedIn }: any) => {
   const navigate = useNavigate();
 
+  const [role, setRole] = useState<"user" | "business">("user");
+
   const [showLogin, setShowLogin] = useState<boolean>(true);
   const [showRegister, setShowRegister] = useState<boolean>(false);
   const [activeMainTab, setActiveMainTab] = useState<number>(1);
@@ -88,7 +90,12 @@ const Login = ({ setLoggedIn }: any) => {
       console.log("values", loginFormik.values);
       resetForm();
       localStorage.setItem("auth", "true");
-      navigate("/dashboard");
+      if(role === "user") {
+        navigate("/user-dashboard");
+      } else {
+        navigate("/business-dashboard");
+      }
+      
     },
 
   });
@@ -173,7 +180,7 @@ const Login = ({ setLoggedIn }: any) => {
 
                   {loginButtons.map((button, index) => {
                     return (
-                      <Button type="button" key={index} text={button.link_text}
+                      <Button pre={true} type="button" key={index} text={button.link_text}
                         onClick={() => console.log(button.link_text)}
                         icon={<img src={button.icon} alt="img" />}
                         className="w-full h-[41px] lowercase bg-white border-[0.64px] border-[#626262] 
@@ -236,12 +243,31 @@ const Login = ({ setLoggedIn }: any) => {
                       />
                     </div>
 
-                    <Button type="submit" text="Log In"
+                    {/* <Button pre={true} type="submit" text="Log In"
                       // onClick={handleLogin}
                       className="mt-[30px] w-full flex justify-center 
                       !bg-[#B1222C] border-[#B1222C] 
                       font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
-                      hover:scale-90" />
+                      hover:scale-90" /> */}
+
+                    <Button pre={true} type="submit" text="Login as User"
+                    className="mt-[30px] w-full flex justify-center 
+                      !bg-[#B1222C] border-[#B1222C] 
+                      font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
+                      hover:scale-90"
+                    onClick={() => {
+                      setRole("user");
+                    }}/>                     
+                    
+                    <Button pre={true} type="submit"  text="Login as Business"
+                    className="mt-[30px] w-full flex justify-center 
+                      !bg-[#B1222C] border-[#B1222C] 
+                      font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
+                      hover:scale-90"
+                      onClick={() => {
+                      setRole("business");
+                    }} />                    
+                  
                   </form>
 
                 </div>
@@ -256,7 +282,7 @@ const Login = ({ setLoggedIn }: any) => {
 
                   {registerButtons.map((button, index) => {
                     return (
-                      <Button type="button" key={index} text={button.link_text}
+                      <Button pre={true} type="button" key={index} text={button.link_text}
                         onClick={() => console.log(button.link_text)}
                         icon={<img src={button.icon} alt="img" />}
                         className="w-full h-[41px] lowercase bg-[#F1F1F1] border-[0.64px] border-[#626262] 
@@ -319,7 +345,7 @@ const Login = ({ setLoggedIn }: any) => {
                     />
                   </div>
 
-                  <Button type="submit" text="Register"
+                  <Button pre={true} type="submit" text="Register"
                     className="mt-[30px] w-full flex justify-center 
                     !bg-[#B1222C] border-[#B1222C] 
                     font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
@@ -357,7 +383,7 @@ const Login = ({ setLoggedIn }: any) => {
                 <h4 className="mb-[15px] font-normal text-[14px] text-[#94A3B3] leading-[26px]">The number of posts may be limited or dependent on the type of registration and subscription.</h4>
               </div>
 
-              <Button type="button" text="I want to register"
+              <Button pre={true} type="button" text="I want to register"
                 className="mt-[30px] w-full flex justify-center 
                 !bg-[#B1222C] border-[#B1222C] 
                 font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 

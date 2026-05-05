@@ -103,7 +103,7 @@ const Home = () => {
                 )
               })}
 
-              <Button type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="hidden md:flex justify-start mt-[25px] !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] hover:scale-110" />
+              <Button pre={true} type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="hidden md:flex justify-start mt-[25px] !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] hover:scale-110" />
             </div>
 
             <div className="mt-[30px] gap-[30px] flex flex-col md:flex-row items-start md:items-center justify-between">
@@ -118,7 +118,7 @@ const Home = () => {
                   custom_label_text="Only electric car"
               />
 
-              <Button type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="block md:hidden w-full justify-start !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] hover:scale-110" />
+              <Button pre={true} type="button" text="Search Vehicle" icon={<i className="fa fa-search"></i>} className="block md:hidden w-full justify-start !bg-[#B1222C] border-[#B1222C] font-normal text-xs !text-white h-[41px] hover:scale-110" />
 
               <div className="flex gap-[24px] items-center justify-center">
                 <div className="flex gap-[12px] items-center justify-center cursor-pointer group">
