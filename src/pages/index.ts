@@ -4,6 +4,7 @@ export { default as MyAds } from "../pages/MyAds";
 export { default as UserDashboard } from "../pages/UserDashboard";
 export { default as UserStatistics } from "../pages/UserStatistics";
 export { default as BusinessDashboard } from "../pages/BusinessDashboard";
+export { default as BusinessSignUp } from "../pages/BusinessSignUp";
 export { default as EditUserData } from "../pages/EditUserData";
 export { default as AdContent } from "../pages/AdContent";
 export { default as ProductDetail } from "../pages/ProductDetail";

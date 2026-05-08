@@ -2289,3 +2289,93 @@ export const userSysLoginInfo = [
     ],
   },
 ];
+
+export const businessSignUpData = [
+  {
+    id: 1,
+    package_name: 'INDIVIDUAL',
+    package_price: '0',
+    package_duration: 'for an ad',
+    list: [
+      { 
+        id: 1, 
+        point: "Post a FREE ad (*)" 
+      },
+      { 
+        id: 2, 
+        point: "PARKING popular ads" 
+      },
+      { 
+        id: 3, 
+        point: "PARKING search criteria"  
+      },
+      { 
+        id: 4,
+        point: "Possibility of advertising exposure (*additional cost option)" 
+      },
+      { 
+        id: 5, 
+        point: "A4 + QR code" 
+      },
+    ],
+    package_details: `(*) Suitable exclusively for natural persons (individuals) who want to sell their own vehicle. In order to avoid illegal work, the number of free ads is limited to a maximum of 2 free ads per month or 2 unpaid ads at the same time. Free ads are only available in unpaid sections, and for users with successful SMS validation of the contact phone number.`
+  },
+  {
+    id: 2,
+    package_name: 'LEGAL ENTITY',
+    package_price: '10',
+    package_duration: 'per ad',
+    list: [
+      { 
+        id: 1, 
+        point: "Publication of an individual advertisement for the sale of a fixed asset (*)" 
+      },
+      { 
+        id: 2, 
+        point: "Possibility to publish prices excluding VAT" 
+      },
+      { 
+        id: 3, 
+        point: "PARKING popular ads"  
+      },
+      { 
+        id: 4,
+        point: "PARKING search criteria" 
+      },
+      { 
+        id: 5, 
+        point: "Possibility of advertising exposure (*additional cost option)" 
+      },
+    ],
+    package_details: `(*) Suitable exclusively for companies or individuals who carry out an activity and want to sell their own fixed asset.`
+  },
+  {
+    id: 3,
+    package_name: 'TRADER',
+    package_price: '59',
+    package_duration: '+ vat per month',
+    list: [
+      { 
+        id: 1, 
+        point: "Posting ads as a legal entity - merchant(*)" 
+      },
+      { 
+        id: 2, 
+        point: "Possibility to publish prices excluding VAT" 
+      },
+      { 
+        id: 3, 
+        point: "FREE 30 day trial period"  
+      },
+      { 
+        id: 4,
+        point: "Advanced ad posting options (*optional)" 
+      },
+      { 
+        id: 5, 
+        point: "Statistical overview of the publication (*optional)" 
+      },
+    ],
+    package_details: `(*) Suitable for all legal entities (ltd, sole proprietors, societies, institutes, associations, agencies...) that wish to advertise the sale or rental of vehicles, motorcycles, machinery or spare parts and equipment, within the framework of a registered activity.`
+  },
+];

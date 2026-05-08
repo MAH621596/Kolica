@@ -90,12 +90,12 @@ const Login = ({ setLoggedIn }: any) => {
       console.log("values", loginFormik.values);
       resetForm();
       localStorage.setItem("auth", "true");
-      if(role === "user") {
+      if (role === "user") {
         navigate("/user-dashboard");
       } else {
         navigate("/business-dashboard");
       }
-      
+
     },
 
   });
@@ -251,23 +251,23 @@ const Login = ({ setLoggedIn }: any) => {
                       hover:scale-90" /> */}
 
                     <Button pre={true} type="submit" text="Login as User"
-                    className="mt-[30px] w-full flex justify-center 
-                      !bg-[#B1222C] border-[#B1222C] 
-                      font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
-                      hover:scale-90"
-                    onClick={() => {
-                      setRole("user");
-                    }}/>                     
-                    
-                    <Button pre={true} type="submit"  text="Login as Business"
-                    className="mt-[30px] w-full flex justify-center 
+                      className="mt-[30px] w-full flex justify-center 
                       !bg-[#B1222C] border-[#B1222C] 
                       font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
                       hover:scale-90"
                       onClick={() => {
-                      setRole("business");
-                    }} />                    
-                  
+                        setRole("user");
+                      }} />
+
+                    <Button pre={true} type="submit" text="Login as Business"
+                      className="mt-[30px] w-full flex justify-center 
+                      !bg-[#B1222C] border-[#B1222C] 
+                      font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
+                      hover:scale-90"
+                      onClick={() => {
+                        setRole("business");
+                      }} />
+
                   </form>
 
                 </div>
@@ -298,55 +298,55 @@ const Login = ({ setLoggedIn }: any) => {
                   </div>
 
                   <form noValidate onSubmit={registerFormik.handleSubmit}>
-                  <div>
-                    {registerFields.map((field, index) => {
-                      return (
-                        <div key={index} className="mb-[30px]">
-                          <CustomLabel
-                            className="!text-[12px] block mb-[10px]"
-                            text={field.input_label}
-                          />
+                    <div>
+                      {registerFields.map((field, index) => {
+                        return (
+                          <div key={index} className="mb-[30px]">
+                            <CustomLabel
+                              className="!text-[12px] block mb-[10px]"
+                              text={field.input_label}
+                            />
 
-                          <CustomInput
-                            type={field.type === "password" && !showRegisterPassword ? "password" : "text"}
-                            name={field.id}
-                            icon={<img src={field.icon} alt="img" />}
-                            placeholder={field.placeholder}
-                            onBlur={registerFormik.handleBlur}
+                            <CustomInput
+                              type={field.type === "password" && !showRegisterPassword ? "password" : "text"}
+                              name={field.id}
+                              icon={<img src={field.icon} alt="img" />}
+                              placeholder={field.placeholder}
+                              onBlur={registerFormik.handleBlur}
                               onChange={(value) => {
                                 registerFormik.setFieldValue(field.id, value);
                               }}
                               value={registerFormik.values[field.id as keyof typeof registerFormik.values]}
-                            className="!text-[12px] w-full border-[0.64px] h-[42px] p-[14px]"                          
-                          />
+                              className="!text-[12px] w-full border-[0.64px] h-[42px] p-[14px]"
+                            />
 
-                           {registerTouched[field.id] && registerErrors[field.id] && (
+                            {registerTouched[field.id] && registerErrors[field.id] && (
                               <div className="text-red-600 text-sm leading-7">
                                 {registerErrors[field.id]}
                               </div>
                             )}
-                        </div>
-                      )
-                    })}
+                          </div>
+                        )
+                      })}
 
-                    <CustomCheckbox
-                      id="Show password"
-                      name="Show password"
-                      value="Show password"
-                      checkboxParent="md:justify-end"
-                      custom_label_for="Show password"
-                      inputClassName=""
-                      labelClassName="!text-[15px]"
-                      custom_label_text="Show password"
-                      checked={showRegisterPassword}
-                      onChange={() => {
-                        setShowRegisterPassword(!showRegisterPassword);
-                      }}
-                    />
-                  </div>
+                      <CustomCheckbox
+                        id="Show password"
+                        name="Show password"
+                        value="Show password"
+                        checkboxParent="md:justify-end"
+                        custom_label_for="Show password"
+                        inputClassName=""
+                        labelClassName="!text-[15px]"
+                        custom_label_text="Show password"
+                        checked={showRegisterPassword}
+                        onChange={() => {
+                          setShowRegisterPassword(!showRegisterPassword);
+                        }}
+                      />
+                    </div>
 
-                  <Button pre={true} type="submit" text="Register"
-                    className="mt-[30px] w-full flex justify-center 
+                    <Button pre={true} type="submit" text="Register"
+                      className="mt-[30px] w-full flex justify-center 
                     !bg-[#B1222C] border-[#B1222C] 
                     font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
                     hover:scale-90" />
@@ -361,7 +361,7 @@ const Login = ({ setLoggedIn }: any) => {
         <HeroCard parentClass="!max-w-[624px] !p-0 !rounded-[6px]">
           <div className="h-[57px] bg-white rounded-t-[6px]">
             <div className="w-full h-full flex items-center justify-start cursor-pointer rounded-tl-[6px]">
-              <h2 className="text-[1.2rem] md:text-[1.5rem] font-medium text-[#000000] leading-[30px] px-[50px]">Not registered yet?</h2>
+              <h2 className="text-[1.2rem] md:text-[1.5rem] font-medium text-[#000000] leading-[30px] px-[1.25rem]">Not registered yet?</h2>
             </div>
           </div>
 
@@ -387,7 +387,11 @@ const Login = ({ setLoggedIn }: any) => {
                 className="mt-[30px] w-full flex justify-center 
                 !bg-[#B1222C] border-[#B1222C] 
                 font-semibold text-xs lg:text-[18px] leading-[12px] !text-white h-[41px] 
-                hover:scale-90" />
+                hover:scale-90"
+                onClick={() => {
+                  navigate("/business-signup");
+                }}
+              />
             </div>
           </div>
         </HeroCard>
