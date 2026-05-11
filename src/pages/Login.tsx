@@ -2,12 +2,19 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-// import type { LoginFieldsProps, RegisterFieldsProps } from "@/components/types";
+import { useSelector, useDispatch } from "react-redux";
+import type { RootState } from "@/app/store";
 import { Navbar, HeroCard, Button, Tabs, CustomCheckbox, CustomInput, CustomLabel, Footer } from "@/components";
 import { homePagetabsMenu, loginButtons, loginFields, registerFields, registerButtons, registerationPoints } from '@/helper/data';
+import { login } from "@/features/auth/authSlice";
 
 const Login = ({ setLoggedIn }: any) => {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const loggedIn = useSelector(
+    (state: RootState) => state.auth.loggedIn
+  );
 
   const [role, setRole] = useState<"user" | "business">("user");
 
@@ -17,17 +24,6 @@ const Login = ({ setLoggedIn }: any) => {
 
   const [showLoginPassword, setShowLoginPassword] = useState<boolean>(false);
   const [showRegisterPassword, setShowRegisterPassword] = useState<boolean>(false);
-
-  // const [loginField, setLoginField] = useState<LoginFieldsProps>({
-  //   Email: "",
-  //   Password: ""
-  // });
-
-  // const [registerField, setRegisterField] = useState<RegisterFieldsProps>({
-  //   Username: "",
-  //   Email: "",
-  //   Password: ""
-  // });
 
   console.log(setLoggedIn);
 
@@ -40,14 +36,6 @@ const Login = ({ setLoggedIn }: any) => {
     setShowRegister(true);
     setShowLogin(false);
   }
-
-  // const handleLogin = () => {
-  //   console.log("clicked const handleLogin ");
-  //   // localStorage.setItem("auth", "true");
-  //   // setLoggedIn(true);
-  //   // navigate("/dashboard");
-  // };
-
 
   const loginSchema = Yup.object().shape({
     Email: Yup.string().email().required("Email is Required."),
@@ -89,7 +77,7 @@ const Login = ({ setLoggedIn }: any) => {
       console.log("values", newUser);
       console.log("values", loginFormik.values);
       resetForm();
-      localStorage.setItem("auth", "true");
+    
       if (role === "user") {
         navigate("/user-dashboard");
       } else {
@@ -119,7 +107,7 @@ const Login = ({ setLoggedIn }: any) => {
       console.log("values", newUser);
       console.log("values", registerFormik.values);
       resetForm();
-      localStorage.setItem("auth", "true");
+      // localStorage.setItem("auth", "true");
       navigate("/login");
     },
 
@@ -144,7 +132,7 @@ const Login = ({ setLoggedIn }: any) => {
         backgroundSize: "1920px auto"
       }}
     >
-      <Navbar />
+     <Navbar logStatus={loggedIn} />
 
       <Tabs
         className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"
@@ -257,6 +245,7 @@ const Login = ({ setLoggedIn }: any) => {
                       hover:scale-90"
                       onClick={() => {
                         setRole("user");
+                        dispatch(login());
                       }} />
 
                     <Button pre={true} type="submit" text="Login as Business"
@@ -266,6 +255,7 @@ const Login = ({ setLoggedIn }: any) => {
                       hover:scale-90"
                       onClick={() => {
                         setRole("business");
+                        dispatch(login());
                       }} />
 
                   </form>

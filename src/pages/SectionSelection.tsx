@@ -2,6 +2,8 @@ import * as Yup from "yup";
 import { useState } from 'react';
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 import { Navbar, HeroCard, Button, CustomSelect, Tabs, Faq, CustomLabel, CustomCheckbox, Footer } from "@/components";
 import { sectionTabsMenu, sectionInnerTabsMenu, selectionDropdownData, checkboxList, InformationParagraph } from '@/helper/data';
 
@@ -17,6 +19,10 @@ const SectionSelection = () => {
 
     const [activeMainTab, setActiveMainTab] = useState<number>(3);
     const [activeTab, setActiveTab] = useState<number>(-1);
+
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
+    );
 
     // FIXED VALIDATION (must match initialValues keys)
     const validationSchema = Yup.object().shape({
@@ -88,7 +94,7 @@ const SectionSelection = () => {
                 backgroundSize: "1920px auto"
             }}
         >
-            <Navbar />
+            <Navbar logStatus={loggedIn} />
 
             <Tabs
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"

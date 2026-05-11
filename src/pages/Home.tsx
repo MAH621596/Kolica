@@ -2,27 +2,18 @@ import { useState } from "react";
 import { HeroCardData, dropdownData, homePagetabsMenu, mobileNavbarLinks } from '@/helper/data';
 import { Navbar, HeroCard, CarCard, Button, Tabs, CustomSelect, CustomCheckbox, CustomInput, CustomLabel, Footer } from "@/components";
 import { Car, Car1, Car2, Car3, SeeMore, Sorting } from "@/assets";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const Home = () => {
+  const loggedIn = useSelector(
+  (state: RootState) => state.auth.loggedIn
+);
+
   const [values, setValues] = useState<Record<string, string>>({});
   const [search, setSearch] = useState("");
   const [activeMainTab, setActiveMainTab] = useState<number>(1);
   const [activeSubTab, setActiveSubTab] = useState<number>(1);
-  const [loggedIn, setLoggedIn] = useState(
-    localStorage.getItem("auth") === "true"
-  );
-
-  console.log(setLoggedIn);
-
-  // const login = () => {
-  //   localStorage.setItem("auth", "true");
-  //   setLoggedIn(true);
-  // };
-
-  // const logout = () => {
-  //   localStorage.setItem("auth", "false");
-  //   setLoggedIn(false);
-  // };
 
   return (
     <>

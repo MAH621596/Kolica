@@ -23,13 +23,15 @@ import {
     DashboardCard,
     LightBoxGallery,
 } from "@/components";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 import { Link } from "react-router-dom";
 
 const ProductDetail = () => {
 
     const [activeMainTab, setActiveMainTab] = useState<number>(1);
-    const [loggedIn, setLoggedIn] = useState(
-        localStorage.getItem("auth") === "true"
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
     );
 
     useEffect(() => {
@@ -38,18 +40,6 @@ const ProductDetail = () => {
             behavior: "smooth",
         });
     }, []);
-
-    console.log(setLoggedIn);
-
-    // const login = () => {
-    //   localStorage.setItem("auth", "true");
-    //   setLoggedIn(true);
-    // };
-
-    // const logout = () => {
-    //   localStorage.setItem("auth", "false");
-    //   setLoggedIn(false);
-    // };
 
     return (
         <div

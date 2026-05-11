@@ -25,17 +25,20 @@ import {
     CustomCheckbox,
     TinyMCE,
 } from "@/components";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const EditUserData = () => {
     const [activeMainTab, setActiveMainTab] = useState<number>(7);
-    const [loggedIn, setLoggedIn] = useState(
-        localStorage.getItem("auth") === "true"
-    );
     const [formData, setFormData] = useState<any>({});
     const [values, setValues] = useState<Record<string, string>>({});
     const [fieldValue4, setFieldValue4] = useState<string>("");
     const [selectedRadio, setSelectedRadio] = useState<string | null>(null);
     const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
+
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
+    );
 
     const handleRadioChange = (id: string) => {
         setSelectedRadio(id);
@@ -61,8 +64,6 @@ const EditUserData = () => {
             behavior: "smooth",
         });
     }, []);
-
-    console.log(setLoggedIn);
 
     return (
         <div

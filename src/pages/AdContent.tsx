@@ -30,6 +30,8 @@ import {
     adContentRightPanel_4, 
     adContentLeftPanelData, 
 } from '@/helper/data';
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const AdContent = () => {
     const navigate = useNavigate();
@@ -39,8 +41,12 @@ const AdContent = () => {
     const [fieldValue3, setFieldValue3] = useState<string>("");
     const [fieldValue4, setFieldValue4] = useState<string>("");
 
-      const [values, setValues] = useState<Record<string, string>>({});
-    
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
+    );
+
+    const [values, setValues] = useState<Record<string, string>>({});
+
     return (
         <div
             style={{
@@ -52,7 +58,7 @@ const AdContent = () => {
                 backgroundSize: "1920px auto"
             }}
         >
-            <Navbar />
+            <Navbar logStatus={loggedIn} />
 
             <Tabs
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"

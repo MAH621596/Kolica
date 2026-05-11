@@ -23,10 +23,16 @@ import {
     PostNewAdLegalEntityData,
 } from '@/helper/data';
 
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
+
 import type { FormValues } from "@/components/types";
 
 const LegalEntity = () => {
     const navigate = useNavigate();
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
+    );
     const [activeMainTab, setActiveMainTab] = useState<number>(3);
 
     // FIXED VALIDATION (must match initialValues keys)
@@ -90,7 +96,7 @@ const LegalEntity = () => {
                 backgroundSize: "1920px auto"
             }}
         >
-            <Navbar />
+            <Navbar logStatus={loggedIn} />
 
             <Tabs
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"

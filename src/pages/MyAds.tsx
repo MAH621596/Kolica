@@ -14,15 +14,15 @@ import {
     Footer,
     CarCard,
 } from "@/components";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const MyAds = () => {
 
     const [activeMainTab, setActiveMainTab] = useState<number>(1);
-    const [loggedIn, setLoggedIn] = useState(
-        localStorage.getItem("auth") === "true"
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
     );
-
-    console.log(setLoggedIn);
 
     return (
         <div

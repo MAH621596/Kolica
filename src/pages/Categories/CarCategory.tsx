@@ -2,15 +2,15 @@ import { useState } from "react";
 import { carCategoryData, homePagetabsMenu, carSparePartsData } from '@/helper/data';
 import { Navbar, HeroCard, CarCard, Tabs, CustomInput, CategoriesCard, Footer } from "@/components";
 import { Car4, Car5, Car6, SeeMore, Sorting } from "@/assets";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const CarCategory = () => {
     const [search, setSearch] = useState("");
     const [activeMainTab, setActiveMainTab] = useState<number>(3);
-    const [loggedIn, setLoggedIn] = useState(
-        localStorage.getItem("auth") === "true"
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
     );
-
-    console.log(setLoggedIn);
 
     return (
         <>

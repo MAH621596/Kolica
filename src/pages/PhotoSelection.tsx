@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 import { Navbar, HeroCard, Button, Tabs, Footer, CarCard } from "@/components";
 import { sectionTabsMenu, photoSelectionData, photoSelectionCardDataContent } from '@/helper/data';
 
 const PhotoSelection = () => {
+      const loggedIn = useSelector(
+  (state: RootState) => state.auth.loggedIn
+);
     const [activeMainTab, setActiveMainTab] = useState<number>(3);
     useEffect(() => {
         window.scrollTo({
@@ -22,7 +27,7 @@ const PhotoSelection = () => {
                 backgroundSize: "1920px auto"
             }}
         >
-            <Navbar />
+            <Navbar logStatus={loggedIn} />
 
             <Tabs
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"

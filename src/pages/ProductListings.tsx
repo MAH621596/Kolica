@@ -21,14 +21,16 @@ import {
     ListingCard,
     DashboardCard,
 } from "@/components";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const ProductListing = () => {
 
     const [searchFilter, setSearchFilter] = useState<string>("");
     const [priceFilter, setPriceFilter] = useState<string>("");
     const [activeMainTab, setActiveMainTab] = useState<number>(2);
-    const [loggedIn, setLoggedIn] = useState(
-        localStorage.getItem("auth") === "true"
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
     );
 
     useEffect(() => {
@@ -37,18 +39,6 @@ const ProductListing = () => {
             behavior: "smooth",
         });
     }, []);
-
-    console.log(setLoggedIn);
-
-    // const login = () => {
-    //   localStorage.setItem("auth", "true");
-    //   setLoggedIn(true);
-    // };
-
-    // const logout = () => {
-    //   localStorage.setItem("auth", "false");
-    //   setLoggedIn(false);
-    // };
 
     return (
         <div
@@ -61,7 +51,7 @@ const ProductListing = () => {
                 backgroundSize: "1920px auto"
             }}
         >
-            <Navbar logStatus={loggedIn} />
+           <Navbar logStatus={loggedIn} />
 
             <Tabs
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 hidden md:block"

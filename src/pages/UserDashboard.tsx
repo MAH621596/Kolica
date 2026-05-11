@@ -20,15 +20,15 @@ import {
   BarChart,
   DashboardCard,
 } from "@/components";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const UserDashboard = () => {
 
   const [activeMainTab, setActiveMainTab] = useState<number>(1);
-  const [loggedIn, setLoggedIn] = useState(
-    localStorage.getItem("auth") === "true"
+  const loggedIn = useSelector(
+    (state: RootState) => state.auth.loggedIn
   );
-
-  console.log(setLoggedIn);
 
   type MiniCardProps = {
     id?: number;
@@ -51,16 +51,6 @@ const UserDashboard = () => {
       </div>
     );
   };
-
-  // const login = () => {
-  //   localStorage.setItem("auth", "true");
-  //   setLoggedIn(true);
-  // };
-
-  // const logout = () => {
-  //   localStorage.setItem("auth", "false");
-  //   setLoggedIn(false);
-  // };
 
   return (
     <div
@@ -137,18 +127,18 @@ const UserDashboard = () => {
               <div className="relative">
 
                 <BarChart
-                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}                  
+                  labels={['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']}
                   ySuffix="k"
                   legendPosition="top"
                   categoryPercentage={0.9}
-                  tooltipBg="#B1222C"                  
+                  tooltipBg="#B1222C"
                   borderRadius={40}
                   datasets={[
                     { label: "Expense", data: [37, 10, 80, 30, 40, 10, 20, 10, 10, 20, 60, 30], color: "#ccc", pattern: true },
                     // { label: "Income", data: [20, 80, 40, 60, 80, 30, 10, 70, 19, 66, 33, 70], color: "#B1222C", },
                   ]}
-                />                              
-                
+                />
+
                 <div className="mt-[50px]">
                   <h3 className="font-normal text-sm md:text-md lg:text-[22px] text-black leading-[27px]">Legend:</h3>
 

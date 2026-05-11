@@ -9,24 +9,15 @@ import {
     HeroCard,
     DashboardCard,
 } from "@/components";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const UserStatistics = () => {
     const [activeMainTab, setActiveMainTab] = useState<number>(5);
-    const [loggedIn, setLoggedIn] = useState(
-        localStorage.getItem("auth") === "true"
+
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
     );
-
-    console.log(setLoggedIn);
-
-    // const login = () => {
-    //   localStorage.setItem("auth", "true");
-    //   setLoggedIn(true);
-    // };
-
-    // const logout = () => {
-    //   localStorage.setItem("auth", "false");
-    //   setLoggedIn(false);
-    // };
 
     return (
         <div

@@ -15,16 +15,16 @@ import {
     HeroCard,
     CustomInput,
 } from "@/components";
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const BusinessPostAd = () => {
 
     const [priceFilter, setPriceFilter] = useState<string>("");
     const [activeMainTab, setActiveMainTab] = useState<number>(1);
-    const [loggedIn, setLoggedIn] = useState(
-        localStorage.getItem("auth") === "true"
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
     );
-
-    console.log(setLoggedIn);
 
     type MiniCardProps = {
         id?: number;
@@ -47,16 +47,6 @@ const BusinessPostAd = () => {
             </div>
         );
     };
-
-    // const login = () => {
-    //   localStorage.setItem("auth", "true");
-    //   setLoggedIn(true);
-    // };
-
-    // const logout = () => {
-    //   localStorage.setItem("auth", "false");
-    //   setLoggedIn(false);
-    // };
 
     return (
         <div

@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import type { NavbarProps } from "@/components/types";
 import { navbarLinks, mobileNavbarLinks } from '@/helper/data';
 // import { Profile } from "@/assets";
+import { useDispatch } from "react-redux";
+import { logout } from "@/features/auth/authSlice";
 
 const Navbar = ({
   className,
@@ -12,10 +14,7 @@ const Navbar = ({
 }: NavbarProps) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-
-  // const handleClick = (linkName: string) => {
-  //   navigate(linkName);
-  // };
+  const dispatch = useDispatch();
 
   const handleClick = (linkName: string) => {
     console.log("link name ?", linkName)
@@ -25,11 +24,6 @@ const Navbar = ({
       navigate(linkName);
     }
   };
-
-  // const handleLogout = () => {
-  //   localStorage.setItem("auth", "false");
-  //   setLoggedIn(false);
-  // };
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
@@ -60,11 +54,10 @@ const Navbar = ({
             {logStatus && 
             <span
               className="cursor-pointer flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80"
-              onClick={() => {
-                localStorage.setItem("auth", "false");
-                // window.location.reload();
+               onClick={() => {
+                dispatch(logout());
                 navigate("/");
-              }}
+               }}
             >
               <img src={Profile} alt="img" className="w-[15px] h-[17px]" />
               Logout
@@ -134,8 +127,7 @@ const Navbar = ({
         {logStatus && <span
           className={`flex items-center justify-start gap-[10px] font-semibold text-sm leading-[22px] transition-all duration-200 hover:opacity-80 col-span-1`}
           onClick={() => {
-            localStorage.setItem("auth", "false");
-            // window.location.reload(); 
+            dispatch(logout());
             navigate("/");
           }}
         >

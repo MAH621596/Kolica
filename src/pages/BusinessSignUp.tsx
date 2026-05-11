@@ -2,10 +2,15 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar, HeroCard, Button, Tabs, Footer } from "@/components";
 import { homePagetabsMenu, businessSignUpData } from '@/helper/data';
+import { useSelector } from "react-redux";
+import type { RootState } from "@/app/store";
 
 const BusinessSignUp = ({ setLoggedIn }: any) => {
     const navigate = useNavigate();
     const [activeMainTab, setActiveMainTab] = useState<number>(0);
+    const loggedIn = useSelector(
+        (state: RootState) => state.auth.loggedIn
+    );
 
     console.log(setLoggedIn);
     return (
@@ -19,7 +24,7 @@ const BusinessSignUp = ({ setLoggedIn }: any) => {
                 backgroundSize: "1920px auto"
             }}
         >
-            <Navbar />
+            <Navbar logStatus={loggedIn} />
 
             <Tabs
                 className="w-full bg-[url('/img/TabsBG.png')] text-white h-[42px] p-0 mb-[50px] hidden md:block"
