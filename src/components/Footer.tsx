@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="grid grid-cols-1 lg:grid-cols-[minmax(400px,1.5fr)_repeat(3,1fr)] gap-[30px] lg:gap-[60px] max-w-[1200px] mx-auto">
                 <div>
                     {/* Logo */}
-                    <Link to="https://kolica-landing-page.web.app">
+                    <Link to="/">
                         <img src={Logo} alt="logo" className="mb-[20px] w-[104px] h-[38px]" />
                     </Link>
 

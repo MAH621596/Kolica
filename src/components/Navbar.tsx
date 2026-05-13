@@ -37,7 +37,7 @@ const Navbar = ({
         <div className="flex items-center justify-between w-full">
 
           {/* Logo */}
-          <Link to="https://kolica-landing-page.web.app">
+          <Link to="/">
             <img src={Logo} alt="logo" className="w-[104px] h-[38px]" />
           </Link>
 
